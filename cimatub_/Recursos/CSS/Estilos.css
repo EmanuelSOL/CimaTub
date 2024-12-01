@@ -1,0 +1,303 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #272727;
+    color: white;
+}
+
+header {
+    background-color: #141414;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    width: 200px;  
+    height: auto;  
+}
+
+.barrabusqueda {
+    background-color: #1f1f1f; /* Fondo igual al del sidebar */
+    padding: 10px;
+    display: flex;
+    align-items: center; /* Alineación vertical centrada */
+}
+
+.search-bar {
+    width: 600px; /* Tamaño del cuadro de búsqueda */
+    padding: 5px;
+    font-size: 16px;
+    background-color: #333; /* Fondo oscuro para la caja de texto */
+    border: 1px solid #555;
+    color: white;
+}
+
+.search-bt {
+    background-image: url('~/recursos/imagenes/lupa.png');
+    background-size: 16px 16px; /* Tamaño más pequeño para la imagen */
+    background-repeat: no-repeat;
+    background-position: left center;
+    width: 30px; /* Ajuste del tamaño del botón */
+    height: 30px; /* Ajuste del tamaño del botón */
+    border: none;
+    background-color: transparent; /* Sin color de fondo en el botón */
+    margin-right: 10px; /* Espacio entre el icono y el siguiente elemento */
+}
+
+.clear-btn {
+    background-color: transparent;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+
+.form-group {
+    display: flex;
+    align-items: center; /* Alinea los elementos en el centro verticalmente */
+}
+
+.search-bt, .search-bar, .clear-btn {
+    margin: 0 5px; /* Agrega espacio entre los elementos */
+}
+
+.auth-separator {
+    margin: 0 10px; /* Espacio alrededor del separador */
+    color: white; /* O el color que prefieras */
+    font-size: 20px; /* Ajusta el tamaño del separador */
+}
+
+.auth-buttons-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.auth-buttons {
+    padding: 12px 10px;
+    background-color: transparent;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 25px;
+    font-weight: normal;
+    color: white;
+}
+
+.auth-separator {
+    font-size: 25px; /* El tamaño del separador */
+    color: white; /* El color del separador */
+}
+
+
+.header-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #1a1a1a;
+    margin-top: 20px;
+}
+
+main {
+    display: flex;
+}
+.sidebar {
+    width: 200px;
+    background-color: #272727;
+    padding: 20px;
+}
+
+    .sidebar ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .sidebar li {
+        padding: 12px;
+        font-size: 18px;
+        color: white;
+        border-bottom: 2px solid #7c7c7c; /* Borde entre los ítems */
+        cursor: pointer;
+    }
+
+        .sidebar li:last-child {
+            border-bottom: none; /* Elimina el borde del último ítem */
+        }
+
+.subjects-list {
+    list-style-type: none;
+    padding-left: 20px;
+    display: none; /* Inicialmente oculto */
+}
+
+.career-name {
+    cursor: pointer;
+}
+
+.toggle {
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+
+
+.content {
+    flex: 1;
+    padding: 20px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.featured, .suggestions {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #333;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.play-btn {
+    font-size: 30px;
+    color: white;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.card:hover .overlay {
+    display: flex;
+}
+button.toggle {
+    width: 100%;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    border-bottom: transparent solid #7c7c7c;  /* Borde entre los ítems */
+    border: transparent;
+}
+
+button.toggle:focus {
+    outline: none;
+}
+
+button.toggle:hover {
+    background-color: #555;
+}
+
+.submenu {
+    margin-top: 5px;
+    margin-left: 15px;
+}
+
+.regresar-btn{
+    width: 8%;
+    background-color: transparent;
+    text-align: left;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    border-bottom: transparent solid #7c7c7c;  /* Borde entre los ítems */
+    border: transparent;
+}
+
+.linea-verde {
+    width: 100%; /* Ancho completo */
+    height: 5px; /* Alto de la línea */
+    background-color: #00723f; /* Color verde */
+}
+
+.linea-amarilla {
+    width: 100%; /* Ancho completo */
+    height: 5px; /* Alto de la línea */
+    background-color: #dd971a; /* Color amarillo */
+}
+
+/* Login */
+
+bodylogin {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: #222 url('uabc_campus.png') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container-login {
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.header-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+    .header-login .line-login {
+        flex: 1;
+        height: 2px;
+        background-color: #4CAF50;
+    }
+
+    .header-login h1 {
+        font-size: 24px;
+        margin: 0 10px;
+    }
+
+    .header-login .icon-login {
+        color: #fff000; /* Amarillo para el ícono ▶ */
+    }
