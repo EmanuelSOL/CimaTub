@@ -70,6 +70,7 @@
     <Content Include="Pantallas\Inicio.aspx" />
     <Content Include="Pantallas\Login.aspx" />
     <Content Include="Pantallas\Register.aspx" />
+    <Content Include="PruebaBackend.aspx" />
     <Content Include="Recursos\CSS\bootstrap.css" />
     <Content Include="Recursos\CSS\Estilos.css" />
     <Content Include="Recursos\CSS\StyleSheet1.css" />
@@ -126,6 +127,13 @@
     <Compile Include="Pantallas\video.aspx.designer.cs">
       <DependentUpon>video.aspx</DependentUpon>
     </Compile>
+    <Compile Include="PruebaBackend.aspx.cs">
+      <DependentUpon>PruebaBackend.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PruebaBackend.aspx.designer.cs">
+      <DependentUpon>PruebaBackend.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="MP\Login.Master" />
@@ -138,7 +146,16 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{70a42d4e-89f1-4d20-ab4a-9b82c5545464}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Negocios\Negocios.csproj">
+      <Project>{4b36db29-8d18-465a-a950-0c3d1c4fcba1}</Project>
+      <Name>Negocios</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
