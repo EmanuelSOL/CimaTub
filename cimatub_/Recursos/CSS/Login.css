@@ -1,0 +1,105 @@
+﻿/* Elimina márgenes globales */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-image: url('../Imagenes/uabc_campus.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    color: #fff;
+}
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); /* Oscurecimiento */
+        z-index: 1;
+    }
+
+#header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 100px 0; /* Reduce el padding si es muy grande */
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Logo encimado entre header y contenido */
+#login-logo {
+    position: relative;
+    top: -90px; /* Ajusta para separar logo y formulario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+}
+
+    #login-logo img {
+        width: 450px; /* Ajusta el tamaño del logo */
+        height: auto;
+    }
+
+/* Contenedor del formulario */
+#login-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin: -20px auto 0; /* Centrado horizontal y espacio debajo del logo */
+    text-align: center;
+    z-index: 2;
+    position: relative;
+}
+
+    /* Campos del formulario */
+    #login-container input {
+        width: 100%;
+        padding: 15px;
+        margin: 15px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+/* Botón de envío */
+#login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+    #login-button:hover {
+        background-color: #006600;
+    }
+
+/* Enlace de registro */
+#login-register-link {
+    margin-top: 10px;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+    #login-register-link:hover {
+        color: #fff;
+    }

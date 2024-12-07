@@ -2,43 +2,55 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
     <div class="container mt-4">
-        <ul class="list-group">
-            <asp:Repeater ID="RepeaterCarreras" runat="server">
+        <!-- Sección de videos destacados -->
+        <div class="row">
+            <h3 class="text-white">Destacados</h3>
+            <asp:ListView ID="ListViewDestacados" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
+                <LayoutTemplate>
+                    <div class="video">
+                        <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                    </div>
+                </LayoutTemplate>
                 <ItemTemplate>
-                    <li class="list-group-item bg-dark text-white">
-                        <button class="btn btn-link text-white" data-bs-toggle="collapse" data-bs-target="#<%# Eval("Id") %>" aria-expanded="false">
-                            <%# Eval("NombreCarrera") %>
-                        </button>
-                        <ul id="<%# Eval("Id") %>" class="collapse">
-                            <asp:Repeater ID="RepeaterMaterias" runat="server" DataSource='<%# Eval("Materias") %>'>
-                                <ItemTemplate>
-                                    <li class="list-group-item bg-secondary text-white">
-                                        <button class="btn btn-link text-white"><%# Eval("NombreMateria") %></button>
-                                    </li>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </ul>
-                    </li>
-                </ItemTemplate>
-            </asp:Repeater>
-        </ul>
-        <!--<div class="mt-4">
-            <button class="btn btn-secondary">&lt; Regresar</button>
-        </div> -->
-
-        <div class="row g-3 mt-4">
-            <asp:Repeater ID="RepeaterVideos" runat="server">
-                <ItemTemplate>
-                    <div class="col-md-3">
-                        <div class="card bg-dark text-white">
-                            <img src='<%# Eval("Imagen") %>' class="card-img-top" alt="Imagen destacada">
-                            <div class="card-img-overlay d-flex justify-content-center align-items-center">
-                                <button class="btn btn-light" onclick="window.location.href='<%# Eval("UrlVideo") %>'">▶</button>
+                    <div class="col-sm-6 col-md-3 mb-4">
+                        <a href="DetallesVideo.aspx?id=<%# Eval("VideoId") %>" class="d-block">
+                            <div class="video-container">
+                                <img src='<%# Eval("ThumbnailUrl") %>' class="video-thumbnail" alt="Video Thumbnail">
                             </div>
+                        </a>
+                        <div class="video-info">
+                            <h5 class="video-title"><%# Eval("Title") %></h5>
+                            <p class="video-channel">Canal: <%# Eval("Channel") %></p>
                         </div>
                     </div>
                 </ItemTemplate>
-            </asp:Repeater>
+            </asp:ListView>
+        </div>
+
+        <!-- Sección de videos recomendados -->
+        <div class="row mt-5">
+            <h3 class="text-white">Probablemente te interese...</h3>
+            <asp:ListView ID="ListViewRecomendados" runat="server" RepeatLayout="Table" RepeatDirection="Horizontal">
+                <LayoutTemplate>
+                    <div class="row">
+                        <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                    </div>
+                </LayoutTemplate>
+                <ItemTemplate>
+                    <div class="col-sm-6 col-md-3 mb-4">
+                        <a href="DetallesVideo.aspx?id=<%# Eval("VideoId") %>" class="d-block">
+                            <div class="video-container">
+                                <img src='<%# Eval("ThumbnailUrl") %>' class="video-thumbnail" alt="Video Thumbnail">
+                            </div>
+                        </a>
+                        <div class="video-info">
+                            <h5 class="video-title"><%# Eval("Title") %></h5>
+                            <p class="video-channel">Canal: <%# Eval("Channel") %></p>
+                        </div>
+                    </div>
+                </ItemTemplate>
+            </asp:ListView>
         </div>
     </div>
 </asp:Content>
+

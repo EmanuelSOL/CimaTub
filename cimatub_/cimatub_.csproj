@@ -72,6 +72,8 @@
     <Content Include="Pantallas\Register.aspx" />
     <Content Include="Recursos\CSS\bootstrap.css" />
     <Content Include="Recursos\CSS\Estilos.css" />
+    <Content Include="Recursos\CSS\Inicio.css" />
+    <Content Include="Recursos\CSS\Login.css" />
     <Content Include="Recursos\CSS\StyleSheet1.css" />
     <Content Include="Recursos\Imagenes\lupa2.png" />
     <Content Include="Recursos\Imagenes\lupa.png" />

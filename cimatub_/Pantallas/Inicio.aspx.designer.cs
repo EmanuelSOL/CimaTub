@@ -15,21 +15,21 @@ namespace cimatub_.Pantallas
     {
 
         /// <summary>
-        /// Control RepeaterCarreras.
+        /// Control ListViewDestacados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterCarreras;
+        protected global::System.Web.UI.WebControls.ListView ListViewDestacados;
 
         /// <summary>
-        /// Control RepeaterVideos.
+        /// Control ListViewRecomendados.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterVideos;
+        protected global::System.Web.UI.WebControls.ListView ListViewRecomendados;
     }
 }
