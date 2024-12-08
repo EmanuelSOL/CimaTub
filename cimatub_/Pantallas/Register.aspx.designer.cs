@@ -15,6 +15,24 @@ namespace cimatub_.Pantallas
     {
 
         /// <summary>
+        /// Control FileUploadControl.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadControl;
+
+        /// <summary>
+        /// Control tbNombreCompleto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbNombreCompleto;
+
+        /// <summary>
         /// Control tbCorreo.
         /// </summary>
         /// <remarks>
@@ -42,13 +60,22 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.TextBox tbContraseña2;
 
         /// <summary>
-        /// Control cbDocente.
+        /// Control rbDocenteSi.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox cbDocente;
+        protected global::System.Web.UI.WebControls.RadioButton rbDocenteSi;
+
+        /// <summary>
+        /// Control rbDocenteNo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton rbDocenteNo;
 
         /// <summary>
         /// Control Div1.

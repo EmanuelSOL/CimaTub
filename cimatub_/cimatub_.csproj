@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pantallas\Editar.aspx" />
+    <Content Include="Pantallas\Historial.aspx" />
     <Content Include="Pantallas\Inicio.aspx" />
     <Content Include="Pantallas\Login.aspx" />
     <Content Include="Pantallas\Perfil.aspx" />
@@ -77,6 +78,7 @@
     <Content Include="Recursos\CSS\Estilos.css" />
     <Content Include="Recursos\CSS\Inicio.css" />
     <Content Include="Recursos\CSS\Login.css" />
+    <Content Include="Recursos\CSS\Perfil.css" />
     <Content Include="Recursos\CSS\PruebaBackend.aspx" />
     <Content Include="Recursos\CSS\StyleSheet1.css" />
     <Content Include="Recursos\CSS\videos.css" />
@@ -90,6 +92,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MP\logged.Master.cs">
+      <DependentUpon>logged.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MP\logged.Master.designer.cs">
+      <DependentUpon>logged.Master</DependentUpon>
+    </Compile>
     <Compile Include="MP\Login.Master.cs">
       <DependentUpon>Login.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -103,6 +112,13 @@
     </Compile>
     <Compile Include="Pantallas\Editar.aspx.designer.cs">
       <DependentUpon>Editar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Historial.aspx.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Historial.aspx.designer.cs">
+      <DependentUpon>Historial.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
@@ -150,6 +166,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="MP\Login.Master" />
+    <Content Include="MP\logged.Master" />
     <None Include="packages.config" />
     <Content Include="MP\General.Master" />
     <None Include="Web.Debug.config">

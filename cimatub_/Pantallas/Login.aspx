@@ -3,6 +3,7 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="<%= ResolveUrl("~/recursos/CSS/Login.css") %>" rel="stylesheet" />
     <div id="login-container">
         <label for="Correo_institucional" class="form-label">Correo institucional</label>
         <asp:TextBox ID="txtEmail" runat="server" placeholder="Correo Institucional" CssClass="input-text" TextMode="Email" required="true"></asp:TextBox>

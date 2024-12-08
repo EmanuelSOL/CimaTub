@@ -5,7 +5,7 @@
     <link href="<%= ResolveUrl("~/recursos/CSS/videos.css") %>" rel="stylesheet" />
 
     <div class="video-container">
-        <button class="regresar-btn" onclick="window.history.back();">< Regresar</button>
+        <button class="regresar-btn" onclick="window.history.back();">&lt;Regresar</button>
 
         <div class="main-layout">
             <div class="left-column">

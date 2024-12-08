@@ -21,5 +21,31 @@ namespace cimatub_.Pantallas
         {
 
         }
+        protected void BtnUpload_Click(object sender, EventArgs e)
+        {
+            if (FileUploadControl.HasFile)
+            {
+                string filePath = Server.MapPath("~/Recursos/Imagenes/") + FileUploadControl.FileName;
+                FileUploadControl.SaveAs(filePath);
+                // Actualiza la lógica para usar la nueva imagen
+            }
+            else
+            {
+                // Manejar cuando no se selecciona ningún archivo
+            }
+        }
+        protected void rbDocente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rbDocenteNo.Checked)
+            {
+                Div1.Visible = true; // Muestra el dropdown
+            }
+            else
+            {
+                Div1.Visible = false; // Oculta el dropdown
+            }
+        }
+
+
     }
 }
