@@ -64,9 +64,9 @@ namespace cimatub_
         public void ListarDestacados(object sender, EventArgs e)
         {
             N_Video NC = new N_Video();
+            rptVideos.DataSource = NC.ListarDestacados();
+            rptVideos.DataBind();
 
-            gvDestacados.DataSource = NC.ListarDestacados();
-            gvDestacados.DataBind();
         }
 
         public void ddCarreraSelect(object sender, EventArgs e)
@@ -202,11 +202,15 @@ namespace cimatub_
         }
 
    
-        public void SubirVideo(object sender, EventArgs e)
+        public async void SubirVideo(object sender, EventArgs e)
         {
             lblRegVideo.Text = string.Empty;
             //el id usuario sera obtenido de la sesion
             int idUsuario = 3;
+
+            N_Video NC = new N_Video();
+
+            string url = await NC.getUrl(fileVideo);
 
             E_Video video = new E_Video()
             {
@@ -215,22 +219,13 @@ namespace cimatub_
                 IdMateria = int.Parse(ddCarreras.SelectedValue),
                 Titulo = tbTitulo.Text,
                 Descripcion = tbDescripcion.Text,
-                Url = GuardarVideo(),
+                Url = url,
                 Miniatura = miniatura.FileBytes,
                 Visibilidad = !cbOculto.Checked,
             };
 
-            N_Video NC = new N_Video();
 
             lblRegVideo.Text = NC.RegistrarVideo(video);
-        }
-
-        //guarda el video y devuelve su url en caso de desarrollo
-        //para produccion debera camibarse a local pero ya que el alcance del proyecto es local
-        //no se hara de esta segunda forma
-        public string GuardarVideo()
-        {
-            return string.Empty;
         }
 
         public void Login(object sender, EventArgs e)
@@ -240,6 +235,7 @@ namespace cimatub_
             string correo = tbLoginCorreo.Text;
             string contraseña = tbLoginContrasena.Text;
             string resultado = NU.Login(correo,contraseña);
+
 
             if (resultado == string.Empty)
             {

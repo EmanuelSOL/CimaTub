@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PruebaBackend.aspx.cs" Inherits="cimatub_.PruebaBackend" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PruebaBackend.aspx.cs" Inherits="cimatub_.PruebaBackend" Async="true" %>
 
 <!DOCTYPE html>
 
@@ -25,11 +25,25 @@
 
             <asp:Button ID="btnRegCarrera" runat="server" Text="Registrar carrera" OnClick="RegistrarCarrera"/>
 
-            <asp:Label ID="lblResRegCarrera" runat="server" text =""></asp:Label>
+            <asp:Label ID="lblResRegCarrera" runat="server" Text =""></asp:Label>
              
             <div>
-                <asp:Button ID="btnDestacados" runat="server" Text="Destacados" OnClick="ListarDestacados"/>
-                <asp:GridView ID="gvDestacados" runat="server"></asp:GridView>
+                <asp:Button ID="btnDestacados" runat="server" Text="Destacados" OnClick="ListarDestacados" />
+                <asp:Repeater ID="rptVideos" runat="server">
+                    <ItemTemplate>
+                        <div>
+            
+                            
+                            <a href="#" >
+                                <asp:Image runat="server" ImageUrl='<%# Eval("Img") %>'
+                                    Width="400" Height="200" AlternateText="Imagen" />
+                            </a>
+                            <h3><%# Eval("Titulo") %></h3>
+                            <iframe width="560" height="315" src='<%# Eval("Preview") %>' frameborder="0" allowfullscreen></iframe>
+                        </div>
+                    </ItemTemplate>
+                </asp:Repeater>
+
             </div>
 
 
@@ -91,7 +105,7 @@
 
             </p>
             <p>Campo de video</p>
-            <asp:FileUpload ID="video" runat="server" />
+            <asp:FileUpload ID="fileVideo" runat="server" />
 
             <p>Campo de miniatura</p>
             <asp:FileUpload ID="miniatura" runat="server" />

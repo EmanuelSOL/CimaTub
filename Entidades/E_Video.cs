@@ -18,6 +18,8 @@ namespace Entidades
         private int _visitas;
         private byte[] _miniatura;
         private bool _visibilidad;
+        private string _img;
+        private string _preview;
 
         public E_Video(int idVideo, int idUsuario, int idCarrera, int idMateria, string titulo, string descripcion, string url, int visitas, byte[] miniatura, bool visibilidad)
         {
@@ -31,6 +33,8 @@ namespace Entidades
             Visitas = visitas;
             Miniatura = miniatura;
             Visibilidad = visibilidad;
+            Img = getImg();
+            Preview = getPreView();
         }
 
         public E_Video()
@@ -45,6 +49,7 @@ namespace Entidades
             Visitas = 0;
             Miniatura = null;
             Visibilidad = true;
+            Img = string.Empty;
         }
 
         public int IdVideo { get => _idVideo; set => _idVideo = value; }
@@ -57,12 +62,23 @@ namespace Entidades
         public int Visitas { get => _visitas; set => _visitas = value; }
         public byte[] Miniatura { get => _miniatura; set => _miniatura = value; }
         public bool Visibilidad { get => _visibilidad; set => _visibilidad = value; }
+        public string Img { get => _img; set => _img = value; }
+        public string Preview { get => _preview; set => _preview = value; }
 
         public string getImg()
         {
             string base64String = Convert.ToBase64String(Miniatura);
 
             return "data:image/jpeg;base64," + base64String;
+        }
+
+        public string getPreView()
+        {
+            string videoUrl = Url;
+
+            var fileId = videoUrl.Split('/')[5];
+
+            return $"https://drive.google.com/file/d/{fileId}/preview";
         }
     }
 }

@@ -67,6 +67,8 @@ namespace Datos
                         Miniatura = (byte[])reader["Miniatura"],
                         Url = (string)reader["Url"],
                     };
+                    video.Img = video.getImg();
+                    video.Preview = video.getPreView();
                     videos.Add(video);
                 }
 
@@ -105,6 +107,8 @@ namespace Datos
                         Miniatura = (byte[])reader["Miniatura"],
                         Url = (string)reader["Url"],
                     };
+                    video.Img = video.getImg();
+                    video.Preview = video.getPreView();
                     videos.Add(video);
                 }
             }
@@ -140,6 +144,8 @@ namespace Datos
                         Miniatura = (byte[])reader["Miniatura"],
                         Url = (string)reader["Url"],
                     };
+                    video.Img = video.getImg();
+                    video.Preview = video.getPreView();
                     videos.Add(video);
                 }
             }

@@ -8,6 +8,13 @@ using System.Threading.Tasks;
 using Entidades;
 using System.Net.Configuration;
 
+
+using System.Web.UI.WebControls;
+using System.Diagnostics;
+using Google.Apis.Drive.v3;
+using System.IO;
+
+
 namespace Negocios
 {
     public class N_Video
@@ -49,5 +56,26 @@ namespace Negocios
         {
             return ND.FiltrarPorCarrera(idCarrera);
         }
+
+
+        public async Task<string> getUrl(FileUpload video)
+        {
+            string url = string.Empty;
+            try
+            {
+                GoogleDrive googleDrive = new GoogleDrive();
+
+                url = await googleDrive.GetUrl(video.PostedFile);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            return url;
+        }
+
+
+
     }
 }

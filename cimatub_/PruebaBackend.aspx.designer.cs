@@ -105,13 +105,13 @@ namespace cimatub_
         protected global::System.Web.UI.WebControls.Button btnDestacados;
 
         /// <summary>
-        /// Control gvDestacados.
+        /// Control rptVideos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvDestacados;
+        protected global::System.Web.UI.WebControls.Repeater rptVideos;
 
         /// <summary>
         /// Control ddCarreras.
@@ -267,13 +267,13 @@ namespace cimatub_
         protected global::System.Web.UI.WebControls.Label lblRegistro;
 
         /// <summary>
-        /// Control video.
+        /// Control fileVideo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload video;
+        protected global::System.Web.UI.WebControls.FileUpload fileVideo;
 
         /// <summary>
         /// Control miniatura.
