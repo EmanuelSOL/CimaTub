@@ -18,6 +18,8 @@ namespace Datos
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@IdUsuario", comentario.IdUsuario);
+            cmd.Parameters.AddWithValue("@IdVideo", comentario.IdVideo);
+            cmd.Parameters.AddWithValue("@IdUsuario", comentario.Con);
 
             return false;
         }
