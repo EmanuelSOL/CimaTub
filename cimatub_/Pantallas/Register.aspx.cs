@@ -13,5 +13,13 @@ namespace cimatub_.Pantallas
         {
 
         }
+        protected void cbDocente_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+        protected void RegistrarUsuario(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,5 +1,4 @@
-﻿/* Elimina márgenes globales */
-body, html {
+﻿body, html {
     height: auto; /* Cambia de 100% a auto */
     margin: 0;
     padding: 0;
@@ -68,7 +67,6 @@ body {
     z-index: 3;
     text-align: center;
     margin: 20px 0; /* Espaciado superior e inferior */
-    text-align: center; /* Centra el logo horizontalmente */
 }
 
     #login-logo img {
@@ -76,7 +74,7 @@ body {
         height: auto;
     }
 
-/* Contenedor del formulario */
+/* Contenedor del formulario de login */
 #login-container {
     background-color: rgba(0, 0, 0, 0.9);
     padding: 30px;
@@ -100,7 +98,7 @@ body {
     }
 
 /* Botón de envío */
-#login-button {
+#btnLogin {
     width: 100%;
     padding: 15px;
     background-color: #008000;
@@ -112,9 +110,10 @@ body {
     font-weight: bold;
 }
 
-    #login-button:hover {
+    #btnLogin:hover {
         background-color: #006600;
     }
+
 
 /* Enlace de registro */
 #login-register-link {
@@ -128,7 +127,6 @@ body {
         color: #fff;
     }
 
-
 /********************************************************************************************************/
 /* Contenedor del formulario de registro */
 #register-container {
@@ -141,7 +139,6 @@ body {
     text-align: center;
     z-index: 2;
     position: relative;
-
 }
 
     #register-container input,
@@ -162,28 +159,28 @@ body {
         margin-bottom: 5px;
     }
 
-    #register-container button {
-        width: 100%;
-        padding: 15px;
-        background-color: #008000;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: bold;
-    }
+#btnRegistro {
+    width: 100%;
+    padding: 15px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
 
-        #register-container button:hover {
-            background-color: #006600;
-        }
+    #btnRegistro:hover {
+        background-color: #006600;
+    }
 
 #carrera-container {
     display: none; /* Oculto por defecto */
     margin-top: 15px;
 }
 
- /* Logo encimado entre header y contenido */
+/* Logo encimado entre header y contenido */
 #camara-logo {
     position: relative;
     top: -90px; /* Ajusta para separar logo y formulario */
@@ -192,10 +189,9 @@ body {
     z-index: 3;
     text-align: center;
     margin: 20px 0; /* Espaciado superior e inferior */
-    text-align: center; /* Centra el logo horizontalmente */
 }
 
-#login-logo img {
-    width: 450px; /* Ajusta el tamaño del logo */
-    height: auto;
-}
+    #camara-logo img {
+        width: 100px; /* Ajusta el tamaño del logo */
+        height: auto;
+    }

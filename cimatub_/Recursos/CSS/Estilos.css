@@ -306,3 +306,82 @@ bodylogin {
     .header-login .icon-login {
         color: #fff000; /* Amarillo para el ícono ▶ */
     }
+
+
+/* testing para materias */
+
+.form-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    color: white;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-dropdown {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.materia-container {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.materia-input {
+    background-color: #2a2a2a;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+    padding: 5px 10px;
+    flex-grow: 1;
+    font-size: 14px;
+}
+
+.materia-button {
+    background-color: #444;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+    .materia-button:hover {
+        background-color: #666;
+    }
+
+.add-button {
+    font-weight: bold;
+}
+
+.search-button {
+    font-size: 16px;
+}
+
+.Placeholder {
+    width = 15px;
+}
+
+/* para los input textbox */
+.no-resize {
+    resize: none;
+}
+

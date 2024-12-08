@@ -4,39 +4,31 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
-    <!-- Contenedor del formulario de registro -->
     <div id="camara-logo">
         <img src="<%= ResolveUrl("~/Recursos/Imagenes/camara.png") %>" alt="camara" />
     </div>
     <div id="register-container">
-        <h2>Registro</h2>
-        <input type="text" placeholder="Nombre Completo" id="register-name" required>
-        <input type="email" placeholder="Correo Institucional" id="register-email" required>
-        <input type="password" placeholder="Contraseña" id="register-password" required>
-        <input type="password" placeholder="Repite Contraseña" id="register-password-confirm" required>
 
-        <label for="es-docente">¿Eres docente?</label>
-        <select id="es-docente">
-            <option value="si">Sí</option>
-            <option value="no">No</option>
-        </select>
+        <asp:TextBox ID="tbCorreo" runat="server" CssClass="form-control" placeholder="Correo Institucional" TextMode="Email" required="true"></asp:TextBox>
 
-        <div id="carrera-container" style="display: none;">
-            <label for="carrera">Selecciona Carrera</label>
-            <select id="carrera">
-                <option value="computacion">Computacion</option>
-                <option value="Software">Software</option>
-            </select>
+        <asp:TextBox ID="tbContraseña1" runat="server" CssClass="form-control" placeholder="Contraseña" TextMode="Password" required="true"></asp:TextBox>
+
+        <asp:TextBox ID="tbContraseña2" runat="server" CssClass="form-control" placeholder="Repite Contraseña" TextMode="Password" required="true"></asp:TextBox>
+
+        <label for="cbDocente">¿Eres docente?</label>
+        <asp:CheckBox ID="cbDocente" runat="server" CssClass="form-check-input" AutoPostBack="true" OnCheckedChanged="cbDocente_CheckedChanged" />
+
+        <div id="Div1" runat="server" visible="false">
+            <label for="ddCarreras">Selecciona Carrera</label>
+            <asp:DropDownList ID="ddCarreras" runat="server" CssClass="form-control">
+                <asp:ListItem Text="Computación" Value="computacion"></asp:ListItem>
+                <asp:ListItem Text="Software" Value="software"></asp:ListItem>
+            </asp:DropDownList>
         </div>
 
-        <button id="register-button" type="submit">Registrarse</button>
+        <asp:Button ID="btnRegistro" runat="server" Text="Registrarse" CssClass="btn btn-primary" OnClick="RegistrarUsuario" />
+
         <a id="back-to-login" href="Login.aspx">Volver al login</a>
     </div>
 
-    <script>
-        document.getElementById('es-docente').addEventListener('change', function () {
-            const carreraContainer = document.getElementById('carrera-container');
-            carreraContainer.style.display = this.value === 'no' ? 'block' : 'none';
-        });
-    </script>
 </asp:Content>
