@@ -83,11 +83,16 @@
   <ItemGroup>
     <Content Include="Pantallas\Inicio.aspx" />
     <Content Include="Pantallas\Login.aspx" />
+    <Content Include="Pantallas\Perfil.aspx" />
     <Content Include="Pantallas\Register.aspx" />
     <Content Include="PruebaBackend.aspx" />
     <Content Include="Recursos\CSS\bootstrap.css" />
     <Content Include="Recursos\CSS\Estilos.css" />
+    <Content Include="Recursos\CSS\Inicio.css" />
+    <Content Include="Recursos\CSS\Login.css" />
     <Content Include="Recursos\CSS\StyleSheet1.css" />
+    <Content Include="Recursos\CSS\videos.css" />
+    <Content Include="Recursos\Imagenes\camara.png" />
     <Content Include="Recursos\Imagenes\lupa2.png" />
     <Content Include="Recursos\Imagenes\lupa.png" />
     <Content Include="Recursos\Imagenes\LOGOCIMATUBE2.png" />
@@ -118,6 +123,13 @@
     </Compile>
     <Compile Include="Pantallas\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Perfil.aspx.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Perfil.aspx.designer.cs">
+      <DependentUpon>Perfil.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

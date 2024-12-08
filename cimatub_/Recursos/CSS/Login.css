@@ -1,0 +1,184 @@
+﻿/* Elimina márgenes globales */
+body, html {
+    height: auto; /* Cambia de 100% a auto */
+    margin: 0;
+    padding: 0;
+    overflow-y: auto; /* Habilita el desplazamiento vertical */
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-image: url('../Imagenes/uabc_campus.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+    color: #fff;
+    min-height: 100vh; /* Altura mínima de toda la ventana */
+}
+
+    body::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 100vh; /* Asegura que cubra al menos toda la pantalla */
+        height: 100%; /* O utiliza height: auto si el contenido es más alto */
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1;
+        pointer-events: none; /* Evita interferir con la interacción del usuario */
+    }
+
+#header {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 100px 0; /* Reduce el padding si es muy grande */
+    text-align: center;
+    width: 100%;
+    z-index: 2;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* Líneas decorativas */
+.linea-verde {
+    width: 100%;
+    height: 5px;
+    background-color: #00723f;
+    margin: 0; /* Elimina márgenes */
+    padding: 0;
+}
+
+.linea-amarilla {
+    width: 100%;
+    height: 5px;
+    background-color: #dd971a;
+    margin: 0; /* Elimina márgenes */
+    padding: 0;
+}
+
+/* Logo encimado entre header y contenido */
+#login-logo {
+    position: relative;
+    top: -90px; /* Ajusta para separar logo y formulario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    margin: 20px 0; /* Espaciado superior e inferior */
+    text-align: center; /* Centra el logo horizontalmente */
+}
+
+    #login-logo img {
+        width: 450px; /* Ajusta el tamaño del logo */
+        height: auto;
+    }
+
+/* Contenedor del formulario */
+#login-container {
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin: -20px auto 0; /* Centrado horizontal y espacio debajo del logo */
+    text-align: center;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 100px; /* Espacio adicional para evitar que el último elemento quede cortado */
+}
+
+    /* Campos del formulario */
+    #login-container input {
+        width: 100%;
+        padding: 15px;
+        margin: 15px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+/* Botón de envío */
+#login-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #008000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+    #login-button:hover {
+        background-color: #006600;
+    }
+
+/* Enlace de registro */
+#login-register-link {
+    margin-top: 10px;
+    color: #ddd;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+    #login-register-link:hover {
+        color: #fff;
+    }
+
+
+/********************************************************************************************************/
+/* Contenedor del formulario de registro */
+#register-container {
+    min-height: 30vh; /* Asegura que el contenedor tenga al menos el alto de la pantalla */
+    background-color: rgba(0, 0, 0, 0.9);
+    padding: 30px;
+    border-radius: 10px;
+    width: 400px;
+    margin: -50px auto 0;
+    text-align: center;
+    z-index: 2;
+    position: relative;
+
+}
+
+    #register-container input,
+    #register-container select {
+        width: 100%;
+        padding: 15px;
+        margin: 15px 0;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    #register-container label {
+        display: block;
+        text-align: left;
+        font-size: 14px;
+        color: #ddd;
+        margin-bottom: 5px;
+    }
+
+    #register-container button {
+        width: 100%;
+        padding: 15px;
+        background-color: #008000;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+        #register-container button:hover {
+            background-color: #006600;
+        }
+
+#carrera-container {
+    display: none; /* Oculto por defecto */
+    margin-top: 15px;
+}

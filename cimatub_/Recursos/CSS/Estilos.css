@@ -21,37 +21,40 @@ header {
     align-items: center;
 }
 
-.logo img {
-    width: 200px;  
-    height: auto;  
+.logo {
+    flex: 0 0 auto; /* El logo mantiene su tamaño */
 }
 
+    .logo img {
+        width: 200px;
+        height: auto;
+    }
+
 .barrabusqueda {
-    background-color: #1f1f1f; /* Fondo igual al del sidebar */
-    padding: 10px;
+    flex: 1; /* Permite que la barra de búsqueda ocupe el espacio disponible */
     display: flex;
-    align-items: center; /* Alineación vertical centrada */
+    align-items: center;
+    justify-content: left; /* Alinea los elementos a la derecha */
+    padding: 10px;
 }
 
 .search-bar {
-    width: 600px; /* Tamaño del cuadro de búsqueda */
+    width: 30%; /* Ocupa el 30% del contenedor */
     padding: 5px;
     font-size: 16px;
-    background-color: #333; /* Fondo oscuro para la caja de texto */
+    background-color: #333; /* Fondo oscuro */
     border: 1px solid #555;
     color: white;
+    border-radius: 5px;
 }
 
 .search-bt {
-    background-image: url('~/recursos/imagenes/lupa.png');
-    background-size: 16px 16px; /* Tamaño más pequeño para la imagen */
-    background-repeat: no-repeat;
-    background-position: left center;
-    width: 30px; /* Ajuste del tamaño del botón */
-    height: 30px; /* Ajuste del tamaño del botón */
+    width: 30px;
+    height: 30px;
     border: none;
-    background-color: transparent; /* Sin color de fondo en el botón */
-    margin-right: 10px; /* Espacio entre el icono y el siguiente elemento */
+    background-color: transparent;
+    margin-left: 10px; /* Espacio a la izquierda del botón */
+    cursor: pointer;
 }
 
 .clear-btn {
@@ -60,7 +63,9 @@ header {
     border: none;
     font-size: 20px;
     cursor: pointer;
+    margin-left: 10px;
 }
+
 
 
 .form-group {
