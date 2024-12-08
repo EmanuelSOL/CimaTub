@@ -55,10 +55,12 @@
             <asp:Button ID="btnRegMateria" runat="server" OnClick="RegistrarMateria" Text="Registrar Materia"/>
             <asp:Label ID="lblRegMateria" runat="server" ></asp:Label>
 
-            <br />
-            <br />
-            <br />
-            <br />
+           <p>
+               <br />
+               <br />
+               <br />
+               <br />
+           </p>
             <asp:FileUpload ID="img" runat="server"/>
             
             <p>Nombre Completo</p>
@@ -72,11 +74,63 @@
             <p>RepiteContraseña</p>
             <asp:TextBox ID="tbContraseña2" runat="server"></asp:TextBox>
             <p>¿Eres docente?</p>
-            <asp:CheckBox ID="Docente" runat="server"/>
+            <p>En caso de registrar alumno usara el dropDown de alumnos</p>
+            <asp:CheckBox ID="cbDocente" runat="server"/>
 
             
             <asp:Button ID="btnRegistro" runat="server" Text="Registrarse" OnClick="RegistrarUsuario"/>
             <asp:Label ID="lblRegistro" runat="server" ></asp:Label>
+
+
+
+            <p>
+                <br />
+                <br />
+                <br />
+                Registrar video
+
+            </p>
+            <p>Campo de video</p>
+            <asp:FileUpload ID="video" runat="server" />
+
+            <p>Campo de miniatura</p>
+            <asp:FileUpload ID="miniatura" runat="server" />
+
+            <p>Titulo</p>
+            <asp:TextBox ID="tbTitulo" runat="server"  placeholder="Titulo"></asp:TextBox>
+            <p>Descripción</p>
+            <asp:TextBox ID="tbDescripcion" runat="server"  placeholder="Descripcion"></asp:TextBox>
+
+            <p>Toma los seleccionados en los drop down en caso de que no haya materia registrarla</p>
+            <p>Carrera</p>
+            <p>Materia</p>
+            <asp:Label ID="lblCarrera" runat="server" ></asp:Label>
+            <asp:Label ID="lblMateria" runat="server" ></asp:Label>
+
+            <p>privado</p>
+            <asp:CheckBox ID="cbOculto" runat="server" />
+            <asp:Button ID="btnRegVideo" runat="server" Text="Subir video" OnClick="SubirVideo" />
+            <asp:Label ID="lblRegVideo" runat="server" ></asp:Label>
+
+
+            <p>
+                Buscar usuario
+            </p>
+
+
+
+            <p>
+                <br />
+                <br />
+                <br />
+                Login
+            </p>
+            <asp:TextBox ID="tbLoginCorreo" runat="server" placeholder="Correo"></asp:TextBox>
+            <asp:TextBox ID="tbLoginContrasena" runat="server" placeholder="Contraseña"></asp:TextBox>
+            <asp:Button ID="btnLogin" runat="server"  Text="Login" OnClick="Login"/>
+            <asp:Image ID="imgPerfil" runat="server" />
+            <asp:Label ID="lblLogin" runat="server" ></asp:Label>
+
          </div>
     </form>
 </body>

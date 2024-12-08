@@ -30,11 +30,20 @@ namespace Negocios
                 msg += "Nombe invalido\n";
             }
 
+            if (DC.BuscarCarreraPorNombre(nombre) != null) 
+            {
+                msg += "Esta carrera ya existe\n";
+            }
+
             if(msg == string.Empty && !DC.InsertarCarrera(nombre))
             {
                 msg += "Error al registrar carrera\n";
             }
 
+            if (msg == string.Empty)
+            {
+                msg = "Carrera registrada";
+            }
 
             return msg;
         }

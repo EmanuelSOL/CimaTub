@@ -43,8 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="D_Alumno.cs" />
     <Compile Include="D_Carrera.cs" />
     <Compile Include="D_Materia.cs" />
+    <Compile Include="D_Usuario.cs" />
     <Compile Include="D_Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

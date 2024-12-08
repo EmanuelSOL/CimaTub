@@ -41,8 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="E_Alumno.cs" />
     <Compile Include="E_Carrera.cs" />
     <Compile Include="E_Materia.cs" />
+    <Compile Include="E_Reaccion.cs" />
+    <Compile Include="E_Usuario.cs" />
     <Compile Include="E_Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

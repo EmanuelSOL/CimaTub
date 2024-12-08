@@ -18,15 +18,20 @@ namespace Negocios
             ND = new D_Video();
         }
     
-        public String RegistrarVideo(E_Video video)
+        public string RegistrarVideo(E_Video video)
         {
-            String msg = string.Empty;
+            string msg = string.Empty;
 
             if (!ND.InsertarVideo(video))
             {
                 msg += "Error al insertar video";
             }
-            
+
+            if (msg == string.Empty)
+            {
+                msg = "Video registrado";
+            }
+
             return msg;
         }
 

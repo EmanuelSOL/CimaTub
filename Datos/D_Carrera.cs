@@ -70,5 +70,38 @@ namespace Datos
                 CerrarConexion();
             }
         }
+
+        public E_Carrera BuscarCarreraPorNombre(string nombre)
+        {
+            E_Carrera carrera = null;
+            SqlCommand cmd = new SqlCommand("BuscarCarreraPorNombre", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Nombre", nombre);
+
+            try
+            {
+                AbrirConexion();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    carrera = new E_Carrera()
+                    {
+                        IdCarrera = (int)reader["IdCarrera"],
+                        Nombre = (string)reader["Nombre"]
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.ToString());
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
+            return carrera;
+        }
     }
 }

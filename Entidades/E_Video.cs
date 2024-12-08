@@ -58,6 +58,11 @@ namespace Entidades
         public byte[] Miniatura { get => _miniatura; set => _miniatura = value; }
         public bool Visibilidad { get => _visibilidad; set => _visibilidad = value; }
 
+        public string getImg()
+        {
+            string base64String = Convert.ToBase64String(Miniatura);
 
+            return "data:image/jpeg;base64," + base64String;
+        }
     }
 }

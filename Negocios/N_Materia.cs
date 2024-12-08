@@ -31,9 +31,19 @@ namespace Negocios
                 msg += "Nombre invalido\n";
             }
 
+            if (DM.BuscarMateriaPorNombre(materia.Nombre) != null)
+            {
+                msg += "Esa materia ya existe\n";
+            }
+
             if (msg == string.Empty && !DM.InsertarMateria(materia))
             {
                 msg += "Error al insertar materia\n";
+            }
+
+            if(msg == string.Empty)
+            {
+                msg = "Materia registrada";
             }
 
             return msg;

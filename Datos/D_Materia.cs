@@ -74,5 +74,39 @@ namespace Datos
                 CerrarConexion();
             }
         }
+
+        public E_Materia BuscarMateriaPorNombre(string nombre)
+        {
+            E_Materia materia = null;
+            SqlCommand cmd = new SqlCommand("BuscarMateriaPorNombre", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@Nombre", nombre);
+
+            try
+            {
+                AbrirConexion();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    materia = new E_Materia()
+                    {
+                        IdMateria = (int)reader["IdMateria"],
+                        IdCarrera = (int)reader["IdCarrera"],
+                        Nombre = (string)reader["Nombre"]
+                    };
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.Write(ex.ToString());
+            }
+            finally 
+            {
+                CerrarConexion(); 
+            }
+
+            return materia;
+        }
     }
 }

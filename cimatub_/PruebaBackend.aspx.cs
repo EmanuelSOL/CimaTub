@@ -10,6 +10,8 @@ using Negocios;
 using System.Diagnostics;
 using System.IO;
 
+
+
 namespace cimatub_
 {
     public partial class PruebaBackend : System.Web.UI.Page
@@ -23,6 +25,9 @@ namespace cimatub_
                 ddCarreras.DataValueField = "IdCarrera";
                 ddCarreras.DataTextField = "Nombre";
                 ddCarreras.DataBind();
+
+                lblCarrera.Text = ddCarreras.SelectedItem.Text;
+
             }
         }
         public void ListarCarreras(object sender, EventArgs e)
@@ -52,15 +57,8 @@ namespace cimatub_
         {
             N_Carrera NC = new N_Carrera();
 
-            string resultado = NC.RegistrarCarrera(tbRegCarrera.Text);
+            lblResRegCarrera.Text = NC.RegistrarCarrera(tbRegCarrera.Text);
 
-            if (resultado == string.Empty)
-            {
-                lblResRegCarrera.Text = "Carrera Registrada";
-                return;
-            }
-
-            lblResRegCarrera.Text = resultado;
         }
 
         public void ListarDestacados(object sender, EventArgs e)
@@ -81,7 +79,10 @@ namespace cimatub_
             ddMaterias.DataValueField = "IdMateria";
             ddMaterias.DataTextField = "Nombre";
             ddMaterias.DataBind();
+
         }
+
+
 
         public void FiltrarPorCarrera(object sender, EventArgs e)
         {
@@ -140,23 +141,117 @@ namespace cimatub_
 
             N_Materia NM = new N_Materia();
 
-            string resultado = NM.InsertarMateria(materia);
-
-            if (resultado == string.Empty)
-            {
-                lblRegMateria.Text = "Materia Registrada";
-                return;
-            }
-            lblRegMateria.Text = resultado;
+            lblRegMateria.Text = NM.InsertarMateria(materia);
 
         }
 
         public void RegistrarUsuario(object sender, EventArgs e)
         {
-            byte[] imagenBytes = img.FileBytes;
+            int ALUMNO = 2;
+            int DOCENTE = 1;
 
-            string imagenBase64 = Convert.ToBase64String(imagenBytes);
-            string imgTag = "<img src='data:image/jpeg;base64," + imagenBase64 + "' />";
+            int idTipoUsuario = ALUMNO;
+
+            if (cbDocente.Checked)
+            {
+                idTipoUsuario = DOCENTE;
+            }
+
+            string correo = tbCorreo.Text;
+            string contraseña = tbContraseña1.Text;
+            E_Usuario usuario = new E_Usuario() 
+            {
+                IdTipoUsuario = idTipoUsuario,
+                Correo = correo,
+                Contrasena = contraseña,
+                Nombre = tbNombreCompleto.Text,
+                Foto = img.FileBytes
+            };
+
+            N_Usuario NU = new N_Usuario();
+
+            lblRegistro.Text += NU.RegistrarUsuario(usuario);
+
+
+            if (idTipoUsuario == ALUMNO)
+            {
+                N_Alumno NA = new N_Alumno();
+                E_Usuario usr = NU.BuscarUsuarioPorCorreo(correo);
+
+                if (usr == null)
+                {
+                    lblRegistro.Text += "Error al registrar alumno\n";
+                    return;
+                }
+
+                E_Alumno alumno = new E_Alumno()
+                {
+                    IdCarrera = int.Parse(ddCarreras.SelectedValue),
+                    IdUsuario = usr.IdUsuario
+                };
+
+
+
+                lblRegistro.Text += NA.RegistrarAlumno(alumno);
+
+
+            }
+
+
+
         }
+
+   
+        public void SubirVideo(object sender, EventArgs e)
+        {
+            lblRegVideo.Text = string.Empty;
+            //el id usuario sera obtenido de la sesion
+            int idUsuario = 3;
+
+            E_Video video = new E_Video()
+            {
+                IdUsuario = idUsuario,
+                IdCarrera = int.Parse(ddCarreras.SelectedValue),
+                IdMateria = int.Parse(ddCarreras.SelectedValue),
+                Titulo = tbTitulo.Text,
+                Descripcion = tbDescripcion.Text,
+                Url = GuardarVideo(),
+                Miniatura = miniatura.FileBytes,
+                Visibilidad = !cbOculto.Checked,
+            };
+
+            N_Video NC = new N_Video();
+
+            lblRegVideo.Text = NC.RegistrarVideo(video);
+        }
+
+        //guarda el video y devuelve su url en caso de desarrollo
+        //para produccion debera camibarse a local pero ya que el alcance del proyecto es local
+        //no se hara de esta segunda forma
+        public string GuardarVideo()
+        {
+            return string.Empty;
+        }
+
+        public void Login(object sender, EventArgs e)
+        {
+            N_Usuario NU = new N_Usuario();
+
+            string correo = tbLoginCorreo.Text;
+            string contraseña = tbLoginContrasena.Text;
+            string resultado = NU.Login(correo,contraseña);
+
+            if (resultado == string.Empty)
+            {
+                //redirigir aqui
+                //ahora se muestra la foto para comprobar que se logueo
+                E_Usuario usuario = NU.BuscarUsuarioPorCorreo(correo);
+                imgPerfil.ImageUrl = usuario.getImg();
+                return;
+            }
+
+            lblLogin.Text = resultado;
+        }
+
     }
 }
