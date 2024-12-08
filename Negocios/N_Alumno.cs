@@ -15,6 +15,7 @@ namespace Negocios
         public N_Alumno() 
         {
             DA = new D_Alumno();
+            int x = 0;
         }
 
         public string RegistrarAlumno(E_Alumno alumno)
