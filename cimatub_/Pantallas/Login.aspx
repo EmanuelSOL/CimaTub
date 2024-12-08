@@ -8,6 +8,6 @@
         <input id="login-email" type="email" placeholder="Correo Institucional" required>
         <input id="login-password" type="password" placeholder="Contraseña" required>
         <button id="login-button" type="submit">Iniciar Sesión</button>
-        <a id="login-register-link" href="#">¿No estás registrado?</a>
+        <a id="login-register-link" href="Register.aspx">¿No estás registrado?</a>
     </div>
 </asp:Content>

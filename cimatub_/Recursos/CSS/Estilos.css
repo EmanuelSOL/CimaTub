@@ -34,7 +34,7 @@ header {
     flex: 1; /* Permite que la barra de búsqueda ocupe el espacio disponible */
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Alinea los elementos a la derecha */
+    justify-content: left; /* Alinea los elementos a la derecha */
     padding: 10px;
 }
 

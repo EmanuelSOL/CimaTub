@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="General.Master.cs" Inherits="cimatub_.Site1" %>
+﻿﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="General.Master.cs" Inherits="cimatub_.Site1" %>
 
 <!DOCTYPE html>
 <html lang="es">
@@ -67,6 +67,7 @@
 </body>
 
 </html>
+
 <script>
     // Simulación de datos de carreras y materias
     const careersData = [
