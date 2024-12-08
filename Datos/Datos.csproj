@@ -64,6 +64,8 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="D_Alumno.cs" />
     <Compile Include="D_Carrera.cs" />
+    <Compile Include="D_Comentario.cs" />
+    <Compile Include="D_HistorialReproduccion.cs" />
     <Compile Include="D_Materia.cs" />
     <Compile Include="D_Reaccion.cs" />
     <Compile Include="D_Usuario.cs" />

@@ -1,14 +1,14 @@
 
 /* BEGIN EXTERNAL SOURCE */
 
-    // Simulaciï¿½n de datos de carreras y materias
+    // Simulación de datos de carreras y materias
     const careersData = [
         {
             name: "Software",
-            subjects: ["Computo Bioinspirado", "Programaciï¿½n estructurada"]
+            subjects: ["Computo Bioinspirado", "Programación estructurada"]
         },
         {
-            name: "Bioingenierï¿½a",
+            name: "Bioingeniería",
             subjects: ["Materia 1", "Materia 2"]
         },
         {
@@ -20,7 +20,7 @@
             subjects: ["Materia 1", "Materia 2"]
         },
         {
-            name: "Computaciï¿½n",
+            name: "Computación",
             subjects: ["Materia 1", "Materia 2"]
         },
         {
@@ -28,16 +28,16 @@
             subjects: ["Materia 1", "Materia 2"]
         },
         {
-            name: "Nanotecnologï¿½a",
+            name: "Nanotecnología",
             subjects: ["Materia 1", "Materia 2"]
         },
         {
-            name: "Electrï¿½nica",
+            name: "Electrónica",
             subjects: ["Materia 1", "Materia 2"]
         }
     ];
 
-    // Funciï¿½n para crear los elementos de la barra lateral
+    // Función para crear los elementos de la barra lateral
     function populateSidebar() {
         const careerList = document.getElementById("careerList");
         
@@ -60,17 +60,17 @@
                 ulSubjects.appendChild(liSubject);
             });
             
-            // Aï¿½adir la lista de materias debajo de la carrera
+            // Añadir la lista de materias debajo de la carrera
             li.appendChild(careerName);
             li.appendChild(ulSubjects);
             careerList.appendChild(li);
         });
     }
 
-    // Llamar a la funciï¿½n para llenar la barra lateral
+    // Llamar a la función para llenar la barra lateral
     populateSidebar();
 
-    // Funciï¿½n para mostrar u ocultar las materias
+    // Función para mostrar u ocultar las materias
     document.addEventListener('click', function(e) {
         if (e.target && e.target.matches('.career-name')) {
             const subjectList = e.target.nextElementSibling;
@@ -82,3 +82,4 @@
         }
     });
 
+/* END EXTERNAL SOURCE */

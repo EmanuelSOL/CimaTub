@@ -1,100 +1,97 @@
-﻿/* Elimina márgenes globales */
-body, html {
-    height: auto; /* Cambia de 100% a auto */
+
+﻿/* Estilado Base para body */
+html,
+body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    overflow-y: auto; /* Habilita el desplazamiento vertical */
+    overflow-y: auto; /* Permitir el scroll si es necesario */
 }
 
+/* Fondo de la página */
 body {
-    display: flex;
-    flex-direction: column;
     font-family: Arial, sans-serif;
     background-image: url('../Imagenes/uabc_campus.png');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed;
+
     background-repeat: no-repeat;
     position: relative;
-    color: #fff;
-    min-height: 100vh; /* Altura mínima de toda la ventana */
+    min-height: 100vh;
+
 }
 
+    /* Capa oscura para mejorar la visibilidad del contenido */
     body::before {
         content: '';
         position: absolute;
-        top: 0;
+        top: 19%;
         left: 0;
         width: 100%;
-        min-height: 100vh; /* Asegura que cubra al menos toda la pantalla */
-        height: 100%; /* O utiliza height: auto si el contenido es más alto */
+        height: 100%;
         background-color: rgba(0, 0, 0, 0.8);
         z-index: 1;
-        pointer-events: none; /* Evita interferir con la interacción del usuario */
     }
 
 #header {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 100px 0; /* Reduce el padding si es muy grande */
+    background-color: #1A1A1A;
+    padding: 9vh 0;
     text-align: center;
-    width: 100%;
-    z-index: 2;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+    height: calc(10% + 2vh);
+    z-index: 1000; /* Asegura que el header se mantenga visible */
 }
 
-/* Líneas decorativas */
-.linea-verde {
-    width: 100%;
-    height: 5px;
-    background-color: #00723f;
-    margin: 0; /* Elimina márgenes */
-    padding: 0;
-}
-
-.linea-amarilla {
-    width: 100%;
-    height: 5px;
-    background-color: #dd971a;
-    margin: 0; /* Elimina márgenes */
-    padding: 0;
-}
-
-/* Logo encimado entre header y contenido */
+/* Posición del logo - centrado entre header y el formulario */
 #login-logo {
     position: relative;
-    top: -90px; /* Ajusta para separar logo y formulario */
+    top: -75px; /* Aseguramos espacio entre el logo y el contenido */
     left: 50%;
     transform: translateX(-50%);
     z-index: 3;
     text-align: center;
-    margin: 20px 0; /* Espaciado superior e inferior */
-    text-align: center; /* Centra el logo horizontalmente */
+
 }
 
     #login-logo img {
-        width: 450px; /* Ajusta el tamaño del logo */
+        width: 20vw;
         height: auto;
     }
 
-/* Contenedor del formulario */
-#login-container {
-    background-color: rgba(0, 0, 0, 0.9);
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    margin: -20px auto 0; /* Centrado horizontal y espacio debajo del logo */
-    text-align: center;
-    z-index: 2;
-    position: relative;
-    margin-bottom: 100px; /* Espacio adicional para evitar que el último elemento quede cortado */
+/* Responsividad para diferentes tamaños */
+@media (max-width: 768px) {
+    #login-logo img {
+        width: 20vw;
+    }
 }
 
-    /* Campos del formulario */
+@media (max-width: 480px) {
+    #login-logo img {
+        width: 25vw;
+    }
+}
+
+/* Contenedor del formulario principal */
+#login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 4;
+    margin: -40px auto;
+}
+
+    /* Campos dentro del formulario */
     #login-container input {
         width: 100%;
-        padding: 15px;
-        margin: 15px 0;
-        border: none;
+        padding: 12px;
+        margin: 10px 0;
+        border: 1px solid #aaa;
         border-radius: 5px;
         font-size: 16px;
     }
@@ -116,6 +113,35 @@ body {
         background-color: #006600;
     }
 
+
+/* Botón de inicio de sesión */
+[id$="btnLogin"] {
+    width: 60% !important;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #00723F;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+    [id$="btnLogin"]:hover {
+        background-color: #5B5B5B;
+    }
+
+[id$="lblError"],
+.form-label {
+    width: 100%; /* Se asegura de que ocupe el ancho disponible */
+    max-width: 400px; /* Limita el tamaño máximo del texto */
+    font-size: 1em; /* Se ajusta dinámicamente con la pantalla */
+    text-align:left;
+    color: #ddd;
+    padding: 0px 0;
+    box-sizing: border-box;
+    transition: font-size 0.2s ease; /* Efecto de transición suave */
+}
 /* Enlace de registro */
 #login-register-link {
     margin-top: 10px;
@@ -162,28 +188,31 @@ body {
         margin-bottom: 5px;
     }
 
-    #register-container button {
-        width: 100%;
-        padding: 15px;
-        background-color: #008000;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 18px;
-        font-weight: bold;
-    }
 
-        #register-container button:hover {
-            background-color: #006600;
-        }
+/* Botón de registro */
+#btnRegistro {
+    width: 100%;
+    padding: 15px;
+    background-color: #dd971a;
+    color: #dd971a;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+    #btnRegistro:hover {
+        background-color: #c37f16; 
+    }
 
 #carrera-container {
     display: none; /* Oculto por defecto */
     margin-top: 15px;
 }
 
- /* Logo encimado entre header y contenido */
+
+/* Logo encimado entre header y contenido */
 #camara-logo {
     position: relative;
     top: -90px; /* Ajusta para separar logo y formulario */
@@ -199,3 +228,69 @@ body {
     width: 450px; /* Ajusta el tamaño del logo */
     height: auto;
 }
+
+    #camara-logo img {
+        width: 150px; /* Ajusta el tamaño del logo */
+        height: auto;
+    }
+
+
+/* Franja que se desplaza por encima de todo el contenido */
+.bicolor-strip-green {
+    position: fixed; /* Fija la posición de la franja en la pantalla */
+    left: 0;
+    top: 18.2%; /* Ajustado con proporciones */
+    height: 0.5vh; /* Proporcional al tamaño de la pantalla */
+    width: 38vw; /* Relacionado con el ancho de la pantalla */
+    background-color: #00723F;
+    background-size: 200% 100%;
+    z-index: 1000;
+}
+
+.bicolor-strip-amarilla {
+    position: fixed;
+    left: 0;
+    top: 18.7%;
+    height: 0.5vh; /* Ajuste proporcional */
+    width: 38vw;
+    background-color: #DD971A;
+    background-size: 200% 100%;
+    z-index: 1000;
+}
+
+.bicolor-strip-green-right {
+    position: fixed;
+    left: 62%;
+    top: 18.2%;
+    height: 0.5vh;
+    width: 38vw;
+    background-color: #00723F;
+    background-size: 200% 100%;
+    z-index: 1000;
+}
+
+.bicolor-strip-amarilla-right {
+    position: fixed;
+    left: 62%;
+    top: 18.7%;
+    height: 0.5vh;
+    width: 38vw;
+    background-color: #DD971A;
+    background-size: 200% 100%;
+    z-index: 1000;
+}
+
+
+
+
+/* Estilado para la sombra */
+#shadow-bottom {
+    position: fixed;
+    bottom: -6.5%;
+    left: 0;
+    width: 100%;
+    height: 50px; /* Altura ajustable de la sombra */
+    box-shadow: 0 -30px 20px rgba(0, 0, 0, 1.5);
+    pointer-events: none; /* Para evitar que interactúe con clics u otros eventos */
+}
+

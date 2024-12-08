@@ -1,0 +1,94 @@
+﻿body {
+    font-family: Arial, sans-serif;
+    background-color: #272727;
+    color: white;
+}
+
+#perfil-contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 600px;
+    margin: 100px auto;
+    padding: 20px;
+    background-color: transparent; /* Fondo transparente */
+    border-radius: 10px;
+    box-shadow: none; /* Sin sombra */
+}
+
+#perfil-informacion {
+    margin-right: 20px;
+    text-align: left; /* Alineado a la izquierda */
+    max-width: 60%; /* Para que no ocupe toda la pantalla */
+}
+
+.perfil-nombre {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #555; /* Texto más oscuro */
+}
+
+.perfil-rol {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #777; /* Gris suave */
+}
+
+.perfil-correo {
+    font-size: 14px;
+    color: #888; /* Otro tono de gris */
+}
+
+#perfil-foto-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.perfil-foto {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #e0e0e0; /* Borde suave alrededor de la foto */
+}
+
+#perfil-opciones {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.perfil-boton {
+    display: inline-block;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.perfil-boton-historial {
+    background-color: #007bff; /* Azul brillante */
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+    .perfil-boton-historial:hover {
+        background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+    }
+
+.perfil-boton-cerrar {
+    background-color: #dc3545; /* Rojo llamativo */
+    color: #ffffff;
+    transition: background-color 0.3s ease;
+}
+
+    .perfil-boton-cerrar:hover {
+        background-color: #a71d2a; /* Rojo más oscuro */
+    }

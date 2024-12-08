@@ -5,15 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace cimatub_.Pantallas
+namespace cimatub_.MP
 {
-    public partial class Login : System.Web.UI.Page
+    public partial class logged : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-        protected void btnLogin_Click(object sender, EventArgs e)
         {
 
         }

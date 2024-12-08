@@ -1,11 +1,16 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="video.aspx.cs" Inherits="cimatub_.Pantallas.Inicio" %>
 
-<asp:Content ID="Content5" ContentPlaceHolderID="MainContent" runat="server">
+=======
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="video.aspx.cs" Inherits="cimatub_.Pantallas.video" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link href="<%= ResolveUrl("~/recursos/CSS/videos.css") %>" rel="stylesheet" />
 
     <div class="video-container">
         <!-- Botón Regresar -->
-        <button class="back-button" onclick="window.history.back();">&lt;Regresar</button>
+
+        <asp:Button ID="btnRegresar" CssClass="back-button" runat="server" Text="&lt;Regresar" OnClick="btnRegresar_Click" />
 
         <div class="main-layout">
             <div class="left-column">
@@ -32,8 +37,12 @@
                 <div class="feedback">
                     <h3>¿Qué te pareció el video?</h3>
                     <div class="buttons">
-                        <button class="like">☺︎ Me gustó: <%# LikesCount %></button>
-                        <button class="dislike">☹ No me gustó: <%# DislikesCount %></button>
+
+                        <asp:Button ID="btnLike" CssClass="like" runat="server" Text="☺︎ Me gustó" OnClick="btnLike_Click" />
+                        <asp:Label ID="lblLikesCount" runat="server" Text="<%# LikesCount %>"></asp:Label>
+
+                        <asp:Button ID="btnDislike" CssClass="dislike" runat="server" Text="☹ No me gustó" OnClick="btnDislike_Click" />
+                        <asp:Label ID="lblDislikesCount" runat="server" Text="<%# DislikesCount %>"></asp:Label>
                     </div>
                 </div>
 
@@ -51,9 +60,10 @@
                         </ItemTemplate>
                     </asp:Repeater>
 
+                    <!-- Formulario para nuevo comentario -->
                     <div class="new-comment">
-                        <textarea placeholder="Escribe un comentario..." class="comment-box"></textarea>
-                        <button class="submit-comment" onclick="submitComment()">Enviar</button>
+                        <asp:TextBox ID="txtNewComment" CssClass="comment-box" runat="server" TextMode="MultiLine" Placeholder="Escribe un comentario..."></asp:TextBox>
+                        <asp:Button ID="btnSubmitComment" CssClass="submit-comment" runat="server" Text="Enviar" OnClick="btnSubmitComment_Click" />
                     </div>
                 </div>
             </div>

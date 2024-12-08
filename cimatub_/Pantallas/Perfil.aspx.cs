@@ -13,5 +13,18 @@ namespace cimatub_.Pantallas
         {
 
         }
+
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Inicio.aspx"); 
+        }
+        protected void VerHistorial(object sender, EventArgs e)
+        {
+            
+        }
+        protected void CerrarSesion(object sender, EventArgs e)
+        {
+
+        }
     }
 }
