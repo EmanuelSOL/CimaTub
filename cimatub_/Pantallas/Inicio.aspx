@@ -1,13 +1,14 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="cimatub_.Pantallas.Inicio" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
+    <link href="<%= ResolveUrl("~/recursos/CSS/Inicio.css") %>" rel="stylesheet" />
     <div class="container mt-4">
         <!-- Sección de videos destacados -->
         <div class="row">
             <h3 class="text-white">Destacados</h3>
             <asp:ListView ID="ListViewDestacados" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
                 <LayoutTemplate>
-                    <div class="video">
+                    <div class="row">
                         <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
                     </div>
                 </LayoutTemplate>
@@ -53,4 +54,3 @@
         </div>
     </div>
 </asp:Content>
-
