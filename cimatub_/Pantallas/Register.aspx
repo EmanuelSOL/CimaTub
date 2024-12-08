@@ -5,6 +5,9 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="MainContent" runat="server">
     <!-- Contenedor del formulario de registro -->
+    <div id="camara-logo">
+        <img src="<%= ResolveUrl("~/Recursos/Imagenes/camara.png") %>" alt="camara" />
+    </div>
     <div id="register-container">
         <h2>Registro</h2>
         <input type="text" placeholder="Nombre Completo" id="register-name" required>

@@ -182,3 +182,20 @@ body {
     display: none; /* Oculto por defecto */
     margin-top: 15px;
 }
+
+ /* Logo encimado entre header y contenido */
+#camara-logo {
+    position: relative;
+    top: -90px; /* Ajusta para separar logo y formulario */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 3;
+    text-align: center;
+    margin: 20px 0; /* Espaciado superior e inferior */
+    text-align: center; /* Centra el logo horizontalmente */
+}
+
+#login-logo img {
+    width: 450px; /* Ajusta el tamaño del logo */
+    height: auto;
+}

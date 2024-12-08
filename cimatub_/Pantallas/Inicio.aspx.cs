@@ -15,11 +15,11 @@ namespace cimatub_.Pantallas
             if (!IsPostBack)
             {
                 // Cargar datos de prueba en los ListView
-                /*ListViewDestacados.DataSource = GetPlaceholderData(4); // 4 videos destacados
+                ListViewDestacados.DataSource = GetPlaceholderData(4); // 4 videos destacados
                 ListViewDestacados.DataBind();
 
                 ListViewRecomendados.DataSource = GetPlaceholderData(10); // 10 videos recomendados
-                ListViewRecomendados.DataBind();*/
+                ListViewRecomendados.DataBind();
             }
         }
 
