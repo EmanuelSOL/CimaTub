@@ -81,6 +81,15 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pantallas\Editar.aspx" />
+>>>>>>> 9d81bf655764f87a440031c02d8abaa57c9121a9
     <Content Include="Pantallas\Inicio.aspx" />
     <Content Include="Pantallas\Login.aspx" />
     <Content Include="Pantallas\Perfil.aspx" />
@@ -109,6 +118,13 @@
     </Compile>
     <Compile Include="MP\Login.Master.designer.cs">
       <DependentUpon>Login.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Editar.aspx.cs">
+      <DependentUpon>Editar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Editar.aspx.designer.cs">
+      <DependentUpon>Editar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
