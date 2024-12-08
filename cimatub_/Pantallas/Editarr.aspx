@@ -2,7 +2,7 @@
 
 
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="<%= ResolveUrl("~/recursos/CSS/videos.css") %>" rel="stylesheet" />
+    <link href="../Recursos/CSS/videos.css" rel="stylesheet" />
 
     <div class="video-container">
 

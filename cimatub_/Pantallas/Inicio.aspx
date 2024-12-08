@@ -1,7 +1,8 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="cimatub_.Pantallas.Inicio" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="<%= ResolveUrl("~/recursos/CSS/Inicio.css") %>" rel="stylesheet" />
+    <link href="../Recursos/CSS/Login.css" rel="stylesheet" />
+
     <div class="container mt-4">
         <!-- Sección de videos destacados -->
         <div class="row">
