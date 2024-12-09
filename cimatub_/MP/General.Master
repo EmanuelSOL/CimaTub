@@ -49,12 +49,27 @@
             <div class="row">
                 <aside class="col-md-3 sidebar">
                     <h3>Filtrar por carrera</h3>
-                    
-                    <ul class="sidebar" id="careerList">
-                        <!-- Las carreras y materias se cargarán aquí dinámicamente -->
-                    </ul>
-                <!-- Contenido principal -->
+                    <asp:Repeater ID="careerList" runat="server">
+                        <ItemTemplate>
+                            <ul class="sidebar">
+                                <li class="career-item">
+                                    <span class="career-name">
+                                        <%# Eval("CarreraNombre") %> <span class="toggle">▼</span>
+                                    </span>
+                                    <ul class="subjects-list">
+                                        <asp:Repeater ID="materia" runat="server" DataSource='<%# Eval("Materias") %>'>
+                                            <ItemTemplate>
+                                                <li><%# Container.DataItem %></li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <hr class="career-divider" />
+                        </ItemTemplate>
+                    </asp:Repeater>
                 </aside>
+
                 <main class="col-md-9 py-4">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                 </main>
@@ -67,86 +82,34 @@
 </body>
 
 </html>
-
 <script>
-    // Simulación de datos de carreras y materias
-    const careersData = [
-        {
-            name: "Software",
-            subjects: ["Computo Bioinspirado", "Programación estructurada"]
-        },
-        {
-            name: "Bioingeniería",
-            subjects: ["Materia 1", "Materia 2"]
-        },
-        {
-            name: "Civil",
-            subjects: ["Materia 1", "Materia 2"]
-        },
-        {
-            name: "Arquitectura",
-            subjects: ["Materia 1", "Materia 2"]
-        },
-        {
-            name: "Computación",
-            subjects: ["Materia 1", "Materia 2"]
-        },
-        {
-            name: "Industrial",
-            subjects: ["Materia 1", "Materia 2"]
-        },
-        {
-            name: "Nanotecnología",
-            subjects: ["Materia 1", "Materia 2"]
-        },
-        {
-            name: "Electrónica",
-            subjects: ["Materia 1", "Materia 2"]
-        }
-    ];
+    document.addEventListener('DOMContentLoaded', function () {
+        // Seleccionar todas las carreras
+        const careerItems = document.querySelectorAll('.career-name');
 
-    // Función para crear los elementos de la barra lateral
-    function populateSidebar() {
-        const careerList = document.getElementById("careerList");
-        
-        careersData.forEach(career => {
-            const li = document.createElement("li");
-            li.classList.add("career-item");
-            
-            // Crear el nombre de la carrera
-            const careerName = document.createElement("span");
-            careerName.classList.add("career-name");
-            careerName.innerHTML = `${career.name} <span class="toggle">&#x25BC;</span>`;
-            
-            // Crear la lista de materias (oculta por defecto)
-            const ulSubjects = document.createElement("ul");
-            ulSubjects.classList.add("subjects-list");
-            
-            career.subjects.forEach(subject => {
-                const liSubject = document.createElement("li");
-                liSubject.textContent = subject;
-                ulSubjects.appendChild(liSubject);
+        careerItems.forEach(career => {
+            career.addEventListener('click', function () {
+                const subjectsList = this.nextElementSibling; // Lista de materias
+                const toggleIcon = this.querySelector('.toggle'); // Icono de despliegue
+
+                if (subjectsList) {
+                    // Mostrar u ocultar las materias
+                    const isHidden = subjectsList.style.display === 'none';
+                    subjectsList.style.display = isHidden ? 'block' : 'none';
+
+                    // Cambiar el ícono
+                    toggleIcon.textContent = isHidden ? '▲' : '▼';
+                }
             });
-            
-            // Añadir la lista de materias debajo de la carrera
-            li.appendChild(careerName);
-            li.appendChild(ulSubjects);
-            careerList.appendChild(li);
-        });
-    }
 
-    // Llamar a la función para llenar la barra lateral
-    populateSidebar();
-
-    // Función para mostrar u ocultar las materias
-    document.addEventListener('click', function(e) {
-        if (e.target && e.target.matches('.career-name')) {
-            const subjectList = e.target.nextElementSibling;
-            if (subjectList) {
-                subjectList.style.display = subjectList.style.display === 'none' ? 'block' : 'none';
-                const toggle = e.target.querySelector('.toggle');
-                toggle.innerHTML = toggle.innerHTML === '▼' ? '▲' : '▼';
+            // Ocultar las listas al cargar la página
+            const subjectsList = career.nextElementSibling;
+            if (subjectsList) {
+                subjectsList.style.display = 'none';
             }
-        }
+        });
     });
 </script>
+
+
+

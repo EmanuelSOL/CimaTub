@@ -6,7 +6,7 @@
 
     <div class="video-container">
 
-        <button class="regresar-btn" onclick="window.history.back();">&lt;Regresar</button>
+        <a href="Inicio.aspx" style="text-decoration: none" class="regresar-btn" >&lt;Regresar</a>
 
         <div class="main-layout">
             <div class="left-column">

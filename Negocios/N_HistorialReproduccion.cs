@@ -29,9 +29,6 @@ namespace Negocios
             }
         }
 
-        public List<E_Video> ListarHistorial(int idUsuario)
-        {
-            return DH.ListarVideosHistorial(idUsuario);
-        }
+        
     }
 }

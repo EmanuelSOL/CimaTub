@@ -100,5 +100,9 @@ namespace Negocios
             return msg;
         }
 
+        public List<E_Video> ListarHistorial(int idUsuario)
+        {
+            return DV.ListarVideosHistorial(idUsuario);
+        }
     }
 }

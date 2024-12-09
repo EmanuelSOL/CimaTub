@@ -1,6 +1,4 @@
-
-=======
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="video.aspx.cs" Inherits="cimatub_.Pantallas.video" %>
+<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="video.aspx.cs" Inherits="cimatub_.Pantallas.video" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
 </asp:Content>
 
@@ -10,7 +8,7 @@
     <div class="video-container">
         <!-- Botón Regresar -->
 
-        <asp:Button ID="btnRegresar" CssClass="back-button" runat="server" Text="&lt;Regresar" OnClick="btnRegresar_Click" />
+        <asp:Button ID="btnRegresar" CssClass="back-button" runat="server" Text="&lt;Regresar" OnClick="Regresar" />
 
         <div class="main-layout">
             <div class="left-column">

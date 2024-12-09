@@ -17,7 +17,15 @@
                     <div class="col-sm-6 col-md-3 mb-4">
                         <a href="DetallesVideo.aspx?id=<%# Eval("IdVideo") %>" class="d-block">
                             <div class="video-container">
-                                <img src='<%# Eval("Img") %>' class="video-thumbnail" alt="Video Thumbnail">
+                                <asp:ImageButton 
+                                    ID="imgVideo"
+                                    runat="server"
+                                    ImageUrl='<%# Eval("Img") %>'
+                                    CssClass="video-thumbnail"
+                                    OnClick="VerVideo"
+                                    CommandArgument='<%# Eval("IdVideo") %>' 
+                                    />
+                                    
                             </div>
                         </a>
                         <div class="video-info">

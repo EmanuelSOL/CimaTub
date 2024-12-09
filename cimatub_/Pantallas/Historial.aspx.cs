@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Negocios;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +13,39 @@ namespace cimatub_.Pantallas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                //id obtenida de la session
+                Session["IdUsuario"] = 3;
 
+
+                int idUsuario = (int)Session["IdUsuario"];
+
+                N_Video NV = new N_Video();
+                lstVideos.DataSource = NV.ListarHistorial(idUsuario);
+
+                //esta linea debe eliminarse cuando haya historiales
+                lstVideos.DataSource = NV.ListarDestacados(); 
+
+                lstVideos.DataBind();
+
+            }
+        }
+
+        public void VerVideo(object sender, EventArgs e)
+        {
+            ImageButton btn = sender as ImageButton;
+
+            if (btn != null)
+            {
+                Session["VerIdVideo"] = 23;
+                Response.Redirect("~/Pantallas/video.aspx");
+            }
+        }
+
+        public void Regresar(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pantallas/Inicio.aspx");
         }
     }
 }

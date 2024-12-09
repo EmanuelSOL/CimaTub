@@ -117,6 +117,7 @@ header {
 main {
     display: flex;
 }
+
 .sidebar {
     width: 200px;
     background-color: #272727;
@@ -155,6 +156,12 @@ main {
     margin-left: 5px;
 }
 
+.career-divider {
+    border: none;
+    border-top: 1px solid #7c7c7c; /* Color de la línea */
+    margin: 15px 0; /* Espaciado arriba y abajo */
+}
+
 
 
 .content {
@@ -182,11 +189,11 @@ h2 {
     overflow: hidden;
 }
 
-.card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
+    .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 
 .overlay {
     position: absolute;
@@ -211,6 +218,7 @@ h2 {
 .card:hover .overlay {
     display: flex;
 }
+
 button.toggle {
     width: 100%;
     background-color: transparent;
@@ -219,24 +227,24 @@ button.toggle {
     padding: 10px;
     font-size: 18px;
     color: white;
-    border-bottom: transparent solid #7c7c7c;  /* Borde entre los ítems */
+    border-bottom: transparent solid #7c7c7c; /* Borde entre los ítems */
     border: transparent;
 }
 
-button.toggle:focus {
-    outline: none;
-}
+    button.toggle:focus {
+        outline: none;
+    }
 
-button.toggle:hover {
-    background-color: #555;
-}
+    button.toggle:hover {
+        background-color: #555;
+    }
 
 .submenu {
     margin-top: 5px;
     margin-left: 15px;
 }
 
-.regresar-btn{
+.regresar-btn {
     width: 8%;
     background-color: transparent;
     text-align: left;
@@ -245,7 +253,7 @@ button.toggle:hover {
     font-size: 28px;
     font-weight: bold;
     color: white;
-    border-bottom: transparent solid #7c7c7c;  /* Borde entre los ítems */
+    border-bottom: transparent solid #7c7c7c; /* Borde entre los ítems */
     border: transparent;
 }
 
@@ -385,4 +393,3 @@ bodylogin {
 .no-resize {
     resize: none;
 }
-

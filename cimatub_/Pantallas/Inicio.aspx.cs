@@ -24,26 +24,15 @@ namespace cimatub_.Pantallas
             }
         }
 
-        // Método para generar datos de prueba
-        private DataTable GetPlaceholderData(int count)
+        public void VerVideo(object sender, EventArgs e)
         {
-            DataTable table = new DataTable();
-            table.Columns.Add("VideoId");
-            table.Columns.Add("ThumbnailUrl");
-            table.Columns.Add("Title");
-            table.Columns.Add("Channel");
+            ImageButton btn = sender as ImageButton;
 
-            for (int i = 1; i <= count; i++)
+            if (btn != null)
             {
-                table.Rows.Add(
-                    i, // VideoId
-                    "https://via.placeholder.com/320x180.png?text=Video+" + i, // ThumbnailUrl
-                    "Título del Video " + i,                                  // Title
-                    "Canal " + i                                              // Channel
-                );
+                Session["VerIdVideo"] = 23;
+                Response.Redirect("~/Pantallas/video.aspx");
             }
-
-            return table;
         }
 
 
