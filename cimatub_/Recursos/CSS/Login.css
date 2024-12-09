@@ -1,5 +1,5 @@
 
-﻿/* Estilado Base para body */
+﻿ /* Estilado Base para body */
 html,
 body {
     height: 100%;
@@ -14,11 +14,9 @@ body {
     background-image: url('../Imagenes/uabc_campus.png');
     background-size: cover;
     background-position: center;
-
     background-repeat: no-repeat;
     position: relative;
     min-height: 100vh;
-
 }
 
     /* Capa oscura para mejorar la visibilidad del contenido */
@@ -49,7 +47,6 @@ body {
     transform: translateX(-50%);
     z-index: 3;
     text-align: center;
-
 }
 
     #login-logo img {
@@ -76,7 +73,6 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
     padding: 20px;
     border-radius: 10px;
     width: 100%;
@@ -136,7 +132,7 @@ body {
     width: 100%; /* Se asegura de que ocupe el ancho disponible */
     max-width: 400px; /* Limita el tamaño máximo del texto */
     font-size: 1em; /* Se ajusta dinámicamente con la pantalla */
-    text-align:left;
+    text-align: left;
     color: #ddd;
     padding: 0px 0;
     box-sizing: border-box;
@@ -167,7 +163,6 @@ body {
     text-align: center;
     z-index: 2;
     position: relative;
-
 }
 
     #register-container input,
@@ -203,7 +198,7 @@ body {
 }
 
     #btnRegistro:hover {
-        background-color: #c37f16; 
+        background-color: #c37f16;
     }
 
 #carrera-container {
@@ -229,10 +224,10 @@ body {
     height: auto;
 }
 
-    #camara-logo img {
-        width: 150px; /* Ajusta el tamaño del logo */
-        height: auto;
-    }
+#camara-logo img {
+    width: 150px; /* Ajusta el tamaño del logo */
+    height: auto;
+}
 
 
 /* Franja que se desplaza por encima de todo el contenido */
@@ -293,4 +288,3 @@ body {
     box-shadow: 0 -30px 20px rgba(0, 0, 0, 1.5);
     pointer-events: none; /* Para evitar que interactúe con clics u otros eventos */
 }
-
