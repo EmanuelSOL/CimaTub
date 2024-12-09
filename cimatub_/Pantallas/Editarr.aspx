@@ -18,8 +18,6 @@
                     <asp:Image ID="imgVideo" runat="server" width="100%" height="100%" 
                                style="cursor:pointer;" 
                                OnClientClick="document.getElementById('<%= fileUpload.ClientID %>').click();" />
-
-                    <!-- Control FileUpload oculto para cargar un archivo -->
                     <asp:FileUpload ID="fileUpload" runat="server" OnChange="previewImage()" 
                                     CssClass="file-upload" style="display: none;" />
                 </div>

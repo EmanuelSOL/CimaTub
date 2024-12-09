@@ -7,8 +7,8 @@
     <div class="video-container">
         
         <!-- Botón Regresar -->
-        <asp:Button ID="btnRegresar" runat="server" CssClass="back-button" Text="&lt; Regresar" OnClientClick="location.href='Inicio.aspx'; return false;" />
-
+        <asp:Button ID="btnRegresar" CssClass="back-button" runat="server" Text="&lt;Regresar" OnClick="btnRegresar_Click" />
+    
         <div class="main-layout">
             <!-- Columna izquierda: Video y detalles -->
             <div class="left-column">
