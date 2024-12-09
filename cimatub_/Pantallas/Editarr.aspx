@@ -11,7 +11,7 @@
         <div class="main-layout">
             <div class="left-column">
                 <div class="video-placeholder">
-                    <iframe id="videoPlayer" width="100%" height="100%" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+                    <asp:Image ID="imgVideo" runat="server" width="100%" height="100%"/>
                 </div>
             </div>
 
@@ -21,12 +21,12 @@
                 <div class="edit-form">
                     <label for="titulo" class="form-label">Título:</label>
                     <div class="text-box-video">
-                        <asp:TextBox ID="txtTitulo" CssClass="form-input" BackColor="#999999" runat="server" />
+                        <asp:TextBox ID="tbTitulo" CssClass="form-input" BackColor="#999999" runat="server" />
                     </div>
 
                     <label for="descripcion" class="form-label">Descripción:</label>
                     <div>
-                        <asp:TextBox ID="txtDescripcion" CssClass="no-resize" BackColor="#999999" TextMode="MultiLine" Rows="4" Columns="40" runat="server" />
+                        <asp:TextBox ID="tbDescripcion" CssClass="no-resize" BackColor="#999999" TextMode="MultiLine" Rows="4" Columns="40" runat="server" />
                     </div>
 
                     <div class="form-row">
@@ -37,13 +37,18 @@
                         <div class="form-group">
                             <label for="materia" class="form-label">Materia:</label>
                             <div class="materia-container">
-                                <asp:TextBox ID="txtMateria" CssClass="materia-input" runat="server" Placeholder="Agrega o busca una materia..." />
+                                <asp:TextBox ID="tbMateria" CssClass="materia-input" runat="server" Placeholder="Agrega o busca una materia..." />
                                 <button type="button" class="materia-button add-button">+</button>
                                 <button type="button" class="materia-button search-button">🔍</button>
                             </div>
                         </div>
                     </div>
 
+                    <p>Visibilidad</p>
+                    <asp:CheckBox ID="cbVisibilidad" runat="server"/>
+                    <asp:FileUpload ID="imgMiniatura" runat="server" />
+
+                    <asp:Label ID="lblResultado"  runat="server"></asp:Label>
 
                     <div class="form-actions">
                         <asp:Button ID="btnGuardar" CssClass="form-button save" Text="Guardar" runat="server" OnClick="GuardarVideo" />
@@ -53,5 +58,7 @@
             </div>
         </div>
     </div>
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
 </asp:Content>
->>>>>>> 5b8015de1d83e2aa34be7bb2777afbc318842e9b

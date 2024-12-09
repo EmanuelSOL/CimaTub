@@ -49,12 +49,12 @@
             <div class="row">
                 <aside class="col-md-3 sidebar">
                     <h3>Filtrar por carrera</h3>
+                    
                     <ul class="sidebar" id="careerList">
                         <!-- Las carreras y materias se cargarán aquí dinámicamente -->
                     </ul>
-                </aside>
-        
                 <!-- Contenido principal -->
+                </aside>
                 <main class="col-md-9 py-4">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                 </main>

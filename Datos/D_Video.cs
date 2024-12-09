@@ -157,5 +157,78 @@ namespace Datos
 
             return videos;
         }
+
+        public E_Video BuscarVideoPorId(int idVideo)
+        {
+            E_Video video = null;
+            SqlCommand cmd = new SqlCommand("BuscarVideoPorId", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@IdVideo", idVideo);
+
+            try
+            {
+                AbrirConexion();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+
+                    video = new E_Video()
+                    {
+                        IdVideo = (int)reader["IdVideo"],
+                        IdUsuario = (int)reader["IdUsuario"],
+                        IdCarrera = (int)reader["IdCarrera"],
+                        IdMateria = (int)reader["IdMateria"],
+                        Titulo = (string)reader["Titulo"],
+                        Descripcion = (string)reader["Descripcion"],
+                        Url = (string)reader["Url"],
+                        Visitas = (int)reader["Visitas"],
+                        Miniatura = (byte[])reader["Miniatura"],
+                        Visibilidad = (bool)reader["Visibilidad"]
+                    };
+                    video.Img = video.getImg();
+                    video.Preview = video.getPreView();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+            return video;
+        }
+
+        public bool EditarVideo(E_Video video)
+        {
+            SqlCommand cmd = new SqlCommand("EditarVideo",connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@IdVideo", video.IdVideo);
+            cmd.Parameters.AddWithValue("@IdCarrera", video.IdCarrera);
+            cmd.Parameters.AddWithValue("@IdMateria", video.IdMateria);
+            cmd.Parameters.AddWithValue("@Titulo", video.Titulo);
+            cmd.Parameters.AddWithValue("@Descripcion", video.Descripcion);
+            cmd.Parameters.AddWithValue("@Miniatura", video.Miniatura);
+            cmd.Parameters.AddWithValue("@Visibilidad", video.Visibilidad);
+
+            try
+            {
+                AbrirConexion();
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+                return false;
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
     }
 }

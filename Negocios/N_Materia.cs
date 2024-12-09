@@ -48,5 +48,15 @@ namespace Negocios
 
             return msg;
         }
+
+        public E_Materia BuscarMateriaPorId(int idMateria)
+        {
+            return DM.BuscarMateriaPorId(idMateria);
+        }
+
+        public E_Materia BuscarMateriaPorNombre(string nombre)
+        {
+            return DM.BuscarMateriaPorNombre(nombre);
+        }
     }
 }

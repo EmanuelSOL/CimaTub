@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="cimatub_.Pantallas.Inicio" %>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="../Recursos/CSS/Login.css" rel="stylesheet" />
+    <link href="../Recursos/CSS/Inicio.css" rel="stylesheet" />
 
     <div class="container mt-4">
         <!-- Sección de videos destacados -->
@@ -15,14 +15,13 @@
                 </LayoutTemplate>
                 <ItemTemplate>
                     <div class="col-sm-6 col-md-3 mb-4">
-                        <a href="DetallesVideo.aspx?id=<%# Eval("VideoId") %>" class="d-block">
+                        <a href="DetallesVideo.aspx?id=<%# Eval("IdVideo") %>" class="d-block">
                             <div class="video-container">
-                                <img src='<%# Eval("ThumbnailUrl") %>' class="video-thumbnail" alt="Video Thumbnail">
+                                <img src='<%# Eval("Img") %>' class="video-thumbnail" alt="Video Thumbnail">
                             </div>
                         </a>
                         <div class="video-info">
-                            <h5 class="video-title"><%# Eval("Title") %></h5>
-                            <p class="video-channel">Canal: <%# Eval("Channel") %></p>
+                            <h5 class="video-title"><%# Eval("Titulo") %></h5>
                         </div>
                     </div>
                 </ItemTemplate>
@@ -40,14 +39,13 @@
                 </LayoutTemplate>
                 <ItemTemplate>
                     <div class="col-sm-6 col-md-3 mb-4">
-                        <a href="DetallesVideo.aspx?id=<%# Eval("VideoId") %>" class="d-block">
+                        <a href="DetallesVideo.aspx?id=<%# Eval("IdVideo") %>" class="d-block">
                             <div class="video-container">
-                                <img src='<%# Eval("ThumbnailUrl") %>' class="video-thumbnail" alt="Video Thumbnail">
+                                <img src='<%# Eval("Img") %>' class="video-thumbnail" alt="Video Thumbnail">
                             </div>
                         </a>
                         <div class="video-info">
-                            <h5 class="video-title"><%# Eval("Title") %></h5>
-                            <p class="video-channel">Canal: <%# Eval("Channel") %></p>
+                            <h5 class="video-title"><%# Eval("Titulo") %></h5>
                         </div>
                     </div>
                 </ItemTemplate>

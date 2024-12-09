@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using Negocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,7 +13,9 @@ namespace cimatub_
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-           
+           if (!IsPostBack)
+           {
+           }
         }
 
         protected void Buscar_Click(object sender, EventArgs e)

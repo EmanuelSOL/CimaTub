@@ -19,17 +19,19 @@ namespace Negocios
 {
     public class N_Video
     {
-        private D_Video ND;
+        private D_Video DV;
+        private D_Materia DM;
         public N_Video()
         {
-            ND = new D_Video();
+            DV = new D_Video();
+            DM = new D_Materia();
         }
     
         public string RegistrarVideo(E_Video video)
         {
             string msg = string.Empty;
 
-            if (!ND.InsertarVideo(video))
+            if (!DV.InsertarVideo(video))
             {
                 msg += "Error al insertar video";
             }
@@ -44,17 +46,17 @@ namespace Negocios
 
         public List<E_Video> ListarDestacados()
         {
-            return ND.ListarDestacados();
+            return DV.ListarDestacados();
         }
 
         public List<E_Video> FiltrarPorMateria(int idMateria)
         {
-            return ND.FiltrarPorMateria(idMateria);
+            return DV.FiltrarPorMateria(idMateria);
         }
 
         public List<E_Video> FiltrarPorCarrera(int idCarrera)
         {
-            return ND.FiltrarPorCarrera(idCarrera);
+            return DV.FiltrarPorCarrera(idCarrera);
         }
 
 
@@ -75,7 +77,28 @@ namespace Negocios
             return url;
         }
 
+        public E_Video BuscarVideoPorId(int idVideo)
+        {
+            return DV.BuscarVideoPorId(idVideo);
+        }
 
+        public string EditarVideo(E_Video video)
+        {
+            string msg = string.Empty;
+
+
+            if (!DV.EditarVideo(video))
+            {
+                msg += "Error al editar video\n";
+            }
+
+            if(msg ==  string.Empty)
+            {
+                msg += "Video editado correctamente\n";
+            }
+
+            return msg;
+        }
 
     }
 }

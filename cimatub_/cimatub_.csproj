@@ -98,6 +98,7 @@
     <Content Include="Pantallas\video.aspx" />
     <Content Include="Recursos\CSS\bootstrap.css" />
     <Content Include="Recursos\CSS\Estilos.css" />
+    <Content Include="Recursos\CSS\Historial.css" />
     <Content Include="Recursos\CSS\Inicio.css" />
     <Content Include="Recursos\CSS\Login.css" />
     <Content Include="Recursos\CSS\Perfil.css" />

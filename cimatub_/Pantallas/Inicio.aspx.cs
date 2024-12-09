@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Negocios;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -14,11 +15,11 @@ namespace cimatub_.Pantallas
         {
             if (!IsPostBack)
             {
-                // Cargar datos de prueba en los ListView
-                ListViewDestacados.DataSource = GetPlaceholderData(4); // 4 videos destacados
+                N_Video NC = new N_Video();
+                ListViewDestacados.DataSource = NC.ListarDestacados();
                 ListViewDestacados.DataBind();
 
-                ListViewRecomendados.DataSource = GetPlaceholderData(10); // 10 videos recomendados
+                ListViewRecomendados.DataSource = NC.ListarDestacados();
                 ListViewRecomendados.DataBind();
             }
         }
