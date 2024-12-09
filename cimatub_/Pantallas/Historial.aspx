@@ -3,7 +3,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-   <asp:Button ID="btnRegresar" runat="server" OnClick="Regresar" />
+    <a href="Inicio.aspx" style="text-decoration: none" class="regresar-btn" >&lt;Regresar</a>
 
    <asp:ListView ID="lstVideos" runat="server">
         <ItemTemplate>

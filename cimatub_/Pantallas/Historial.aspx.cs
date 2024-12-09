@@ -38,7 +38,7 @@ namespace cimatub_.Pantallas
 
             if (btn != null)
             {
-                Session["VerIdVideo"] = 23;
+                Session["VerIdVideo"] = int.Parse(btn.CommandArgument);
                 Response.Redirect("~/Pantallas/video.aspx");
             }
         }
