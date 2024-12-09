@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <link href="<%= ResolveUrl("~/recursos/CSS/Login.css") %>" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/recursos/CSS/Login.css?v=@DateTime.Now.Ticks") %>" rel="stylesheet" />
     <div id="login-container">
         <div class="strip_left">
             <div class="bicolor-strip-green"></div>

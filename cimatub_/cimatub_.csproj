@@ -102,6 +102,7 @@
     <Content Include="Recursos\CSS\Login.css" />
     <Content Include="Recursos\CSS\Perfil.css" />
     <Content Include="Recursos\CSS\PruebaBackend.aspx" />
+    <Content Include="Recursos\CSS\Reg.css" />
     <Content Include="Recursos\CSS\StyleSheet1.css" />
     <Content Include="Recursos\CSS\videos.css" />
     <Content Include="Recursos\Imagenes\camara.png" />
