@@ -70,6 +70,10 @@ namespace cimatub_.Pantallas
         {
             
         }
+        protected void RegistrarMateria(object sender, EventArgs e)
+        {
+
+        }
 
         //validar campos con asp
         protected void GuardarVideo(object sender, EventArgs e)

@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Pantallas\Editarr.aspx" />
+    <Content Include="Pantallas\Filtrado.aspx" />
     <Content Include="Pantallas\Historial.aspx" />
     <Content Include="Pantallas\Inicio.aspx" />
     <Content Include="Pantallas\Login.aspx" />
@@ -111,6 +112,7 @@
     <Content Include="Recursos\Imagenes\LOGOCIMATUBE2.png" />
     <Content Include="Recursos\Imagenes\logo.png" />
     <Content Include="Recursos\Imagenes\logo_CIMATUBE1.png" />
+    <Content Include="Recursos\Imagenes\miniatura.png" />
     <Content Include="Recursos\Imagenes\uabc_campus.png" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -137,6 +139,13 @@
     </Compile>
     <Compile Include="Pantallas\Editarr.aspx.designer.cs">
       <DependentUpon>Editarr.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Filtrado.aspx.cs">
+      <DependentUpon>Filtrado.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Filtrado.aspx.designer.cs">
+      <DependentUpon>Filtrado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Historial.aspx.cs">
       <DependentUpon>Historial.aspx</DependentUpon>

@@ -11,7 +11,6 @@ namespace cimatub_.Pantallas
 {
 
 
-
     public partial class video
     {
 
@@ -68,7 +67,6 @@ namespace cimatub_.Pantallas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Repeater RepeaterComments;
-
 
         /// <summary>
         /// Control txtNewComment.
