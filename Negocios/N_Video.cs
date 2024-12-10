@@ -114,5 +114,15 @@ namespace Negocios
         {
             return DV.ListarRecomendados(idUsuario);
         }
+
+        public List<E_Video> BuscarVideoPorTextoNoFiltro(string texto)
+        {
+            return DV.BuscarVideoPorTextoFiltro(texto,0,0);
+        }
+
+        public List<E_Video> BuscarVideoPorTextoFiltro(string texto,int idCarrera,int idMateria)
+        {
+            return DV.BuscarVideoPorTextoFiltro(texto,idCarrera,idMateria);
+        }
     }
 }
