@@ -336,6 +336,17 @@ body {
     font-weight: normal; /* Quitar el texto en negrita */
 }
 
+
+.checkBox {
+    display: flex;
+    width: 10px; 
+    height: 10px;
+    appearance: none; /* Sin estilos predeterminados */
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
 /* Estilo para los RadioButtons personalizados */
 input[type="radio"][id$="rbDocenteSi"],
 input[type="radio"][id$="rbDocenteNo"] {
@@ -376,3 +387,40 @@ input[type="radio"][id$="rbDocenteNo"] {
     #back-to-login:hover {
         color: #ddd; /* Un color claro al pasar el cursor */
     }
+
+
+.circle-container {
+    width: 100px; /* Establece el tamaño del círculo */
+    height: 100px; /* Asegúrate de que la altura sea igual para mantener la proporción */
+    border-radius: 50%; /* Hace que el contenedor sea circular */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que quede fuera del círculo */
+    position: relative; /* Necesario para posicionar la imagen dentro del contenedor */
+}
+
+.camera-icon {
+    width: 100%; /* La imagen ocupa todo el contenedor */
+    height: 100%; /* La imagen ocupa todo el contenedor */
+    object-fit: cover; /* Asegura que la imagen cubra el contenedor sin deformarse */
+    object-position: center; /* Centra la imagen dentro del contenedor */
+}
+
+
+
+#preview-container {
+    position: absolute;
+    cursor: pointer;
+    width: 120px;
+    height: 120px;
+    border-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.preview-image {
+    position: relative;
+    width:100%;
+    height:100%;
+
+}
