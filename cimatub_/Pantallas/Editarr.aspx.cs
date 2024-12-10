@@ -64,15 +64,21 @@ namespace cimatub_.Pantallas
             }
         }
 
-
-
-        protected void ddlCarrera_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
         protected void RegistrarMateria(object sender, EventArgs e)
         {
+            Debug.WriteLine("Registrando materia");
+            //usa la carrera que esta en el dropdown de carreras.
+            E_Materia materia = new E_Materia()
+            {
+                IdCarrera = int.Parse(ddlCarrera.SelectedValue),
+                Nombre = tbMateria.Text
+            };
 
+            N_Materia NM = new N_Materia();
+
+            string resultado = NM.InsertarMateria(materia);
+            Debug.WriteLine(resultado);
+            lblResultadoMateria.Text = resultado;
         }
 
         //validar campos con asp
@@ -140,6 +146,23 @@ namespace cimatub_.Pantallas
         protected void DescartarCambios(object sender, EventArgs e)
         {
             Response.Redirect("~/Pantallas/Inicio.aspx");
+        }
+
+        public void ddCarreraSelect(object sender, EventArgs e)
+        {
+            int selectedValue = int.Parse(ddlCarrera.SelectedValue);
+
+            N_Materia NM = new N_Materia();
+
+            ddlMateria.DataSource = NM.ListarMateriasPorIdCarrera(selectedValue);
+            ddlMateria.DataValueField = "IdMateria";
+            ddlMateria.DataTextField = "Nombre";
+            ddlMateria.DataBind();
+        }
+
+        public void ddMateriaSelect(object sender, EventArgs e)
+        {
+            tbMateria.Text = ddlMateria.SelectedItem.Text;
         }
     }
 }

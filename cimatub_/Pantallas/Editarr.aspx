@@ -3,6 +3,8 @@
 
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Recursos/CSS/editarr.css" rel="stylesheet" />
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
 
     <div class="video-container">
 
@@ -35,28 +37,37 @@
                         <asp:TextBox ID="tbDescripcion" CssClass="texto"  TextMode="MultiLine" Rows="4" Columns="40" runat="server" />
                     </div>
 
-                    <div class="form-row">
-                        <!-- Sección de Carrera -->
-                        <div class="form-group carrera-section">
-                            <label for="carrera" class="labels">Carrera:</label>
-                            <asp:DropDownList ID="ddlCarrera" CssClass="carrerasss" runat="server" AutoPostBack="false" />
-                        </div>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>
+                        <div class="form-row">
+                            <!-- Sección de Carrera -->
+                            <div class="form-group carrera-section">
+                                <label for="carrera" class="labels">Carrera:</label>
+                                <asp:DropDownList ID="ddlCarrera" CssClass="carrerasss" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddCarreraSelect" />
+                            </div>
 
-                        <!-- Sección de Materia -->
-                        <div class="form-group materia-section">
-                            <label for="materia" class="labels">Materia:</label>
-                            <div class="materias-container">
-                                <asp:TextBox ID="tbMateria" CssClass="materias-textbox" runat="server" Placeholder="Agrega o busca una materia..." />
-                                <asp:Button ID="btnRegMateria" runat="server" OnClick="RegistrarMateria" class="materia-button add-button" Text="+"/>
-                                <button type="button" class="btn materia-button" onclick="toggleDropdown()">🔍</button>
-                            </div>
-                            <div id="dropdownMaterias" class="materia-button" style="display: none;">
-                                <asp:DropDownList CssClass="materiassss" runat="server" AutoPostBack="true">
-                                    <asp:ListItem ID="ddMaterias" Text="Selecciona una materia" Value="" />
-                                </asp:DropDownList>
+                            <!-- Sección de Materia -->
+                            <div class="form-group materia-section">
+                                <label for="materia" class="labels">Materia:</label>
+                                <div class="materias-container">
+                                    <asp:TextBox ID="tbMateria" CssClass="materias-textbox" runat="server" Placeholder="Agrega o busca una materia..." />
+                                    <asp:Button ID="btnRegMateria" runat="server" OnClick="RegistrarMateria" class="materia-button add-button" Text="+"/>
+                                    <button type="button" class="btn materia-button" onclick="toggleDropdown()">🔍</button>
+                                </div>
+                                <div id="dropdownMaterias" class="materia-button" style="display: none;">
+                                    <asp:DropDownList ID="ddlMateria" CssClass="materiassss" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddMateriaSelect" />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <asp:Label ID="lblResultadoMateria" runat="server"></asp:Label>
+
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnRegMateria" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="ddlMateria" EventName="SelectedIndexChanged" />
+                        <asp:AsyncPostBackTrigger ControlID="ddlCarrera" EventName="SelectedIndexChanged" />
+                    </Triggers>
+                </asp:UpdatePanel>
                     
                     <asp:CheckBox text="Visibilidad = " TextAlign="Left" ID="cbVisibilidad" runat="server" />
 
@@ -66,7 +77,6 @@
                     <!-- Vista previa de la imagen seleccionada -->
                     <asp:Image ID="imagenVistaPrevia" runat="server" style="display:none; width: 100px; height: 100px; margin-top: 10px;" />
 
-                    <asp:Label ID="lblResultado" runat="server"></asp:Label>
 
                     <div class="form-actions">
                         <asp:Button ID="btnGuardar" CssClass="opciones save" Text="Guardar" runat="server" OnClick="GuardarVideo" />
@@ -77,7 +87,6 @@
         </div>
     </div>
 
-    <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
     <script>
         // Función para mostrar la vista previa de la imagen seleccionada
