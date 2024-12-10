@@ -45,11 +45,10 @@ namespace cimatub_.Pantallas
         {
             Response.Redirect("~/Pantallas/Historial.aspx");
         }
-        protected void CerrarSesion(object sender, EventArgs e)
+        protected void Logout(object sender, EventArgs e)
         {
             Session["IdUsuario"] = null;
-            Response.Redirect("~/Pantallas/Register.aspx");
-
+            Response.Redirect("~/Pantallas/Login.aspx");
         }
     }
 }

@@ -120,20 +120,24 @@
     right: 12%;
 }
 
-    .options button {
+    .options .history {
         padding: 10px 20px;
         border: none;
         border-radius: 5px;
         cursor: pointer;
         margin-right: 10px;
-    }
-
-    .options .history {
         background-color: #555;
         color: #fff;
     }
 
+
     .options .logout {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-right: 10px;
+
         background-color: #b00;
         color: #fff;
         margin-left: 50px;

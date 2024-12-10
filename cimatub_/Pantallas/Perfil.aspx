@@ -1,7 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MP/General.Master" AutoEventWireup="true" CodeBehind="Perfil.aspx.cs" Inherits="cimatub_.Pantallas.Perfil" %>
 
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
-
     <link href="../Recursos/CSS/Perfilpro.css" rel="stylesheet" />
     <div class="main-content">
         <div class="header">
@@ -27,8 +26,8 @@
         </div>
         <h5 class="main-content h5">Opciones</h5>
         <div class="options">
-            <button class="history">Ver mi historial de videos</button>
-            <button class="logout">Cerrar Sesion</button>
+            <asp:Button ID="btnHistory" runat="server" CssClass="history" Text="Ver mi historial de videos"  OnClick="VerHistorial"/>
+            <asp:Button ID="btnLogout" runat="server" CssClass="logout" Text="Cerrar Sesion"  OnClick="Logout"/>
         </div>
     </div>
 
