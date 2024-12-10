@@ -87,6 +87,7 @@
     <Compile Include="GoogleDriveService.cs" />
     <Compile Include="N_Alumno.cs" />
     <Compile Include="N_Carrera.cs" />
+    <Compile Include="N_Comentario.cs" />
     <Compile Include="N_HistorialReproduccion.cs" />
     <Compile Include="N_Materia.cs" />
     <Compile Include="N_Reaccion.cs" />

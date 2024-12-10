@@ -77,34 +77,45 @@
 
                 <!-- Sección de Comentarios -->
                 <div class="comments">
+                        <asp:UpdatePanel ID="UpdatePanel2" runat="server">
+                            <ContentTemplate>
+                                  <asp:Repeater ID="rptComments" runat="server">
+                                      <ItemTemplate>
+                                          <div class="comment">
+                                              <div class="comment-header">
+                                                  <p class="comment-user-name"><%# Eval("Nombre") %></p>
+                                              </div>
+                                              <p class="comment-text"><%# Eval("Contenido") %></p>
+                                          </div>
+                                      </ItemTemplate>
+                                  </asp:Repeater>
 
-                    <asp:Repeater ID="rptComments" runat="server">
-                        <ItemTemplate>
-                            <div class="comment">
-                                <div class="comment-header">
-                                    <p class="comment-user-name"><%# Eval("Nombre") %></p>
-                                </div>
-                                <p class="comment-text"><%# Eval("Contenido") %></p>
-                            </div>
-                        </ItemTemplate>
-                    </asp:Repeater>
 
-
-                    <!-- Formulario para nuevo comentario -->
-                    <div class="barrabusqueda">
-                        <!-- Barra de búsqueda -->
-                        <asp:TextBox ID="TextoBuscar" runat="server" CssClass="search-bar" placeholder="Comentar..."></asp:TextBox>
+                                  <!-- Formulario para nuevo comentario -->
+                                <asp:Panel ID="pnlComentar" runat="server">
+                                    <div class="barrabusqueda">
+                                        <!-- Barra de búsqueda -->
+                                        <asp:TextBox ID="tbComentario" runat="server" CssClass="search-bar" placeholder="Comentar..."></asp:TextBox>
     
-                        <!-- Separador -->
-                        <span class="auth-separator">|</span>
-                        <asp:ImageButton 
-                            ID="enviar" 
-                            runat="server"
-                            ImageUrl="https://img.icons8.com/?size=100&id=12582&format=png&color=FFFFFF" 
-                            CssClass="send-btn"
-                            OnClick="Comentar"/>
-                        <!-- Botón para cancelar -->
-                    </div>
+                                        <!-- Separador -->
+                                        <span class="auth-separator">|</span>
+                                        <asp:ImageButton 
+                                            ID="btnEnviar" 
+                                            runat="server"
+                                            ImageUrl="https://img.icons8.com/?size=100&id=12582&format=png&color=FFFFFF" 
+                                            CssClass="send-btn"
+                                            OnClick="Comentar"/>
+                                        <!-- Botón para cancelar -->
+                                    </div>
+                                </asp:Panel>
+                                  
+                            </ContentTemplate>
+                            <Triggers>
+                                <asp:AsyncPostBackTrigger ControlID="btnEnviar" EventName="Click"/>
+                            </Triggers>
+                    </asp:UpdatePanel>
+
+                  
 
                 </div>
             </div>

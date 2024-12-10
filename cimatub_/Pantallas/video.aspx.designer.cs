@@ -69,6 +69,15 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.Button btnDislike;
 
         /// <summary>
+        /// Control UpdatePanel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel2;
+
+        /// <summary>
         /// Control rptComments.
         /// </summary>
         /// <remarks>
@@ -78,21 +87,30 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.Repeater rptComments;
 
         /// <summary>
-        /// Control TextoBuscar.
+        /// Control pnlComentar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextoBuscar;
+        protected global::System.Web.UI.WebControls.Panel pnlComentar;
 
         /// <summary>
-        /// Control enviar.
+        /// Control tbComentario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton enviar;
+        protected global::System.Web.UI.WebControls.TextBox tbComentario;
+
+        /// <summary>
+        /// Control btnEnviar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton btnEnviar;
     }
 }
