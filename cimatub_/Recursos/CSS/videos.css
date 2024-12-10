@@ -42,6 +42,8 @@ body {
 .left-column {
     flex: 2;
     margin-right: 100px;
+    flex-direction: column; /* Coloca los elementos en columnas */
+    gap: 40px; /* Espaciado entre las secciones */
 }
 
 .video-placeholder {
@@ -129,6 +131,8 @@ body {
 
     .left-column,
     .right-column {
+        flex: 2;
+        margin-right: 100px;
         margin-right: 0;
         width: 100%; /* Asegura que ocupen todo el ancho disponible */
     }
@@ -157,28 +161,7 @@ body {
 
 
 .like {
-    background-color: #444; /* Fondo del botón */
-    background-image: url("/recursos/imagenes/feliz.png"); /* Ruta a la imagen */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
-    background-position: left center; /* Posiciona la imagen a la izquierda y centrada verticalmente */
-    background-size: 35px 35px; /* Tamaño de la imagen */
-    padding-left: 40px; /* Añade espacio para que el texto no se superponga con la imagen */
-    text-align: left; /* Alinea el texto */
-    color: #ffffff; /* Color del texto */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 20px;
-}
-
-.dislike {
-    background-color: #444; /* Fondo del botón */
-    background-image: url("/recursos/imagenes/triste.png"); /* Ruta a la imagen */
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-size: 35px 35px;
-    padding-left: 40px;
-    text-align: left;
+    background-color: #444;
     color: #ffffff;
     border: none;
     border-radius: 5px;
@@ -186,13 +169,33 @@ body {
     font-size: 20px;
 }
 
+.dislike {
+    background-color: #444;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
 
+/* Hover */
 .like:hover {
     background-color: #4caf50;
 }
 
 .dislike:hover {
     background-color: #f44336;
+}
+
+/* Estado activo */
+.btn-like-active {
+    background-color: #4caf50; /* Verde para like */
+    color: #ffffff;
+}
+
+.btn-dislike-active {
+    background-color: #f44336; /* Rojo para dislike */
+    color: #ffffff;
 }
 
 
@@ -643,4 +646,73 @@ body {
     height: 40px;
     border: none;
     cursor: pointer;
+}
+
+/* Estilo para el botón */
+#subir-logo {
+    width: 450px; /* Ancho del botón */
+    height: 250px; /* Alto del botón */
+    background-color: #4a4a4a; /* Fondo transparente */
+    border: none; /* Sin borde */
+    display: flex; /* Flexbox para centrar contenido */
+    align-items: center; /* Centrar verticalmente */
+    justify-content: center; /* Centrar horizontalmente */
+    cursor: pointer; /* Cambiar cursor a pointer */
+    margin: 20px auto; /* Centrar en el contenedor */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra */
+    transition: transform 0.2s ease, background-color 0.3s ease; /* Animación */
+}
+
+    /* Efecto hover */
+    #subir-logo:hover {
+        transform: scale(1.1); /* Ampliar ligeramente */
+    }
+
+/* Contenedor de vista previa */
+#preview-container.subir {
+    width: 100%; /* Hacer que el contenedor ocupe todo el espacio del botón */
+    height: 100%; /* Igualar al tamaño del botón */
+
+    overflow: hidden; /* Ocultar contenido fuera del borde */
+    display: flex; /* Centrar imagen */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Imagen de vista previa */
+.preview-image {
+    width: 250px; /* Ajustar al ancho del contenedor */
+    height: 250px; /* Ajustar al alto del contenedor */
+    object-fit: cover; /* Ajustar la imagen sin distorsión */
+}
+
+#miniatura {
+    position: relative;
+    width: 100%;
+    max-width: 150px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4a4a4a;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px;
+    left: 73px;
+    top: 0;
+}
+
+#imagenVistaPrevia {
+    max-width: 150px; /* Ajusta el tamaño máximo de la miniatura */
+    max-height: 150px; /* Ajusta el tamaño máximo de la miniatura */
+    display: block; /* Asegura que se muestre como bloque */
+    margin-top: 10px; /* Espacio superior */
+}
+
+.estado-video-label {
+    font-size: 16px;
+    color: #ffffff;
+    margin-top: 10px;
+    font-weight: bold;
 }

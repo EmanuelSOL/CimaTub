@@ -35,6 +35,7 @@ namespace cimatub_.Pantallas
 
             if (!IsPostBack)
             {
+                btnLike.CssClass = "btn like btn-like-active";
                 int idVideo = (int)Session["VerIdVideo"];
                 
                 N_Video NV = new N_Video();
