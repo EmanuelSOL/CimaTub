@@ -109,5 +109,10 @@ namespace Negocios
         {
             DV.IncrementarVisitas(idVideo);
         }
+
+        public List<E_Video> ListarRecomendados(int idUsuario)
+        {
+            return DV.ListarRecomendados(idUsuario);
+        }
     }
 }

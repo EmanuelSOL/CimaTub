@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
 using System.Diagnostics;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Datos
 {
@@ -289,6 +290,49 @@ namespace Datos
             {
                 CerrarConexion();
             }
+        }
+
+        public List<E_Video> ListarRecomendados(int idUsuario)
+        {
+            List<E_Video> videos = new List<E_Video>();
+            SqlCommand cmd = new SqlCommand("ListarVideosRecomendados", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+            try
+            {
+                AbrirConexion();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    E_Video video = new E_Video()
+                    {
+                        IdVideo = (int)reader["IdVideo"],
+                        IdUsuario = (int)reader["IdUsuario"],
+                        IdCarrera = (int)reader["IdCarrera"],
+                        IdMateria = (int)reader["IdMateria"],
+                        Titulo = (string)reader["Titulo"],
+                        Descripcion = (string)reader["Descripcion"],
+                        Url = (string)reader["Url"],
+                        Visitas = (int)reader["Visitas"],
+                        Miniatura = (byte[])reader["Miniatura"],
+                        Visibilidad = (bool)reader["Visibilidad"]
+                    };
+                    video.Img = video.getImg();
+                    video.Preview = video.getPreView();
+                    videos.Add(video);
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+            return videos;
         }
     }
 }

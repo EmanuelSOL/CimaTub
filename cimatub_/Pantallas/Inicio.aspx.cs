@@ -19,7 +19,7 @@ namespace cimatub_.Pantallas
                 ListViewDestacados.DataSource = NC.ListarDestacados();
                 ListViewDestacados.DataBind();
 
-                ListViewRecomendados.DataSource = NC.ListarDestacados();
+                ListViewRecomendados.DataSource = NC.ListarHistorial();
                 ListViewRecomendados.DataBind();
             }
         }
