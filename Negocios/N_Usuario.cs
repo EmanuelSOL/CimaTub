@@ -14,7 +14,7 @@ namespace Negocios
     public class N_Usuario
     {
         private D_Usuario DU;
-        public N_Usuario() 
+        public N_Usuario()
         {
             DU = new D_Usuario();
         }
@@ -35,10 +35,10 @@ namespace Negocios
 
             //no implementado
             usuario.Contrasena = EncryptPassword(usuario.Contrasena);
-            
+
 
             //podemos aplicar expresion regular de ser necesario
-            if (string.IsNullOrEmpty(usuario.Correo) || !usuario.Correo.EndsWith("@uabc.edu.mx")) 
+            if (string.IsNullOrEmpty(usuario.Correo) || !usuario.Correo.EndsWith("@uabc.edu.mx"))
             {
                 msg += "Correo invalido\n";
             }
@@ -53,7 +53,7 @@ namespace Negocios
                 msg += "Error al registrar usuario\n";
             }
 
-            if (msg == string.Empty) 
+            if (msg == string.Empty)
             {
                 msg = "Usuario registrado\n";
             }
@@ -73,7 +73,7 @@ namespace Negocios
                 msg += "Correo requerido\n";
             }
 
-            if(string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(password))
             {
                 msg += "Contraseña requerida\n";
             }
@@ -101,7 +101,7 @@ namespace Negocios
         //deberiamos encriptar contraseña aqui
         public string EncryptPassword(string password)
         {
-            
+
             string hashedPassword = BCrypt.Net.BCrypt.HashPassword(password);
             Debug.WriteLine(hashedPassword);
 
@@ -114,9 +114,14 @@ namespace Negocios
             return BCrypt.Net.BCrypt.Verify(password, encrypted_password);
         }
 
-        public E_Usuario BuscarUsuarioPorCorreo(string mail) 
+        public E_Usuario BuscarUsuarioPorCorreo(string mail)
         {
             return DU.BuscarUsuarioPorCorreo(mail);
+        }
+
+        public E_Usuario BuscarUsuarioPorId(int idUsuario)
+        {
+            return DU.BuscarUsuarioPorId(idUsuario);
         }
     }
 }

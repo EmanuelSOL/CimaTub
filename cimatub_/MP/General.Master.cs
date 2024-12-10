@@ -47,8 +47,15 @@ namespace cimatub_
                 careerList.DataSource = strCarreras;
                 careerList.DataBind();
             }
-            if (Session["Usuario"] != null) // Suponiendo que "Usuario" es la clave de sesión
+            if (Session["IdUsuario"] != null) // Suponiendo que "Usuario" es la clave de sesión
             {
+                int idUsuario =(int)Session["IdUsuario"];
+                N_Usuario NU = new N_Usuario();
+                E_Usuario usuario = NU.BuscarUsuarioPorId(idUsuario);
+                if(usuario != null)
+                {
+                    userImg.ImageUrl = usuario.getImg(); 
+                }
                 // Mostrar div de usuario autenticado
                 sincuenta.Visible = false;
                 concuenta.Visible = true;
@@ -81,12 +88,18 @@ namespace cimatub_
 
         protected void Registrar(object sender, EventArgs e)
         {
-
+            Response.Redirect("Register.aspx");
         }
 
         protected void CerrarSesionn(object sender, EventArgs e)
         {
+            Session["IdUsuario"] = null;
+            Response.Redirect("Login.aspx");
+        }
 
+        protected void VerPerfil(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil.aspx");
         }
     }
 

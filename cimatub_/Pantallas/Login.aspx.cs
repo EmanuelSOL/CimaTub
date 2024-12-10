@@ -7,6 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 
 using Entidades;
+using System.Diagnostics;
 
 namespace cimatub_.Pantallas
 {
@@ -29,6 +30,7 @@ namespace cimatub_.Pantallas
 
                 if(usuario != null)
                 {
+                    Debug.WriteLine(usuario.IdUsuario);
                     Session["IdUsuario"] = usuario.IdUsuario;
                     Response.Redirect("~/Pantallas/Inicio.aspx");
                 }

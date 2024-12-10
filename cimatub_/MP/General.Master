@@ -34,7 +34,7 @@
                 </div>
 
                 <div class="auth-buttons-group" id="concuenta" runat="server" Visible="false">
-                    <img id="user-photo" src="<%= ResolveUrl("~/recursos/imagenes/logo_CIMATUBE1.png") %>" alt="Foto de usuario" class="user-photo" />
+                    <asp:ImageButton ID="userImg" runat="server" OnClick="VerPerfil" CssClass="user-photo" />
                     <span id="Span1" runat="server"></span>
                     <asp:Button ID="CerrarSesion" runat="server" Text="Cerrar Sesión" CssClass="auth-buttons" OnClick="CerrarSesionn" />
                 </div>
