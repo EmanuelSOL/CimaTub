@@ -56,6 +56,7 @@
                                     <!-- Nombre de la carrera con funcionalidad de toggle -->
                                     <span class="career-name" onclick="toggleSubjects(this)">
                                         <%# Eval("CarreraNombre") %>
+                                        <span class="toggle">&#9660;</span> <!-- Triángulo hacia abajo -->
                                     </span>
                                     <!-- Lista de materias que se oculta/muestra -->
                                     <ul class="subjects-list hidden">
@@ -67,6 +68,7 @@
                                     </ul>
                                 </li>
                             </ul>
+
                             <hr class="career-divider" />
                         </ItemTemplate>
                     </asp:Repeater>
@@ -111,10 +113,20 @@
         });
     });
     function toggleSubjects(element) {
-        // Encontrar la lista de materias asociada
-        var subjectsList = element.nextElementSibling;
-        subjectsList.classList.toggle('hidden');
+        var subjectList = element.nextElementSibling; // La lista de materias
+        var toggleIcon = element.querySelector('.toggle'); // El icono del triángulo
+
+        // Alternar la visibilidad de la lista de materias
+        subjectList.classList.toggle('hidden');
+
+        // Alternar la visibilidad del triángulo
+        if (subjectList.classList.contains('hidden')) {
+            toggleIcon.style.visibility = 'hidden'; // Ocultar el triángulo cuando está cerrado
+        } else {
+            toggleIcon.style.visibility = 'visible'; // Mostrar el triángulo cuando está abierto
+        }
     }
+
 </script>
 
 

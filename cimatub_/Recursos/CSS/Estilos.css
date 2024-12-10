@@ -189,8 +189,13 @@ main {
 .toggle {
     font-size: 12px;
     margin-left: 5px;
+    visibility: hidden; /* Por defecto el triángulo está oculto */
 }
 
+.subjects-list.show + .career-name .toggle {
+    visibility: visible; /* Mostrar cuando la lista está abierta */
+    transform: rotate(180deg); /* Girar el triángulo hacia arriba */
+}
 .career-divider {
     border: none;
     border-top: 2px solid #7c7c7c; 
