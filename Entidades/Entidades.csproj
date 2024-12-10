@@ -51,6 +51,7 @@
     <Compile Include="E_Comentario.cs" />
     <Compile Include="E_Materia.cs" />
     <Compile Include="E_Reaccion.cs" />
+    <Compile Include="E_TipoUsuario.cs" />
     <Compile Include="E_Usuario.cs" />
     <Compile Include="E_Video.cs" />
     <Compile Include="E_HistorialReproduccion.cs" />

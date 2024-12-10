@@ -73,6 +73,7 @@
     <Compile Include="D_HistorialReproduccion.cs" />
     <Compile Include="D_Materia.cs" />
     <Compile Include="D_Reaccion.cs" />
+    <Compile Include="D_TipoUsuario.cs" />
     <Compile Include="D_Usuario.cs" />
     <Compile Include="D_Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

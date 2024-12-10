@@ -90,6 +90,7 @@
     <Compile Include="N_HistorialReproduccion.cs" />
     <Compile Include="N_Materia.cs" />
     <Compile Include="N_Reaccion.cs" />
+    <Compile Include="N_TipoUsuario.cs" />
     <Compile Include="N_Usuario.cs" />
     <Compile Include="N_Video.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
