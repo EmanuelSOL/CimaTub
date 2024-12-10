@@ -54,7 +54,7 @@
                             <ul class="sidebar">
                                 <li class="career-item">
                                     <span class="career-name">
-                                        <%# Eval("CarreraNombre") %> <span class="toggle">▼</span>
+                                        <%# Eval("CarreraNombre") %> <span class="toggle"></span>
                                     </span>
                                     <ul class="subjects-list">
                                         <asp:Repeater ID="materia" runat="server" DataSource='<%# Eval("Materias") %>'>
