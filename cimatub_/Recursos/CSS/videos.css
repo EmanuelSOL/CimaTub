@@ -41,7 +41,7 @@ body {
 
 .left-column {
     flex: 2;
-    margin-right: 20px;
+    margin-right: 100px;
 }
 
 .video-placeholder {
@@ -55,8 +55,9 @@ body {
 
 .video-wrapper {
     position: relative;
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio (9/16 * 100) */
+    width: 980px;
+    height: 500px; /* Altura fija */
+    margin: 0 auto; /* Centrar el video horizontalmente */
 }
 
     .video-wrapper iframe {
@@ -69,9 +70,11 @@ body {
 
 .video-info {
     margin-top: 20px;
-    background-color: #2a2a2a;
+    background-color: transparent;
     padding: 15px;
     border-radius: 10px;
+    margin-left: 32px;
+    width: 912px;
 }
 
 .video-header {
@@ -105,14 +108,34 @@ body {
     font-size: 16px;
     line-height: 1.5;
 }
-
+/* Columna derecha (feedback y comentarios) */
 .right-column {
-    position: fixed; /* Hace que el contenedor esté fijo en la pantalla */
-    right: 80px; /* Pegado al lado derecho de la pantalla */
-    flex: 2;
+    flex: 1;
+    min-width: 400px; /* Ancho mínimo */
+    max-width: 400px; /* Ancho máximo */
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: transparent;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+    .main-layout {
+        flex-direction: column; /* Apila las columnas verticalmente */
+    }
+
+    .left-column,
+    .right-column {
+        margin-right: 0;
+        width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    }
+
+    .video-wrapper {
+        height: auto; /* Ajusta automáticamente la altura */
+    }
 }
 
 .feedback {
@@ -127,30 +150,54 @@ body {
 
 .buttons {
     display: flex;
+    flex-direction: column; /* Cambiar orientación a vertical */
     gap: 10px;
 }
 
-.like, .dislike {
-    flex: 1;
-    background-color: #444;
-    color: #e0e0e0;
+
+
+.like {
+    background-color: #444; /* Fondo del botón */
+    background-image: url("/recursos/imagenes/feliz.png"); /* Ruta a la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-position: left center; /* Posiciona la imagen a la izquierda y centrada verticalmente */
+    background-size: 35px 35px; /* Tamaño de la imagen */
+    padding-left: 40px; /* Añade espacio para que el texto no se superponga con la imagen */
+    text-align: left; /* Alinea el texto */
+    color: #ffffff; /* Color del texto */
     border: none;
-    padding: 10px;
-    cursor: pointer;
     border-radius: 5px;
-    text-align: center;
+    cursor: pointer;
+    font-size: 20px;
 }
 
-    .like:hover {
-        background-color: #4caf50;
-    }
+.dislike {
+    background-color: #444; /* Fondo del botón */
+    background-image: url("/recursos/imagenes/triste.png"); /* Ruta a la imagen */
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: 35px 35px;
+    padding-left: 40px;
+    text-align: left;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+}
 
-    .dislike:hover {
-        background-color: #f44336;
-    }
+
+.like:hover {
+    background-color: #4caf50;
+}
+
+.dislike:hover {
+    background-color: #f44336;
+}
+
 
 .comments {
-    background-color: #2a2a2a;
+    background-color: transparent;
     padding: 15px;
     border-radius: 10px;
 }
@@ -195,7 +242,7 @@ body {
 }
 
 .comment-box {
-    background-color: #444;
+    background-color: transparent;
     border: none;
     padding: 10px;
     color: #e0e0e0;
@@ -235,7 +282,7 @@ body {
 }
 
 .feedback {
-    background-color: #2a2a2a;
+    background-color: transparent;
     padding: 15px;
     border-radius: 10px;
 }
@@ -249,27 +296,11 @@ body {
     gap: 10px;
 }
 
-.like, .dislike {
-    flex: 1;
-    background-color: #444;
-    color: #e0e0e0;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
-}
 
-    .like:hover {
-        background-color: #4caf50;
-    }
 
-    .dislike:hover {
-        background-color: #f44336;
-    }
 
 .comments {
-    background-color: #2a2a2a;
+    background-color: transparent;
     padding: 15px;
     border-radius: 10px;
 }
@@ -534,3 +565,82 @@ body {
     .opciones:hover {
         background-color: #555;
     }
+
+.career-divider {
+    border: none;
+    border-top: 2px solid #7c7c7c;
+    margin: 15px 0;
+}
+
+.contenedor-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+    padding: 10px;
+    gap: 10px;
+    background-color: none;
+    border-radius: 8px;
+}
+
+    .contenedor-principal .elemento {
+        padding: 5px 10px;
+        background-color: none;
+        color: white;
+        border-radius: 5px;
+        border: 1px solid #555;
+        font-size: 14px;
+    }
+
+.barrabusqueda {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: #4a4a4a;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
+}
+
+.search-bar {
+    flex: 1;
+    max-width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #4a4a4a;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 10px;
+}
+
+    .search-bar::placeholder {
+        color: #888;
+        opacity: 1;
+    }
+
+.search-bt {
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: #4a4a4a;
+    cursor: pointer;
+}
+
+
+.send-btn {
+    background-color: #4a4a4a;
+    background-image: url("/recursos/imagenes/send.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 35px 35px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}

@@ -269,5 +269,27 @@ namespace Datos
             }
             return videos;
         }
+
+        public void IncrementarVisitas(int idVideo)
+        {
+            SqlCommand cmd = new SqlCommand("IncrementarVisitas", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@IdVideo", idVideo);
+
+            try
+            {
+                AbrirConexion();
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+        }
     }
 }

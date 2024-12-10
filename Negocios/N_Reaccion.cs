@@ -31,5 +31,15 @@ namespace Negocios
                 Debug.WriteLine("Eror al insertar reaccion\n");
             }
         }
+
+        public int ContarLikes(int idVideo)
+        {
+            return DR.ContarLikes(idVideo);
+        }
+
+        public int ContarDislikes(int idVideo) 
+        {
+            return DR.ContarDislikes(idVideo);    
+        }
     }
 }

@@ -19,21 +19,23 @@ namespace cimatub_.Pantallas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                Response.Redirect("~/Pantallas/Login.aspx");
+            }
+
             if (!IsPostBack)
             {
-                //este usuario sera el que se usa en toda la pagina
-                Session["IdUsuario"] = 3;
-
-                //este id video sera obtenido pulsar boton de editar video
-                Session["IdVideo"] = 23;
-
+                if (Session["VerIdVideo"] == null)
+                {
+                    Response.Redirect("~/Pantallas/Inicio.aspx");
+                }
 
                 int idUsuario = (int)Session["IdUsuario"];
-                int idVideo = (int)Session["IdVideo"];
+                int idVideo = (int)Session["VerIdVideo"];
 
                 N_Video NV = new N_Video();
                 E_Video video = NV.BuscarVideoPorId(idVideo);
-
 
                 if (video == null || idUsuario != video.IdUsuario)
                 {

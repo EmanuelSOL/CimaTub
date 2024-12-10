@@ -17,7 +17,10 @@ namespace cimatub_.Pantallas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                Session["IdUsuario"] = null;
+            }
         }
         protected void login(object sender, EventArgs e)
         {

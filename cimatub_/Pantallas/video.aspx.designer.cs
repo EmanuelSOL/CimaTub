@@ -15,6 +15,15 @@ namespace cimatub_.Pantallas
     {
 
         /// <summary>
+        /// Control ScriptManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager ScriptManager1;
+
+        /// <summary>
         /// Control btnRegresar.
         /// </summary>
         /// <remarks>
@@ -22,6 +31,24 @@ namespace cimatub_.Pantallas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnRegresar;
+
+        /// <summary>
+        /// Control btnEditar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnEditar;
+
+        /// <summary>
+        /// Control UpdatePanel1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel UpdatePanel1;
 
         /// <summary>
         /// Control btnLike.
@@ -33,15 +60,6 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.Button btnLike;
 
         /// <summary>
-        /// Control lblLikesCount.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblLikesCount;
-
-        /// <summary>
         /// Control btnDislike.
         /// </summary>
         /// <remarks>
@@ -51,39 +69,30 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.Button btnDislike;
 
         /// <summary>
-        /// Control lblDislikesCount.
+        /// Control rptComments.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDislikesCount;
+        protected global::System.Web.UI.WebControls.Repeater rptComments;
 
         /// <summary>
-        /// Control RepeaterComments.
+        /// Control TextoBuscar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater RepeaterComments;
+        protected global::System.Web.UI.WebControls.TextBox TextoBuscar;
 
         /// <summary>
-        /// Control txtNewComment.
+        /// Control enviar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNewComment;
-
-        /// <summary>
-        /// Control btnSubmitComment.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSubmitComment;
+        protected global::System.Web.UI.WebControls.ImageButton enviar;
     }
 }

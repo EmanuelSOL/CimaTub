@@ -104,5 +104,10 @@ namespace Negocios
         {
             return DV.ListarVideosHistorial(idUsuario);
         }
+
+        public void IncrementarVisitas(int idVideo)
+        {
+            DV.IncrementarVisitas(idVideo);
+        }
     }
 }

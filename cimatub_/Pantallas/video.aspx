@@ -4,6 +4,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link href="<%= ResolveUrl("~/recursos/CSS/videos.css") %>" rel="stylesheet" />
+
+    <asp:ScriptManager ID="ScriptManager1" runat="server" />
+
     <div class="video-container">
         
         <!-- Botón Regresar -->
@@ -33,40 +36,76 @@
                 </div>
             </div>
 
+                
+      
+                
+
             <!-- Columna derecha: Feedback y comentarios -->
             <div class="right-column">
-                <!-- Feedback del usuario -->
-                <div class="feedback">
-                    <h3>¿Qué te pareció el video?</h3>
-                    <div class="buttons">
-                        <asp:Button ID="btnLike" CssClass="like" runat="server" Text="Me gustó" OnClick="btnLike_Click" />
-                        <asp:Label ID="lblLikesCount" runat="server" Text="<%# LikesCount %>"></asp:Label>
+                <asp:Button ID="btnEditar" runat="server" OnClick="Editar" width="100px"/>
 
-                        <asp:Button ID="btnDislike" CssClass="dislike" runat="server" Text="No me gustó" OnClick="btnDislike_Click" />
-                        <asp:Label ID="lblDislikesCount" runat="server" Text="<%# DislikesCount %>"></asp:Label>
-                    </div>
+               <div class="feedback">
+
+
+                    <h3>¿Qué te pareció el video?</h3>
+                    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                        <ContentTemplate>
+                            <div class="buttons">
+                                <asp:Button 
+                                    ID="btnLike" 
+                                    CssClass="btn like" 
+                                    runat="server" 
+                                    OnClick="Like" 
+                                    Text="Me gustó" />
+
+                                <asp:Button 
+                                    ID="btnDislike" 
+                                    CssClass="btn dislike" 
+                                    runat="server" 
+                                    OnClick="Dislike" 
+                                    Text="No me gustó " />
+                            </div>
+                        </ContentTemplate>
+                        <Triggers>
+                            <asp:AsyncPostBackTrigger ControlID="btnLike" EventName="Click"/>
+                            <asp:AsyncPostBackTrigger ControlID="btnDislike" EventName="Click"/>
+                        </Triggers>
+                </asp:UpdatePanel>
                 </div>
+                <hr class="career-divider" />
+
 
                 <!-- Sección de Comentarios -->
                 <div class="comments">
-                    <h3>Comentarios</h3>
-                    <asp:Repeater ID="RepeaterComments" runat="server">
+
+                    <asp:Repeater ID="rptComments" runat="server">
                         <ItemTemplate>
                             <div class="comment">
                                 <div class="comment-header">
-                                    <img src="<%# Eval("UserImage") %>" alt="Foto del usuario" class="comment-user-image" />
-                                    <p class="comment-user-name"><%# Eval("Usuario") %></p>
+                                    <p class="comment-user-name"><%# Eval("Nombre") %></p>
                                 </div>
-                                <p class="comment-text"><%# Eval("Comentario") %></p>
+                                <p class="comment-text"><%# Eval("Contenido") %></p>
                             </div>
                         </ItemTemplate>
                     </asp:Repeater>
 
+
                     <!-- Formulario para nuevo comentario -->
-                    <div class="new-comment">
-                        <asp:TextBox ID="txtNewComment" CssClass="comment-box" runat="server" TextMode="MultiLine" Placeholder="Escribe un comentario..."></asp:TextBox>
-                        <asp:Button ID="btnSubmitComment" CssClass="submit-comment" runat="server" Text="Enviar" OnClick="btnSubmitComment_Click" />
+                    <div class="barrabusqueda">
+                        <!-- Barra de búsqueda -->
+                        <asp:TextBox ID="TextoBuscar" runat="server" CssClass="search-bar" placeholder="Comentar..."></asp:TextBox>
+    
+                        <!-- Separador -->
+                        <span class="auth-separator">|</span>
+                        <asp:ImageButton 
+                            ID="enviar" 
+                            runat="server"
+                            ImageUrl="https://img.icons8.com/?size=100&id=12582&format=png&color=FFFFFF" 
+                            CssClass="send-btn"
+                            OnClick="Comentar"/>
+                        <!-- Botón para cancelar -->
                     </div>
+
                 </div>
             </div>
         </div>

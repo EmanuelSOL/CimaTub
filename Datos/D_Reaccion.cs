@@ -70,5 +70,63 @@ namespace Datos
 
             return tipo;
         }
+
+        public int ContarLikes(int idVideo)
+        {
+            int likes = 0;
+            SqlCommand cmd = new SqlCommand("ContarLikes", connection);
+            cmd.CommandType=CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@IdVideo", idVideo);
+
+            try
+            {
+                AbrirConexion();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    likes =(int)reader["likes"];
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
+            return likes;
+        }
+
+        public int ContarDislikes(int idVideo)
+        {
+            int dislikes = 0;
+            SqlCommand cmd = new SqlCommand("ContarDislikes", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@IdVideo", idVideo);
+
+            try
+            {
+                AbrirConexion();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    dislikes = (int)reader["dislikes"];
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            finally
+            {
+                CerrarConexion();
+            }
+
+            return dislikes;
+        }
     }
 }
