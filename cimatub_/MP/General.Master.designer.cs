@@ -51,6 +51,15 @@ namespace cimatub_
         protected global::System.Web.UI.WebControls.Button Cancelar;
 
         /// <summary>
+        /// Control sincuenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl sincuenta;
+
+        /// <summary>
         /// Control IniciarSecion.
         /// </summary>
         /// <remarks>
@@ -69,13 +78,22 @@ namespace cimatub_
         protected global::System.Web.UI.WebControls.Button Registrarse;
 
         /// <summary>
-        /// Control Div2.
+        /// Control concuenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Div2;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl concuenta;
+
+        /// <summary>
+        /// Control Span1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl Span1;
 
         /// <summary>
         /// Control CerrarSesion.

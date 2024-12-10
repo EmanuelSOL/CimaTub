@@ -6,7 +6,22 @@ body {
     margin: 0;
     padding: 0;
 }
+.subjects-list.hidden {
+    display: none;
+}
 
+/* Estilo para la carrera (opcional) */
+.career-name {
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+    /* Quitar el "triangulito" */
+    .career-name::after {
+        content: none;
+    }
 .video-container {
     display: flex;
     flex-direction: column;
