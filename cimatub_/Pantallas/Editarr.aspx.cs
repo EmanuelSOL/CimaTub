@@ -23,27 +23,27 @@ namespace cimatub_.Pantallas
             {
                 //este usuario sera el que se usa en toda la pagina
                 Session["IdUsuario"] = 3;
-                
+
                 //este id video sera obtenido pulsar boton de editar video
                 Session["IdVideo"] = 23;
 
 
                 int idUsuario = (int)Session["IdUsuario"];
-                int idVideo = (int) Session["IdVideo"];
+                int idVideo = (int)Session["IdVideo"];
 
                 N_Video NV = new N_Video();
                 E_Video video = NV.BuscarVideoPorId(idVideo);
 
 
-                if (video == null || idUsuario != video.IdUsuario) 
+                if (video == null || idUsuario != video.IdUsuario)
                 {
                     Response.Redirect("~/Pantallas/Inicio.aspx");
                 }
 
                 N_Materia NM = new N_Materia();
-               
+
                 E_Materia materia = NM.BuscarMateriaPorId(video.IdMateria);
-                if(materia != null)
+                if (materia != null)
                 {
                     tbMateria.Text = materia.Nombre;
                 }
@@ -64,11 +64,15 @@ namespace cimatub_.Pantallas
             }
         }
 
- 
+
 
         protected void ddlCarrera_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
+        }
+        protected void RegistrarMateria(object sender, EventArgs e)
+        {
+
         }
 
         //validar campos con asp
@@ -94,9 +98,9 @@ namespace cimatub_.Pantallas
 
             materia = NM.BuscarMateriaPorNombre(tbMateria.Text);
 
-            
 
-            if(materia != null)
+
+            if (materia != null)
             {
                 N_Video NV = new N_Video();
 

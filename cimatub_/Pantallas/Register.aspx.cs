@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,39 +13,25 @@ namespace cimatub_.Pantallas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+            }
         }
-        protected void cbDocente_CheckedChanged(object sender, EventArgs e)
-        {
 
-        }
+   
         protected void RegistrarUsuario(object sender, EventArgs e)
         {
 
         }
-        protected void BtnUpload_Click(object sender, EventArgs e)
+        
+        public void showDDCareer(object sender, EventArgs e)
         {
-            if (FileUploadControl.HasFile)
-            {
-                string filePath = Server.MapPath("~/Recursos/Imagenes/") + FileUploadControl.FileName;
-                FileUploadControl.SaveAs(filePath);
-                // Actualiza la lógica para usar la nueva imagen
-            }
-            else
-            {
-                // Manejar cuando no se selecciona ningún archivo
-            }
+
         }
+
         protected void rbDocente_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbDocenteNo.Checked)
-            {
-                Div1.Visible = true; // Muestra el dropdown
-            }
-            else
-            {
-                Div1.Visible = false; // Oculta el dropdown
-            }
+            
         }
 
 

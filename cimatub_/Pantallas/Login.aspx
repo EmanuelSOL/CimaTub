@@ -3,7 +3,8 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
-    <link href="../Recursos/CSS/Login.css" rel="stylesheet" />
+
+    <link href="<%= ResolveUrl("~/recursos/CSS/Login.css?v=@DateTime.Now.Ticks") %>" rel="stylesheet" />
     <div id="login-container">
         <div class="strip_left">
             <div class="bicolor-strip-green"></div>
@@ -22,7 +23,7 @@
         <asp:TextBox ID="txtPassword" runat="server" placeholder="Contraseña" CssClass="input-text" TextMode="Password" required="true"></asp:TextBox>
 
 
-        <asp:Button ID="btnLogin" runat="server" Text="Iniciar Sesión" CssClass="button" OnClick="btnLogin_Click" />
+        <asp:Button ID="btnLogin" runat="server" Text="Iniciar Sesión" CssClass="button" OnClick="login" />
 
         <asp:Label ID="lblError" runat="server" CssClass="error-message" Visible="false"></asp:Label>
         <br> <!-- Fuerza el salto de línea -->

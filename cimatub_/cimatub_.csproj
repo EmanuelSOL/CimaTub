@@ -97,12 +97,15 @@
     <Content Include="PruebaBackend.aspx" />
     <Content Include="Pantallas\video.aspx" />
     <Content Include="Recursos\CSS\bootstrap.css" />
+    <Content Include="Recursos\CSS\editarr.css" />
     <Content Include="Recursos\CSS\Estilos.css" />
     <Content Include="Recursos\CSS\Historial.css" />
     <Content Include="Recursos\CSS\Inicio.css" />
     <Content Include="Recursos\CSS\Login.css" />
     <Content Include="Recursos\CSS\Perfil.css" />
+    <Content Include="Recursos\CSS\Perfilpro.css" />
     <Content Include="Recursos\CSS\PruebaBackend.aspx" />
+    <Content Include="Recursos\CSS\Reg.css" />
     <Content Include="Recursos\CSS\StyleSheet1.css" />
     <Content Include="Recursos\CSS\videos.css" />
     <Content Include="Recursos\Imagenes\camara.png" />

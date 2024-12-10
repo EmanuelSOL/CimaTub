@@ -1,43 +1,49 @@
-
+﻿
 ﻿ /* Estilado Base para body */
 html,
 body {
     height: 100%;
     margin: 0;
     padding: 0;
-    overflow-y: hidden; /* Permitir el scroll si es necesario */
+    overflow-y: auto; /* Permitir el scroll si es necesario */
 }
 
 /* Fondo de la página */
+/* Estilado base para el body */
 body {
     font-family: Arial, sans-serif;
     background-image: url('../Imagenes/uabc_campus.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover; /* Asegura que la imagen cubra todo el contenedor */
+    background-position: center; /* Centra la imagen para una mejor experiencia visual */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
+    background-attachment: fixed; /* Mantiene la imagen fija al hacer scroll */
     position: relative;
     min-height: 100vh;
+    margin: 0; /* Elimina cualquier margen por defecto */
+    padding: 0;
 }
 
     /* Capa oscura para mejorar la visibilidad del contenido */
     body::before {
         content: '';
         position: absolute;
-        top: 19%;
+        top: 0; /* Colocamos la capa desde la parte superior de la pantalla */
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.8); /* Capa oscura */
+        z-index: -1; /* Colocamos la capa detrás de todo el contenido */
     }
 
+/* Encabezado */
 #header {
     background-color: #1A1A1A;
-    padding: 9vh 0;
+    padding: 8.4vh 0;
     text-align: center;
-    height: calc(10% + 2vh);
-    z-index: 1000; /* Asegura que el header se mantenga visible */
+    height: 20%;
+    z-index: 10; /* Aseguramos que el encabezado esté por encima de la capa oscura */
 }
+
 
 /* Posición del logo - centrado entre header y el formulario */
 #login-logo {
@@ -50,7 +56,7 @@ body {
 }
 
     #login-logo img {
-        width: 20vw !important;
+        width: 20vw;
         height: auto;
     }
 
@@ -155,13 +161,13 @@ body {
 /* Contenedor del formulario de registro */
 #register-container {
     min-height: 30vh; /* Asegura que el contenedor tenga al menos el alto de la pantalla */
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 255, 0.0); /* Color azul con 50% de transparencia */
     padding: 30px;
     border-radius: 10px;
     width: 400px;
-    margin: -50px auto 0;
+    margin: -110px auto 0;
     text-align: center;
-    z-index: 2;
+    z-index: 1000;
     position: relative;
 }
 
@@ -169,7 +175,7 @@ body {
     #register-container select {
         width: 100%;
         padding: 15px;
-        margin: 15px 0;
+        margin: 8px 0;
         border: none;
         border-radius: 5px;
         font-size: 16px;
@@ -185,20 +191,26 @@ body {
 
 
 /* Botón de registro */
-#btnRegistro {
-    width: 100%;
-    padding: 15px;
-    background-color: #dd971a;
-    color: #dd971a;
+[id$="btnRegistro"] {
+    margin-top: 4px !important;
+    align-content: center;
+    width: 80% !important;
+    height: 40px;
+    padding: 0px;
+    background-color: #DD971A;
+    color: #fff;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     font-size: 18px;
-    font-weight: bold;
+    font-variant-position: normal;
+    line-height: 10px; /* Ajusta la altura del texto al centro del botón */
+    text-align: center;
 }
 
-    #btnRegistro:hover {
-        background-color: #c37f16;
+    [id$="btnRegistro"]:hover {
+        background-color: #5B5B5B;
+        /*        #5B5B5B*/
     }
 
 #carrera-container {
@@ -209,27 +221,18 @@ body {
 
 /* Logo encimado entre header y contenido */
 #camara-logo {
-    position: relative;
-    top: -90px; /* Ajusta para separar logo y formulario */
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 3;
-    text-align: center;
-    margin: 20px 0; /* Espaciado superior e inferior */
-    text-align: center; /* Centra el logo horizontalmente */
-    cursor: pointer;
-}
-
-/*#camara-logo {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px dashed #ccc;
+    background-color: #f5f5f5;
+    border: 2px solid #ccc;
     border-radius: 50%;
-    width: 100px;
-    height: 100px;
+    width: 50px;
+    height: 50px;
     cursor: pointer;
-}*/
+    padding: 0;
+    transition: background-color 0.3s ease;
+}
 
 #login-logo img {
     width: 450px; /* Ajusta el tamaño del logo */
@@ -237,56 +240,57 @@ body {
 }
 
 #camara-logo img {
-    width: 150px; /* Ajusta el tamaño del logo */
+    width: 100px; /* Ajusta el tamaño del logo */
     height: auto;
 }
 
+/* Contenedor principal para las franjas */
+#strip-container {
+    position: relative;
+    height: 100vh; /* Asegura que el contenedor de las franjas tenga el tamaño adecuado */
+    width: 100%;
+}
 
-/* Franja que se desplaza por encima de todo el contenido */
+/* Franja verde en la parte superior */
 .bicolor-strip-green {
-    position: fixed; /* Fija la posición de la franja en la pantalla */
+    position: absolute; /* Se moverá con el contenido del contenedor */
     left: 0;
-    top: 18.2%; /* Ajustado con proporciones */
-    height: 0.5vh; /* Proporcional al tamaño de la pantalla */
-    width: 38vw; /* Relacionado con el ancho de la pantalla */
+    top: 17.5vh;
+    height: 0.5vh;
+    width: 38vw;
     background-color: #00723F;
-    background-size: 200% 100%;
     z-index: 1000;
 }
 
 .bicolor-strip-amarilla {
-    position: fixed;
+    position: absolute;
     left: 0;
-    top: 18.7%;
-    height: 0.5vh; /* Ajuste proporcional */
+    top: 18.1vh;
+    height: 0.5vh;
     width: 38vw;
     background-color: #DD971A;
-    background-size: 200% 100%;
     z-index: 1000;
 }
 
 .bicolor-strip-green-right {
-    position: fixed;
+    position: absolute;
     left: 62%;
-    top: 18.2%;
+    top: 17.5vh;
     height: 0.5vh;
     width: 38vw;
     background-color: #00723F;
-    background-size: 200% 100%;
     z-index: 1000;
 }
 
 .bicolor-strip-amarilla-right {
-    position: fixed;
+    position: absolute;
     left: 62%;
-    top: 18.7%;
+    top: 18.1vh;
     height: 0.5vh;
     width: 38vw;
     background-color: #DD971A;
-    background-size: 200% 100%;
     z-index: 1000;
 }
-
 
 
 
@@ -300,3 +304,75 @@ body {
     box-shadow: 0 -20px 70px rgba(0, 0, 0, 1.5);
     pointer-events: none; /* Para evitar que interactúe con clics u otros eventos */
 }
+
+[id$="tbNombreCompleto"], [id$="tbCorreo"], [id$="tbContraseña1"], [id$="tbContraseña2"] {
+    width: 100%;
+    height: 40px;
+    padding: 15px;
+    background-color: #fff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.docente-check-container {
+    display: absolute;
+    justify-content: flex-start;
+    margin: 10px;
+}
+
+.docente-options {
+    display: flex; /* Alineación horizontal */
+    gap: 20px; /* Espacio entre las opciones */
+    align-items: center; /* Alineación vertical */
+}
+
+.form-option {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal; /* Quitar el texto en negrita */
+}
+
+/* Estilo para los RadioButtons personalizados */
+input[type="radio"][id$="rbDocenteSi"],
+input[type="radio"][id$="rbDocenteNo"] {
+    width: 10px; /* Tamaño más pequeño */
+    height: 10px;
+    appearance: none; /* Sin estilos predeterminados */
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 3px;
+}
+
+/* Contenedor horizontal de las opciones */
+[id$="docenteOptions"] {
+    display: flex; /* Alinear horizontalmente */
+    gap: 10px; /* Espacio entre los botones */
+    align-items: center;
+}
+
+/* Texto "Sí"/"No" en color blanco */
+[id$="formOption"] span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.span {
+    color: white;
+}
+
+#back-to-login {
+    font-family: Arial;
+    color: white !important; /* Asegura el color blanco */
+    text-decoration: none !important;
+    font-weight: lighter !important; /* Elimina el subrayado */
+}
+
+    /* Opcional: Cambiar el color al pasar el cursor */
+    #back-to-login:hover {
+        color: #ddd; /* Un color claro al pasar el cursor */
+    }

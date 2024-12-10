@@ -17,28 +17,28 @@
                     <img src="<%= ResolveUrl("~/recursos/imagenes/LOGOCIMATUBE2.png") %>">  <!--alt="CimaTube Logo" class="img-fluid" style="max-height: 50px;-->
                 </div>
 
-                <div class="barrabusqueda">
-                    <asp:ImageButton ID="Buscar" runat="server" ImageUrl="~/recursos/imagenes/lupa2.png" CssClass="search-bt" OnClick="Buscar_Click"/>
-                    <span class="auth-separator">|</span>
-                    <asp:TextBox ID="TextoBuscar" runat="server" CssClass="search-bar" placeholder="Buscar Contenido en CimaTube..."></asp:TextBox>
-                    <span class="auth-separator">|</span>
-                    <asp:Button ID="Cancelar" runat="server" Text="x" CssClass="clear-btn" OnClick="Cancelar_Click" />
+                <div class="contenedor-principal">
+                    <div class="barrabusqueda">
+                        <asp:ImageButton ID="Buscar" runat="server" ImageUrl="~/recursos/imagenes/lupa2.png" CssClass="search-bt" OnClick="Buscar_Click"/>
+                        <span class="auth-separator">|</span>
+                        <asp:TextBox ID="TextoBuscar" runat="server" CssClass="search-bar" placeholder="Buscar Contenido en CimaTube..."></asp:TextBox>
+                        <span class="auth-separator">|</span>
+                        <asp:Button ID="Cancelar" runat="server" Text="x" CssClass="clear-btn" OnClick="Cancelar_Click" />
+                    </div>
                 </div>
 
-                <div class="auth-buttons-group">
+                <div class="auth-buttons-group" id="sincuenta" runat="server" visible="true">
                     <asp:Button ID="IniciarSecion" runat="server" Text="Iniciar Sesión" CssClass="auth-buttons" OnClick="IniciarSesion" Visible="true" />
                     <span class="auth-separator">|</span>
                     <asp:Button ID="Registrarse" runat="server" Text="Registrarse" CssClass="auth-buttons" OnClick="Registrar" Visible="true" />
                 </div>
 
-
-
-                <!-- Mostrar el nombre de usuario y el botón de "Cerrar sesión" si hay sesión 
-                <div class="form-group" id="Div2" runat="server" Visible="false">
-                    <img id="user-photo" src="<!--%= ResolveUrl("~/recursos/imagenes/default-profile.png") %>" alt="Foto de usuario" class="user-photo" />
-                    <span id="user-name"></span>
+                <div class="auth-buttons-group" id="concuenta" runat="server" Visible="false">
+                    <img id="user-photo" src="<%= ResolveUrl("~/recursos/imagenes/logo_CIMATUBE1.png") %>" alt="Foto de usuario" class="user-photo" />
+                    <span id="Span1" runat="server"></span>
                     <asp:Button ID="CerrarSesion" runat="server" Text="Cerrar Sesión" CssClass="auth-buttons" OnClick="CerrarSesionn" />
-                </div>-->
+                </div>
+
             </nav>
             <div class="header-divider"></div>
             
@@ -53,10 +53,13 @@
                         <ItemTemplate>
                             <ul class="sidebar">
                                 <li class="career-item">
-                                    <span class="career-name">
-                                        <%# Eval("CarreraNombre") %> <span class="toggle">▼</span>
+                                    <!-- Nombre de la carrera con funcionalidad de toggle -->
+                                    <span class="career-name" onclick="toggleSubjects(this)">
+                                        <%# Eval("CarreraNombre") %>
+                                        <span class="toggle">&#9660;</span> <!-- Triángulo hacia abajo -->
                                     </span>
-                                    <ul class="subjects-list">
+                                    <!-- Lista de materias que se oculta/muestra -->
+                                    <ul class="subjects-list hidden">
                                         <asp:Repeater ID="materia" runat="server" DataSource='<%# Eval("Materias") %>'>
                                             <ItemTemplate>
                                                 <li><%# Container.DataItem %></li>
@@ -65,11 +68,11 @@
                                     </ul>
                                 </li>
                             </ul>
+
                             <hr class="career-divider" />
                         </ItemTemplate>
                     </asp:Repeater>
                 </aside>
-
                 <main class="col-md-9 py-4">
                     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
                 </main>
@@ -109,7 +112,21 @@
             }
         });
     });
-</script>
+    function toggleSubjects(element) {
+        var subjectList = element.nextElementSibling; // La lista de materias
+        var toggleIcon = element.querySelector('.toggle'); // El icono del triángulo
 
+        // Alternar la visibilidad de la lista de materias
+        subjectList.classList.toggle('hidden');
+
+        // Alternar la visibilidad del triángulo
+        if (subjectList.classList.contains('hidden')) {
+            toggleIcon.style.visibility = 'hidden'; // Ocultar el triángulo cuando está cerrado
+        } else {
+            toggleIcon.style.visibility = 'visible'; // Mostrar el triángulo cuando está abierto
+        }
+    }
+
+</script>
 
 

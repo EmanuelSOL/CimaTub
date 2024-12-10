@@ -60,5 +60,9 @@ namespace cimatub_.Pantallas
         {
             Response.Redirect("~/Pantallas/Inicio.aspx");
         }
+        protected void btnRegresar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Pantallas/Inicio.aspx");
+        }
     }
 }

@@ -30,30 +30,63 @@ header {
         height: auto;
     }
 
+.contenedor-principal {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 40%;
+    padding: 10px;
+    gap: 10px;
+    background-color: none;
+    border-radius: 8px;
+}
+
+    .contenedor-principal .elemento {
+        padding: 5px 10px;
+        background-color: none;
+        color: white;
+        border-radius: 5px;
+        border: 1px solid #555;
+        font-size: 14px;
+    }
+
 .barrabusqueda {
-    flex: 1; /* Permite que la barra de búsqueda ocupe el espacio disponible */
+    flex: 1;
     display: flex;
     align-items: center;
-    justify-content: left; /* Alinea los elementos a la derecha */
+    justify-content: flex-start;
+    background-color: #1f1f1f;
     padding: 10px;
+    margin: 10px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    border: 1px solid #333;
 }
 
 .search-bar {
-    width: 30%; /* Ocupa el 30% del contenedor */
-    padding: 5px;
+    flex: 1;
+    max-width: 100%;
+    padding: 5px 10px;
     font-size: 16px;
-    background-color: #333; /* Fondo oscuro */
+    background-color: #333;
     border: 1px solid #555;
     color: white;
     border-radius: 5px;
+    outline: none;
+    margin-left: 10px;
 }
+
+    .search-bar::placeholder {
+        color: #888;
+        opacity: 1;
+    }
 
 .search-bt {
     width: 30px;
     height: 30px;
     border: none;
     background-color: transparent;
-    margin-left: 10px; /* Espacio a la izquierda del botón */
     cursor: pointer;
 }
 
@@ -68,19 +101,21 @@ header {
 
 
 
+
+
 .form-group {
     display: flex;
-    align-items: center; /* Alinea los elementos en el centro verticalmente */
+    align-items: center;
 }
 
 .search-bt, .search-bar, .clear-btn {
-    margin: 0 5px; /* Agrega espacio entre los elementos */
+    margin: 0 5px;
 }
 
 .auth-separator {
-    margin: 0 10px; /* Espacio alrededor del separador */
-    color: white; /* O el color que prefieras */
-    font-size: 20px; /* Ajusta el tamaño del separador */
+    margin: 0 10px;
+    color: white;
+    font-size: 20px;
 }
 
 .auth-buttons-group {
@@ -102,8 +137,8 @@ header {
 }
 
 .auth-separator {
-    font-size: 25px; /* El tamaño del separador */
-    color: white; /* El color del separador */
+    font-size: 25px;
+    color: white;
 }
 
 
@@ -130,21 +165,21 @@ main {
     }
 
     .sidebar li {
-        padding: 12px;
-        font-size: 18px;
+        padding: 5px;
+        font-size: 16px;
         color: white;
-        border-bottom: 2px solid #7c7c7c; /* Borde entre los ítems */
+        border-bottom: 2px solid #7c7c7c;
         cursor: pointer;
     }
 
         .sidebar li:last-child {
-            border-bottom: none; /* Elimina el borde del último ítem */
+            border-bottom: none;
         }
 
 .subjects-list {
     list-style-type: none;
     padding-left: 20px;
-    display: none; /* Inicialmente oculto */
+    display: none;
 }
 
 .career-name {
@@ -154,12 +189,35 @@ main {
 .toggle {
     font-size: 12px;
     margin-left: 5px;
+    visibility: hidden; /* Por defecto el triángulo está oculto */
+}
+
+.subjects-list.show + .career-name .toggle {
+    visibility: visible; /* Mostrar cuando la lista está abierta */
+    transform: rotate(180deg); /* Girar el triángulo hacia arriba */
 }
 
 .career-divider {
     border: none;
-    border-top: 1px solid #7c7c7c; /* Color de la línea */
-    margin: 15px 0; /* Espaciado arriba y abajo */
+    border-top: 2px solid #7c7c7c;
+    margin: 15px 0;
+}
+
+.subjects-list li {
+    border-bottom: 1px solid #555;
+    padding: 5px 0;
+}
+
+    .subjects-list li:last-child {
+        border-bottom: none;
+    }
+
+.career-name {
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 10px;
+    display: block;
 }
 
 

@@ -43,9 +43,24 @@ namespace cimatub_
                     strCarreras.Add(c);
                 }
 
-        
+
                 careerList.DataSource = strCarreras;
                 careerList.DataBind();
+            }
+            if (Session["Usuario"] != null) // Suponiendo que "Usuario" es la clave de sesión
+            {
+                // Mostrar div de usuario autenticado
+                sincuenta.Visible = false;
+                concuenta.Visible = true;
+
+                // Opcional: Mostrar nombre del usuario
+                //user_name.InnerText = Session["Usuario"].ToString(); // Asignar el nombre del usuario
+            }
+            else
+            {
+                // Mostrar div de usuario no autenticado
+                sincuenta.Visible = true;
+                concuenta.Visible = false;
             }
         }
 

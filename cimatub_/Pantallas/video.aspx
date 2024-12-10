@@ -4,17 +4,19 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link href="<%= ResolveUrl("~/recursos/CSS/videos.css") %>" rel="stylesheet" />
-
     <div class="video-container">
+        
         <!-- Botón Regresar -->
-
-        <asp:Button ID="btnRegresar" CssClass="back-button" runat="server" Text="&lt;Regresar" OnClick="Regresar" />
-
+        <asp:Button ID="btnRegresar" CssClass="back-button" runat="server" Text="&lt;Regresar" OnClick="btnRegresar_Click" />
+    
         <div class="main-layout">
+            <!-- Columna izquierda: Video y detalles -->
             <div class="left-column">
-                <!-- Video -->
+                <!-- Contenedor del Video -->
                 <div class="video-placeholder">
-                    <iframe id="videoPlayer" width="100%" height="400" src="<%# VideoUrl %>" frameborder="0" allowfullscreen></iframe>
+                    <div class="video-wrapper">
+                        <iframe id="videoPlayer" src='<%# ResolveUrl(VideoUrl) %>' frameborder="0" allowfullscreen></iframe>
+                    </div>
                 </div>
 
                 <!-- Información del Video -->
@@ -31,19 +33,21 @@
                 </div>
             </div>
 
+            <!-- Columna derecha: Feedback y comentarios -->
             <div class="right-column">
+                <!-- Feedback del usuario -->
                 <div class="feedback">
                     <h3>¿Qué te pareció el video?</h3>
                     <div class="buttons">
-
-                        <asp:Button ID="btnLike" CssClass="like" runat="server" Text="☺︎ Me gustó" OnClick="btnLike_Click" />
+                        <asp:Button ID="btnLike" CssClass="like" runat="server" Text="Me gustó" OnClick="btnLike_Click" />
                         <asp:Label ID="lblLikesCount" runat="server" Text="<%# LikesCount %>"></asp:Label>
 
-                        <asp:Button ID="btnDislike" CssClass="dislike" runat="server" Text="☹ No me gustó" OnClick="btnDislike_Click" />
+                        <asp:Button ID="btnDislike" CssClass="dislike" runat="server" Text="No me gustó" OnClick="btnDislike_Click" />
                         <asp:Label ID="lblDislikesCount" runat="server" Text="<%# DislikesCount %>"></asp:Label>
                     </div>
                 </div>
 
+                <!-- Sección de Comentarios -->
                 <div class="comments">
                     <h3>Comentarios</h3>
                     <asp:Repeater ID="RepeaterComments" runat="server">
