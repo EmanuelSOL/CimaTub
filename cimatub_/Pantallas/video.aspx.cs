@@ -52,7 +52,11 @@ namespace cimatub_.Pantallas
                 }
                 else
                 {
-                    if ((int)Session["IdUsuario"] != video.IdUsuario)
+                    int idUsuario = (int)Session["IdUsuario"];
+
+                    addHistorial(idUsuario,video.IdVideo);
+
+                    if (idUsuario != video.IdUsuario)
                     {
                         btnEditar.Visible = false;
                     }
@@ -102,7 +106,7 @@ namespace cimatub_.Pantallas
 
             N_Reaccion NR = new N_Reaccion();
 
-            int idVideo = (int)Session["    "];
+            int idVideo = (int)Session["VerIdVideo"];
             int idUsuario = (int)Session["IdUsuario"];
             E_Reaccion reaccion = new E_Reaccion()
             {
@@ -115,7 +119,6 @@ namespace cimatub_.Pantallas
 
             btnLike.Text = "Me gustó: " + Convert.ToString(NR.ContarLikes(idVideo));
             btnDislike.Text = "No me gustó: " + Convert.ToString(NR.ContarDislikes(idVideo));
-
         }
 
         // Manejar clic del botón "No me gusta"
@@ -221,16 +224,33 @@ namespace cimatub_.Pantallas
 
 
                 p_comentarios.Add(p_com);
-                Debug.WriteLine(com.Contenido);
 
             }
-            Debug.WriteLine(p_comentarios.Count);
-            Debug.WriteLine(comentarios.Count);
 
             rptComments.DataSource = p_comentarios;
             rptComments.DataBind();
         }
         
+        public void addHistorial(int idUsuario,int idVideo)
+        {
+            E_HistorialReproduccion historial = new E_HistorialReproduccion()
+            {
+                IdUsuario = idUsuario,
+                IdVideo = idVideo
+            };
+
+            N_HistorialReproduccion NHR = new N_HistorialReproduccion();
+
+            if(NHR.RegistrarHistorial(historial))
+            {
+                Debug.WriteLine("registrado");
+            }
+            else
+            {
+                Debug.WriteLine("no registrado");
+            }
+            
+        }
     }
     public class P_Comantario
     {

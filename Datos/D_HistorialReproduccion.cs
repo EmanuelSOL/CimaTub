@@ -20,10 +20,14 @@ namespace Datos
             cmd.Parameters.AddWithValue("@IdUsuario", historial.IdUsuario);
             cmd.Parameters.AddWithValue("@IdVideo", historial.IdVideo);
 
+            Debug.WriteLine(historial.IdUsuario);
+            Debug.WriteLine(historial.IdVideo);
+
             try
             {
                 AbrirConexion();
                 cmd.ExecuteNonQuery();
+                
                 return true;
             }
             catch (Exception ex)
@@ -36,7 +40,5 @@ namespace Datos
                 CerrarConexion();
             }
         }
-
-        
     }
 }

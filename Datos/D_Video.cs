@@ -234,7 +234,7 @@ namespace Datos
         public List<E_Video> ListarVideosHistorial(int idUsuario)
         {
             List<E_Video> videos = new List<E_Video>();
-            SqlCommand cmd = new SqlCommand("ListarVideosHistorial", connection);
+            SqlCommand cmd = new SqlCommand("Buscar_historial_reproduccion", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
@@ -250,7 +250,6 @@ namespace Datos
                         IdVideo = (int)reader["IdVideo"],
                         Titulo = (string)reader["Titulo"],
                         Descripcion = (string)reader["Descripcion"],
-                        Visitas = (int)reader["Visitas"],
                         Miniatura = (byte[])reader["Miniatura"],
                         Url = (string)reader["Url"],
                     };

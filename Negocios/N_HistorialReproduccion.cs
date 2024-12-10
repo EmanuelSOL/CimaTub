@@ -21,14 +21,15 @@ namespace Negocios
         }
 
         //esta funcion debe ser llamada en onload if !PostBack
-        public void RegistrarHistorial(E_HistorialReproduccion histoial)
+        public bool RegistrarHistorial(E_HistorialReproduccion historial)
         {
-            if (!DH.InsertarHistorialReproduccion(histoial))
+            if (!DH.InsertarHistorialReproduccion(historial))
             {
                 Debug.WriteLine("Error al registrar historial");
+                return false;
             }
-        }
 
-        
+            return true;
+        }
     }
 }

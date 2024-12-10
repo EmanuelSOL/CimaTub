@@ -13,22 +13,18 @@ namespace cimatub_.Pantallas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                Response.Redirect("~/Pantallas/Inicio.aspx");
+            }
+
             if (!IsPostBack)
             {
-                //id obtenida de la session
-                Session["IdUsuario"] = 3;
-
-
                 int idUsuario = (int)Session["IdUsuario"];
 
                 N_Video NV = new N_Video();
                 lstVideos.DataSource = NV.ListarHistorial(idUsuario);
-
-                //esta linea debe eliminarse cuando haya historiales
-                lstVideos.DataSource = NV.ListarDestacados(); 
-
                 lstVideos.DataBind();
-
             }
         }
 
