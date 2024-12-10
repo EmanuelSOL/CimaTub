@@ -12,19 +12,24 @@
         <div class="profile-container">
 
             <div class="profile-info">
-                <img alt="foto de usuario" height="80" src="~/Recursos/Imagenes/logo.png" width="80" />
+                <asp:Image ID="imgProfile" runat="server" Height="80" Width="80" />
+                
                 <div class="details">
-                    <h3>Adriana Valles</h3>
-                    <p>Docente</p>
-                    <p>adriana.valles.89@uabc.edu.mx</p>
+                    <!-- Nombre de usuario -->
+                    <h3><asp:Label ID="lblUserName" runat="server" Text="Nombre"></asp:Label></h3>
+                    <!-- Rol de usuario -->
+                    <p><asp:Label ID="lblRole" runat="server" Text="rol"></asp:Label></p>
+                    <!-- Correo de usuario -->
+                    <p><asp:Label ID="lblEmail" runat="server" Text="correo@ejemplo.com"></asp:Label></p>
                 </div>
             </div>
 
         </div>
-            <div class="options">
-                <button class="history">Ver mi historial de videos</button>
-                <button class="logout">Cerrar Sesion</button>
-            </div>
+        <h5 class="main-content h5">Opciones</h5>
+        <div class="options">
+            <button class="history">Ver mi historial de videos</button>
+            <button class="logout">Cerrar Sesion</button>
+        </div>
     </div>
 
 </asp:Content>

@@ -1,6 +1,8 @@
 ﻿body {
 }
 
+.header
+
 .regresar-btn {
     width: 35%;
     background-color: transparent;
@@ -17,11 +19,26 @@
 
 /* Estilos pro para el perfil pro */
 
+.main-content {
+    width: 1600px;
+    position: relative;
+    padding: 20px;
+}
+
+    .main-content h5 {
+        left: 25%;
+    }
+
 .header {
     display: flex;
-    justify-content: space-between; /* Espacia los elementos: botón a la izquierda y texto a la derecha */
-    align-items: center; /* Centra verticalmente */
+    justify-content: space-between;
+    align-items: center;
 }
+
+    .header h2 {
+        position: absolute;
+        left: 60%;
+    }
 
 .perfil-titulo {
     font-size: 28px;
@@ -33,12 +50,12 @@
 .profile-container {
     padding: 20px;
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     max-width: 600px;
     text-align: center;
     position: relative;
     top: 5%;
-    left: 60%;
+    left: 10%;
 }
 
     .profile-container a {
@@ -59,7 +76,7 @@
     gap: 20px; /* Espaciado entre la imagen y los detalles */
     position: relative; /* Elimina la posición absoluta */
     top: 5%;
-    left: 50%;
+    left: 40%;
     text-align: left; /* Alinea el texto a la izquierda */
 }
 
@@ -95,12 +112,12 @@
         }
 
 .options {
-    margin-top: 20px;
+    margin-top: -15px;
     display: flex;
     justify-content: center;
     position: relative;
     top: 0;
-    left: 100%;
+    right: 12%;
 }
 
     .options button {
@@ -119,6 +136,7 @@
     .options .logout {
         background-color: #b00;
         color: #fff;
+        margin-left: 50px;
     }
 
         .options .logout:hover {
