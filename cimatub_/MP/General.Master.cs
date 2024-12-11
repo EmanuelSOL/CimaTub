@@ -15,6 +15,8 @@ namespace cimatub_
         {
             if (!IsPostBack)
             {
+                imgLogo.ImageUrl = ResolveUrl("~/recursos/imagenes/LOGOCIMATUBE2.png");
+
                 N_Carrera NC = new N_Carrera();
 
                 List<E_Carrera> carreras = NC.ListarCarreras();
@@ -47,42 +49,53 @@ namespace cimatub_
                 careerList.DataSource = strCarreras;
                 careerList.DataBind();
             }
-            if (Session["IdUsuario"] != null) // Suponiendo que "Usuario" es la clave de sesión
+
+            if (Session["IdUsuario"] != null)
             {
-                int idUsuario =(int)Session["IdUsuario"];
+                int idUsuario = (int)Session["IdUsuario"];
                 N_Usuario NU = new N_Usuario();
                 E_Usuario usuario = NU.BuscarUsuarioPorId(idUsuario);
-                if(usuario != null)
+                if (usuario != null)
                 {
-                    userImg.ImageUrl = usuario.getImg(); 
+                    userImg.ImageUrl = usuario.getImg();
+                    lblUserName.Text = usuario.Nombre;
+
                 }
-                // Mostrar div de usuario autenticado
                 sincuenta.Visible = false;
                 concuenta.Visible = true;
 
-                // Opcional: Mostrar nombre del usuario
-                //user_name.InnerText = Session["Usuario"].ToString(); // Asignar el nombre del usuario
+                CheckPanelAdmin(idUsuario);
             }
             else
             {
-                // Mostrar div de usuario no autenticado
                 sincuenta.Visible = true;
                 concuenta.Visible = false;
             }
         }
 
-        protected void Buscar_Click(object sender, EventArgs e)
+        protected void Buscar(object sender, EventArgs e)
         {
+            string texto = tbBuscar.Text;
+            if(string.IsNullOrEmpty(texto))
+            {
+                return;
+            }
 
+            N_Video NV = new N_Video();
+            List<E_Video> videos = NV.ListarVideosPorTexto(texto);
+            
+            Session["ResultadoBusqueda"] = videos;
+            Response.Redirect("~/Pantallas/Resultados.aspx");
         }
 
-        protected void Cancelar_Click(object sender, EventArgs e)
+        protected void Cancelar(object sender, EventArgs e)
         {
+            tbBuscar.Text = string.Empty;
         }
 
         protected void IniciarSesion(object sender, EventArgs e)
         {
-            // Redirige al usuario a la página Login.aspx
+
             Response.Redirect("Login.aspx");
         }
 
@@ -100,6 +113,24 @@ namespace cimatub_
         protected void VerPerfil(object sender, EventArgs e)
         {
             Response.Redirect("Perfil.aspx");
+        }
+
+        public void CheckPanelAdmin(int idUsuario)
+        {
+            N_TipoUsuario NT = new N_TipoUsuario();
+
+            string tipo = NT.BuscarNombreTipoUsuarioPorId(idUsuario);
+
+            if(tipo == "SuperUsuario")
+            {
+                Button2.Visible = true;
+                dividerAdmin.Visible = true;
+            }
+        }
+
+        public void Inicio(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
         }
     }
 

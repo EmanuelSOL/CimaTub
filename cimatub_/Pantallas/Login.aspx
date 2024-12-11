@@ -22,7 +22,6 @@
         <label for="Contraseña" class="form-label">Contraseña</label>
         <asp:TextBox ID="txtPassword" runat="server" placeholder="Contraseña" CssClass="input-text" TextMode="Password"></asp:TextBox>
 
-
         <asp:Button ID="btnLogin" runat="server" Text="Iniciar Sesión" CssClass="button" OnClick="login" />
 
         <asp:Label ID="lblError" runat="server" CssClass="error-message" Visible="false"></asp:Label>

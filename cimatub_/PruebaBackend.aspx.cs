@@ -224,7 +224,6 @@ namespace cimatub_
                 Visibilidad = !cbOculto.Checked,
             };
 
-
             lblRegVideo.Text = NC.RegistrarVideo(video);
         }
 

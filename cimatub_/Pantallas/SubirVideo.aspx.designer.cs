@@ -42,13 +42,13 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.Label lblEstadoMiniatura;
 
         /// <summary>
-        /// Control fileUpload.
+        /// Control imgMiniatura.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload fileUpload;
+        protected global::System.Web.UI.WebControls.FileUpload imgMiniatura;
 
         /// <summary>
         /// Control lblRegistroVideo.
@@ -69,22 +69,13 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.Label lblEstadoVideo;
 
         /// <summary>
-        /// Control imgMiniatura2.
+        /// Control fileVideo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload imgMiniatura2;
-
-        /// <summary>
-        /// Control imagenVistaPrevia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image imagenVistaPrevia;
+        protected global::System.Web.UI.WebControls.FileUpload fileVideo;
 
         /// <summary>
         /// Control lblRegistroMateria.
@@ -141,13 +132,13 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.Button btnRegMateria2;
 
         /// <summary>
-        /// Control ddMaterias2.
+        /// Control ddMaterias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListItem ddMaterias2;
+        protected global::System.Web.UI.WebControls.DropDownList ddMaterias;
 
         /// <summary>
         /// Control cbVisibilidad.
@@ -166,23 +157,5 @@ namespace cimatub_.Pantallas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGuardar;
-
-        /// <summary>
-        /// Control btnDescartar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDescartar;
-
-        /// <summary>
-        /// Control ScriptManager1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
     }
 }

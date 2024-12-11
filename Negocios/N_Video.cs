@@ -31,14 +31,22 @@ namespace Negocios
         {
             string msg = string.Empty;
 
-            if (!DV.InsertarVideo(video))
+            if(string.IsNullOrEmpty(video.Titulo))
             {
-                msg += "Error al insertar video";
+                msg = "Titulo requerido\n";
+                return msg;
             }
 
-            if (msg == string.Empty)
+            if(string.IsNullOrEmpty(video.Descripcion))
             {
-                msg = "Video registrado";
+                msg = "Descripción requerida\n";
+                return msg;
+            }
+
+
+            if (!DV.InsertarVideo(video))
+            {
+                msg = "Error al insertar video";
             }
 
             return msg;
@@ -115,14 +123,9 @@ namespace Negocios
             return DV.ListarRecomendados(idUsuario);
         }
 
-        public List<E_Video> BuscarVideoPorTextoNoFiltro(string texto)
+        public List<E_Video> ListarVideosPorTexto(string texto)
         {
-            return DV.BuscarVideoPorTextoFiltro(texto,0,0);
-        }
-
-        public List<E_Video> BuscarVideoPorTextoFiltro(string texto,int idCarrera,int idMateria)
-        {
-            return DV.BuscarVideoPorTextoFiltro(texto,idCarrera,idMateria);
+            return DV.ListarVideosPorTexto(texto);
         }
     }
 }

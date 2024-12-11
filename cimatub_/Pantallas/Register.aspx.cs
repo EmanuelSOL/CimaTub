@@ -22,9 +22,6 @@ namespace cimatub_.Pantallas
                 ddCarreras.DataValueField = "IdCarrera";
                 ddCarreras.DataTextField = "Nombre";
                 ddCarreras.DataBind();
-
-                
-
             }
         }
 

@@ -335,15 +335,13 @@ namespace Datos
             return videos;
         }
 
-        public List<E_Video> BuscarVideoPorTextoFiltro(string texto,int idCarrera, int idMateria)
+        public List<E_Video> ListarVideosPorTexto(string texto)
         {
             List<E_Video> videos = new List<E_Video>();
-            SqlCommand cmd = new SqlCommand("BuscarVideoPorTextoFiltro", connection);
+            SqlCommand cmd = new SqlCommand("ListarVideosPorTexto", connection);
             cmd.CommandType = CommandType.StoredProcedure;
 
             cmd.Parameters.AddWithValue("@Texto", texto);
-            cmd.Parameters.AddWithValue("@IdCarrera", idCarrera);
-            cmd.Parameters.AddWithValue("@IdMateria", idMateria);
 
             try
             {

@@ -3,7 +3,6 @@
 
 <asp:Content ID="Content6" ContentPlaceHolderID="MainContent" runat="server">
     <link href="../Recursos/CSS/editarr.css" rel="stylesheet" />
-    <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
 
     <div class="video-container">

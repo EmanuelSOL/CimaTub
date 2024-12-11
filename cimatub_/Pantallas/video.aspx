@@ -4,7 +4,6 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link href="<%= ResolveUrl("~/recursos/CSS/videos.css") %>" rel="stylesheet" />
-    <asp:ScriptManager ID="scrptMng" runat="server"></asp:ScriptManager>
     <div class="video-container">
         
         <!-- Botón Regresar -->

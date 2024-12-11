@@ -716,3 +716,15 @@ body {
     margin-top: 10px;
     font-weight: bold;
 }
+
+.error{
+    color: #f44336;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.success{
+    color: #4caf50;
+    font-weight: bold;
+    font-size: 20px;
+}

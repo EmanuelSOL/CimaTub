@@ -126,7 +126,6 @@
             <asp:Button ID="btnRegVideo" runat="server" Text="Subir video" OnClick="SubirVideo" />
             <asp:Label ID="lblRegVideo" runat="server" ></asp:Label>
 
-
             <p>
                 Buscar usuario
             </p>

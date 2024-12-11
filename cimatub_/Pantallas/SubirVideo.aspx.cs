@@ -1,9 +1,14 @@
 ﻿using Entidades;
 using Negocios;
 using System;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Linq;
+using System.Web;
+using System.Security.Cryptography.X509Certificates;
 
 namespace cimatub_.Pantallas
 {
@@ -11,6 +16,20 @@ namespace cimatub_.Pantallas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["IdUsuario"] == null)
+            {
+                Response.Redirect("~/Pantallas/Inicio.aspx");
+            }
+
+            int idUsuario = (int)Session["IdUsuario"];
+
+            N_Alumno NA = new N_Alumno();
+
+            if(NA.BuscarAlumnoPorIdUsuario(idUsuario) != null)
+            {
+                Response.Redirect("~/Pantallas/Inicio.aspx");
+            }
+
             if (!IsPostBack)
             {
                 N_Carrera NC = new N_Carrera();
@@ -26,108 +45,117 @@ namespace cimatub_.Pantallas
         {
             N_Materia NC = new N_Materia();
 
+            int idCarrera = int.Parse(ddlCarrera2.SelectedValue);
 
+            List<E_Materia> materias = NC.ListarMateriasPorIdCarrera(idCarrera);
 
+            if(materias.Count > 1)
+            {
+                ddMaterias.Items.Add(new ListItem("No hay materias en esta carrera", ""));
+                return;
+            }
+            ddMaterias.DataSource = materias;
+            ddMaterias.DataTextField = "Nombre";
+            ddMaterias.DataValueField = "IdMateria";
+            ddMaterias.DataBind();
         }
 
         protected void RegistrarMateria(object sender, EventArgs e)
         {
-            // Aquí puedes agregar la lógica de registrar materia si es necesario
-        }
-
-        // Validar campos y guardar video
-        protected void GuardarVideo(object sender, EventArgs e)
-        {
-            // Validación de campos obligatorios
-            if (string.IsNullOrWhiteSpace(tbTitulo2.Text) || string.IsNullOrWhiteSpace(tbDescripcion2.Text))
+            Debug.WriteLine("Registrando materia");
+            //usa la carrera que esta en el dropdown de carreras.
+            E_Materia materia = new E_Materia()
             {
-                lblEstadoVideo.Text = "Título y descripción son obligatorios.";
-                lblEstadoVideo.CssClass = "error";
-                return;
-            }
-
-            if (!fileUpload.HasFile)
-            {
-                lblEstadoVideo.Text = "Debes seleccionar un archivo de video.";
-                lblEstadoVideo.CssClass = "error";
-                return;
-            }
-
-            // Guarda el archivo de video
-            string videoPath = Server.MapPath("~/Videos/" + fileUpload.FileName);
-            fileUpload.SaveAs(videoPath); // Guarda el video en una carpeta en el servidor
-
-            // Aquí iría la lógica de guardar el video en la base de datos (con la ruta o el archivo en sí)
-
-            int idVideo = (int)Session["IdVideo"];
-            string resultado = string.Empty;
+                IdCarrera = int.Parse(ddlCarrera2.SelectedValue),
+                Nombre = tbMateria2.Text
+            };
 
             N_Materia NM = new N_Materia();
-            E_Materia materia;
 
-            // Verificar si la materia existe o crearla si no
-            if (NM.BuscarMateriaPorNombre(tbMateria2.Text) == null)
-            {
-                materia = new E_Materia()
-                {
-                    IdCarrera = int.Parse(ddlCarrera2.SelectedValue),
-                    Nombre = tbMateria2.Text
-                };
-                resultado += NM.InsertarMateria(materia);
-            }
-
-            materia = NM.BuscarMateriaPorNombre(tbMateria2.Text);
-
-            if (materia != null)
-            {
-                N_Video NV = new N_Video();
-                E_Video videoEditado = NV.BuscarVideoPorId(idVideo);
-                byte[] miniatura;
-
-                if (imgMiniatura2.HasFile)
-                {
-                    miniatura = imgMiniatura2.FileBytes;
-                }
-                else
-                {
-                    miniatura = videoEditado.Miniatura;
-                }
-
-                // Leer el archivo como un arreglo de bytes
-                byte[] videoBytes = fileUpload.FileBytes;
-
-                // Crear el objeto de video con los datos
-                E_Video video = new E_Video()
-                {
-                    IdVideo = idVideo,
-                    IdCarrera = int.Parse(ddlCarrera2.SelectedValue),
-                    IdMateria = materia.IdMateria,
-                    Titulo = tbTitulo2.Text,
-                    Descripcion = tbDescripcion2.Text,
-                    Miniatura = miniatura,
-                    Visibilidad = cbVisibilidad.Checked,
-                    //VideoData = videoBytes // Guarda el archivo binario directamente en la base de datos
-                };
-
-                // Llamar al método de negocio para guardar el video en la base de datos
-                resultado += NV.EditarVideo(video);
-                lblEstadoVideo.Text = "Video guardado exitosamente.";
-                lblEstadoVideo.CssClass = "success"; // Asumiendo que tienes una clase 'success' para mostrar el mensaje de éxito.
-            }
-            else
-            {
-                lblEstadoVideo.Text = "Problema al modificar la materia.";
-                lblEstadoVideo.CssClass = "error";
-            }
-
-            // Redirigir o refrescar la página
-            Response.Redirect(Request.Url.ToString()); // Esto recarga la página
+            string resultado = NM.InsertarMateria(materia);
+            Debug.WriteLine(resultado);
+            //lblResultadoMateria.Text = resultado;
         }
 
-        protected void DescartarCambios(object sender, EventArgs e)
+        public async void SubirVideoCT(object sender, EventArgs e)
         {
-            // Redirigir a la página principal o a otra página según lo necesario
-            Response.Redirect("~/Pantallas/Inicio.aspx");
+            lblRegistroVideo.Text = string.Empty;
+            int idUsuario = 3;
+
+            N_Video NC = new N_Video();
+            N_Materia NM = new N_Materia();
+
+            if(!CheckFiles())
+            {
+                return;
+            }
+
+            E_Materia materia = NM.BuscarMateriaPorNombre(tbMateria2.Text);
+
+            if (materia == null) 
+            {
+                lblRegistroVideo.Text = "Materia no válida";
+                return;
+            }
+
+            string url = await NC.getUrl(fileVideo);
+
+            E_Video video = new E_Video()
+            {
+                IdUsuario = idUsuario,
+                IdCarrera = int.Parse(ddlCarrera2.SelectedValue),
+                IdMateria = materia.IdMateria,
+                Titulo = tbTitulo2.Text,
+                Descripcion = tbDescripcion2.Text,
+                Url = url,
+                Miniatura = imgMiniatura.FileBytes,
+                Visibilidad = !cbVisibilidad.Checked,
+            };
+
+            string resultado = NC.RegistrarVideo(video);
+
+            
+            if(resultado == string.Empty)
+            {
+                Response.Redirect("~/Pantallas/Inicio.aspx");
+                return;
+            }
+            lblRegistroVideo.Text = resultado;
+        }
+
+        public bool CheckFiles()
+        {
+            
+            if(!fileVideo.HasFile)
+            {
+                lblRegistroVideo.Text = "Video no cargado";
+                return false;
+            }
+
+            if(!imgMiniatura.HasFile)
+            {
+                lblRegistroVideo.Text = "Miniatura no cargada";
+                return false;
+            }
+
+            string videoExtension = Path.GetExtension(fileVideo.FileName).ToLower();
+            string[] videoExtensionesPermitidas = { ".mp4", ".avi", ".mov", ".mkv" };
+            if (!videoExtensionesPermitidas.Contains(videoExtension))
+            {
+                lblRegistroVideo.Text = "Formato de video no permitido";
+                return false;
+            }
+
+
+            string miniaturaExtension = Path.GetExtension(imgMiniatura.FileName).ToLower();
+            string[] imagenExtensionesPermitidas = { ".jpg", ".jpeg", ".png", ".gif" };
+            if (!imagenExtensionesPermitidas.Contains(miniaturaExtension))
+            {
+                lblRegistroVideo.Text = "Formato de miniatura no permitido";
+                return false;
+            }
+
+            return true;
         }
     }
 }

@@ -95,6 +95,7 @@
     <Content Include="Pantallas\Login.aspx" />
     <Content Include="Pantallas\Perfil.aspx" />
     <Content Include="Pantallas\Register.aspx" />
+    <Content Include="Pantallas\Resultados.aspx" />
     <Content Include="Pantallas\SubirVideo.aspx" />
     <Content Include="PruebaBackend.aspx" />
     <Content Include="Pantallas\video.aspx" />
@@ -184,6 +185,13 @@
     </Compile>
     <Compile Include="Pantallas\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Resultados.aspx.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Resultados.aspx.designer.cs">
+      <DependentUpon>Resultados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\SubirVideo.aspx.cs">
       <DependentUpon>SubirVideo.aspx</DependentUpon>

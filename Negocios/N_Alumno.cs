@@ -35,5 +35,10 @@ namespace Negocios
 
             return msg;
         }
+
+        public E_Alumno BuscarAlumnoPorIdUsuario(int idUsuario)
+        {
+            return DA.BuscarAlumnoPorIdUsuario(idUsuario);
+        }
     }
 }

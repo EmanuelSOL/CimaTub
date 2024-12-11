@@ -149,6 +149,12 @@ header {
     margin-top: 20px;
 }
 
+.img-perfil {
+    height: 50px;
+    width: 45px;
+    border-radius: 50%;
+}
+
 main {
     display: flex;
 }

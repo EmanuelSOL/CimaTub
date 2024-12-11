@@ -37,5 +37,34 @@ namespace Datos
                 CerrarConexion();
             }
         }
+
+        public E_Alumno BuscarAlumnoPorIdUsuario(int idUsuario)
+        {
+            E_Alumno alumno = null;
+            SqlCommand cmd = new SqlCommand("BuscarAlumnoPorIdUsuario", connection);
+            cmd.CommandType = CommandType.StoredProcedure;
+
+            cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+
+            try
+            {
+                AbrirConexion();
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
+                {
+                    alumno = new E_Alumno()
+                    {
+                        IdAlumno = (int)reader["IdAlumno"],
+                        IdUsuario = (int)reader["IdUsuario"],
+                        IdCarrera = (int)reader["IdCarrera"]
+                    };
+                }
+            }
+            catch (Exception ex) {
+                Debug.WriteLine(ex);
+            }
+            finally { CerrarConexion(); }
+            return alumno;
+        }
     }
 }
