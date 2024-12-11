@@ -121,5 +121,15 @@ namespace cimatub_.Pantallas
             // Redirigir a la página principal o a otra página según lo necesario
             Response.Redirect("~/Pantallas/Inicio.aspx");
         }
+        protected void ddMateriaSelect(object sender, EventArgs e)
+        {
+            // Lógica para manejar el evento SelectedIndexChanged del DropDownList
+        }
+        protected void verdiv(object sender, EventArgs e)
+        {
+            
+        }
+
+
     }
 }

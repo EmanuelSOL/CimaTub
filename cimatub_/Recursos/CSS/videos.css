@@ -11,9 +11,25 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 1200px;
     padding: 20px;
     margin-top: 40px; /* Asegura que haya separación desde el botón hacia el contenedor */
 }
+
+.video-placeholder {
+    position: relative;
+    width: 100%; /* Ajusta al ancho del contenedor padre */
+    padding-top: 56.25%; /* 16:9 = 9 / 16 = 0.5625 o 56.25% */
+}
+
+    .video-placeholder img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ajusta la imagen sin deformarla */
+    }
 
 /* Botón Regresar */
 .back-button {
@@ -113,7 +129,7 @@ body {
 /* Columna derecha (feedback y comentarios) */
 .right-column {
     flex: 1;
-    min-width: 400px; /* Ancho mínimo */
+    min-width: 450px; /* Ancho mínimo */
     max-width: 1200px; /* Ancho máximo */
     display: flex;
     flex-direction: column;
@@ -664,7 +680,7 @@ body {
 #subir-logo {
     width: 450px; /* Ancho del botón */
     height: 250px; /* Alto del botón */
-    background-color: #4a4a4a; /* Fondo transparente */
+    background-color: transparent; /* Fondo transparente */
     border: none; /* Sin borde */
     display: flex; /* Flexbox para centrar contenido */
     align-items: center; /* Centrar verticalmente */
