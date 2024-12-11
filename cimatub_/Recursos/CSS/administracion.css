@@ -1,0 +1,191 @@
+﻿/* Global styles */
+body {
+    
+}
+
+.main-content {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 91%;
+    background-color: transparent;
+    padding: 10px 20px;
+}
+
+    .header
+
+    .regresar-btn {
+        width: 35%;
+        background-color: transparent;
+        text-align: left;
+        cursor: pointer;
+        padding: 10px;
+        font-size: 28px;
+        font-weight: bold;
+        color: white;
+        border-bottom: transparent solid #7c7c7c; /* Borde entre los ítems */
+        border: transparent;
+    }
+
+    .regresar-btn:hover {
+        text-decoration: underline;
+    }
+.regresar-btn:hover {
+    text-decoration: underline;
+}
+
+.perfil-titulo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    margin: 0;
+}
+
+.register-container {
+    background-color: transparent; /* Set background color for the form container */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+h3 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Form container */
+.form-container {
+    margin-bottom: 20px;
+}
+
+    .form-container input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #444; /* Darker background for input fields */
+        color: white;
+    }
+
+        .form-container input[type="text"]:focus {
+            border-color: #007BFF;
+        }
+
+    .form-container button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        .form-container button:hover {
+            background-color: #0056b3;
+        }
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.like, .dislike {
+    flex: 1;
+    background-color: #444;
+    color: #e0e0e0;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.carrerasss {
+    display: flex;
+    width: 110%;
+    height: 100%;
+    padding: 5px;
+    font-size: 16px;
+    background-color: #4a4a4a;
+    border: 1px solid #555;
+    color: white;
+    border-radius: 5px;
+}
+/* Profile section */
+.profile-container {
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #353535; /* Darker background */
+    max-width: 600px;
+    margin-top: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.options {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+    .options .history,
+    .options .logout {
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .options .history {
+        background-color: #555;
+        color: white;
+    }
+
+        .options .history:hover {
+            background-color: #444;
+        }
+
+    .options .logout {
+        background-color: #b00;
+        color: white;
+    }
+
+        .options .logout:hover {
+            background-color: #d00;
+        }
+
+/* Hidden section for Materia */
+#materiaContainer {
+    display: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .main-content {
+        padding: 15px;
+    }
+
+    .header h2 {
+        font-size: 24px;
+    }
+
+    .form-container input[type="text"] {
+        font-size: 14px;
+    }
+
+    .form-container button {
+        font-size: 14px;
+    }
+}

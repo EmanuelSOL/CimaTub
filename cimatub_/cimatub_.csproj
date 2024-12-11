@@ -93,11 +93,13 @@
     <Content Include="Pantallas\Historial.aspx" />
     <Content Include="Pantallas\Inicio.aspx" />
     <Content Include="Pantallas\Login.aspx" />
+    <Content Include="Pantallas\Administración.aspx" />
     <Content Include="Pantallas\Perfil.aspx" />
     <Content Include="Pantallas\Register.aspx" />
     <Content Include="Pantallas\Subir2.aspx" />
     <Content Include="PruebaBackend.aspx" />
     <Content Include="Pantallas\video.aspx" />
+    <Content Include="Recursos\CSS\administracion.css" />
     <Content Include="Recursos\CSS\bootstrap.css" />
     <Content Include="Recursos\CSS\editarr.css" />
     <Content Include="Recursos\CSS\Estilos.css" />
@@ -172,6 +174,13 @@
     </Compile>
     <Compile Include="Pantallas\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\Administración.aspx.cs">
+      <DependentUpon>Administración.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pantallas\Administración.aspx.designer.cs">
+      <DependentUpon>Administración.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\Perfil.aspx.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
