@@ -3,60 +3,124 @@
     margin-top: 2rem;
 }
 
-/* Sección de videos */
 .videos-section {
     margin-bottom: 3rem;
 }
 
-    /* Títulos */
     .videos-section h3 {
         font-size: 24px;
         color: #ffffff;
         margin-bottom: 20px;
     }
 
-/* Grid de videos */
-.videos-grid {
+#ListViewDestacados .p2 {
+    width: 600px; /* Ancho fijo */
+    height: 580px; /* Incrementa la altura */
+    margin: 16px;
+    box-sizing: border-box;
     display: flex;
-    flex-wrap: wrap; /* Permite múltiples filas */
-    gap: 20px; /* Espaciado entre los videos */
-    justify-content: center; /* Centra los elementos */
+    flex-direction: column; /* Coloca la imagen y la información en columnas */
+    justify-content: flex-start;
+    gap: 16px; /* Espaciado uniforme entre elementos */
 }
 
-/* Contenedor de video individual */
-.video {
-    flex: 0 1 calc(25% - 20px); /* Ajusta a 4 columnas en pantallas grandes */
-    max-width: calc(25% - 20px); /* Limita el ancho máximo */
-    background-color: #222;
-    border-radius: 8px;
-    overflow: hidden;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-    .video:hover {
-        transform: scale(1.05);
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-    }
-
-/* Miniatura del video */
-.video-thumbnail {
+#ListViewDestacados .aspect-ratio-box {
     width: 100%;
-    height: auto;
-    border-bottom: 4px solid #444;
+    height: 400px; /* Ajusta a un tamaño más pequeño */
+    overflow: hidden;
 }
 
-/* Información del video */
+#ListViewDestacados .video-thumbnail {
+    object-fit: cover; /* Ajusta la imagen para que siempre llene el contenedor */
+    width: 100%; /* Ocupa todo el ancho de .aspect-ratio-box */
+    height: 100%; /* Ocupa todo el alto de .aspect-ratio-box */
+    gap: 16px; /* Espaciado uniforme entre elementos */
+}
+
+#ListViewDestacados .video-info {
+    width: 100%; /* Ocupa el ancho completo del contenedor */
+    height: auto; /* Ajusta la altura automáticamente */
+    padding: 8px;
+    box-sizing: border-box;
+    text-align: center;
+    color: #fff;
+    background-color: #333; /* Agrega un fondo para contraste, opcional */
+}
+
+#ListViewDestacados .d-flex {
+    display: flex;
+    flex-wrap: wrap; /* Permite ajustar elementos si no caben */
+    justify-content: flex-start; /* Alinea los elementos al inicio */
+}
+
+#ListViewRecomendados .p-2 {
+    width: 300px !important;
+    height: auto !important;
+    margin: 16px;
+    display: flex;
+    flex-direction: column; /* Organiza la imagen y la información en columnas */
+}
+
+#ListViewRecomendados .video-info {
+    width: 50%; /* Ocupa todo el ancho de .p2 */
+    height: 90%; /* Altura para la información debajo del video */
+    padding: 8px; /* Espaciado interno */
+    box-sizing: border-box; /* Asegura que el padding no exceda las dimensiones */
+    text-align: center; /* Centra el texto */
+    color: #fff; /* Texto blanco */
+}
+
+
+.video-container {
+    width: 300px; /* Ancho fijo */
+    height: 250px; /* Altura fija */
+    background-color: #222; /* Fondo oscuro */
+    border-radius: 8px; /* Bordes redondeados */
+    text-align: center; /* Centrar contenido */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
+    overflow: hidden; /* Ocultar desbordamiento */
+    position: relative; /* Contenedor relativo */
+    display: flex;
+    flex-direction: column; /* Título debajo de la imagen */
+    align-items: center;
+    justify-content: space-between;
+    gap: 400px; /* Aumentar el espaciado entre los elementos */
+}
+
+/* Continúa con el resto de los estilos sin cambios */
+.aspect-ratio-box {
+    position: relative;
+    width: 250px;
+    height: 200px;
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.video-container::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%; /* Altura basada en 16:9 */
+    pointer-events: none;
+}
+
 .video-info {
     padding: 10px;
     color: #fff;
 }
 
 .video-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    margin-bottom: 5px;
+    margin: 8px 0;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -65,26 +129,29 @@
 .video-channel {
     font-size: 14px;
     color: #aaa;
+    margin: 0;
 }
 
 /* Responsividad */
 @media (max-width: 1200px) {
-    .video {
-        flex: 0 1 calc(33.33% - 20px); /* 3 columnas */
+    .p-2 {
+        width: calc(33.33% - 16px); /* 3 columnas en pantallas medianas */
     }
 }
 
 @media (max-width: 768px) {
-    .video {
-        flex: 0 1 calc(50% - 20px); /* 2 columnas */
+    .p-2 {
+        width: calc(50% - 16px); /* 2 columnas en pantallas pequeñas */
     }
 }
 
 @media (max-width: 576px) {
-    .video {
-        flex: 0 1 100%; /* 1 columna */
+    .p-2 {
+        width: 100%; /* 1 columna en pantallas muy pequeñas */
     }
 }
+
+
 /*---------------------------------------------------------------------*/
 .edit-title {
     font-size: 24px;

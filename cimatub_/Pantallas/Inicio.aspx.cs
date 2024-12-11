@@ -19,7 +19,13 @@ namespace cimatub_.Pantallas
                 ListViewDestacados.DataSource = NC.ListarDestacados();
                 ListViewDestacados.DataBind();
 
-                ListViewRecomendados.DataSource = NC.ListarHistorial();
+                int idUsuario = 0;
+                if (Session["IdUsuario"] != null)
+                {
+                    idUsuario = (int)Session["IdUsuario"];
+                }
+
+                ListViewRecomendados.DataSource = NC.ListarRecomendados(idUsuario);
                 ListViewRecomendados.DataBind();
             }
         }

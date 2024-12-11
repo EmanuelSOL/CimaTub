@@ -9,54 +9,62 @@
             <h3 class="text-white">Destacados</h3>
             <asp:ListView ID="ListViewDestacados" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
                 <LayoutTemplate>
-                    <div class="row">
+                    <div class="d-flex flex-wrap justify-content-start"> <!-- Flexbox explícito -->
                         <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
                     </div>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <div class="col-sm-6 col-md-3 mb-4">
-                        <div class="video-container">
+                    <div class="p2"> 
+                        <!-- Aspect Ratio Box -->
+                        <div class="aspect-ratio-box">
                             <asp:ImageButton 
-                                    ID="imgVideo"
-                                    runat="server"
-                                    ImageUrl='<%# Eval("Img") %>'
-                                    CssClass="video-thumbnail"
-                                    OnClick="VerVideo"
-                                    CommandArgument='<%# Eval("IdVideo") %>' 
-                                    />
-                                    
-                          <div class="video-info">
-                              <h5 class="video-title"><%# Eval("Titulo") %></h5>
-                          </div>
+                                ID="imgVideo"
+                                runat="server"
+                                ImageUrl='<%# Eval("Img") %>'
+                                CssClass="video-thumbnail"
+                                OnClick="VerVideo"
+                                CommandArgument='<%# Eval("IdVideo") %>' 
+                                width="600px"
+                                height="300px"
+                                style="margin-right:50px"
+                            />
+                        </div>
+                        <div class="video-info">
+                            <h5 class="video-title"><%# Eval("Titulo") %></h5>
+                        </div>
                     </div>
                 </ItemTemplate>
+
             </asp:ListView>
         </div>
 
         <!-- Sección de videos recomendados -->
         <div class="row mt-5">
             <h3 class="text-white">Probablemente te interese...</h3>
-            <asp:ListView ID="ListViewRecomendados" runat="server" RepeatLayout="Table" RepeatDirection="Horizontal">
+            <asp:ListView ID="ListViewRecomendados" runat="server" RepeatLayout="Flow" RepeatDirection="Horizontal">
                 <LayoutTemplate>
-                    <div class="row">
-                        <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
+                    <div class="d-flex flex-wrap justify-content-start"> <!-- Flexbox explícito -->
+                        <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder> <!-- Marcador de posición -->
                     </div>
                 </LayoutTemplate>
                 <ItemTemplate>
-                    <div class="col-sm-6 col-md-3 mb-4">
+                    <div class="p-2"> 
                         <div class="video-container">
                             <asp:ImageButton 
-                                    ID="imgVideo"
+                                    ID="ImageButton1"
                                     runat="server"
                                     ImageUrl='<%# Eval("Img") %>'
                                     CssClass="video-thumbnail"
                                     OnClick="VerVideo"
                                     CommandArgument='<%# Eval("IdVideo") %>' 
-                                    />
-                
+                                    width="600px"
+                                    height="300px"
+                                    style="margin-right:50px"
+                                />
                           <div class="video-info">
                               <h5 class="video-title"><%# Eval("Titulo") %></h5>
                           </div>
+                        </div>
                     </div>
                 </ItemTemplate>
             </asp:ListView>

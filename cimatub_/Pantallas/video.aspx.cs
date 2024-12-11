@@ -87,7 +87,6 @@ namespace cimatub_.Pantallas
                 btnDislike.Text = "No me gustó: " + Convert.ToString(NR.ContarDislikes(video.IdVideo));
 
                 DataBind();
-
                 listarVideos(idVideo);
             }
         }
