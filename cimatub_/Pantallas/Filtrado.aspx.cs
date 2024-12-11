@@ -23,8 +23,9 @@ namespace cimatub_.Pantallas
                 }
                 else
                 {
-                    MostrarMensaje("No se especificó ninguna materia para el filtrado.");
+                    Response.Redirect("~/Pantallas/Inicio.aspx");
                 }
+
             }
         }
 
@@ -37,18 +38,12 @@ namespace cimatub_.Pantallas
 
                 if (materia != null)
                 {
-                    MostrarMensaje($"Filtrado realizado correctamente: Materia '{materia.Nombre}' encontrada.");
                     MostrarVideosRelacionados(materia.IdMateria);
-                }
-                else
-                {
-                    MostrarMensaje($"No se encontraron resultados para la materia: '{materiaBuscada}'.");
                 }
             }
             catch (Exception ex)
             {
                 Debug.WriteLine($"Error en FiltrarPorMateria: {ex.Message}");
-                MostrarMensaje("Ocurrió un error al intentar realizar el filtrado.");
             }
         }
 
@@ -58,6 +53,12 @@ namespace cimatub_.Pantallas
             List<E_Video> videosRelacionados = NC.FiltrarPorMateria(idMateria);
 
             Debug.WriteLine($"Número de videos relacionados encontrados: {videosRelacionados.Count}");
+
+            if(videosRelacionados.Count < 1)
+            {
+                MostrarMensaje("No hay videos de esta materia");
+                return;
+            }
 
             lstVideos.DataSource = videosRelacionados;
             lstVideos.DataBind();
@@ -69,7 +70,9 @@ namespace cimatub_.Pantallas
                 var imageButton = (ImageButton)sender;
                 int idVideo = int.Parse(imageButton.CommandArgument.ToString());
 
-                Response.Redirect($"VideoDetalle.aspx?idVideo={idVideo}");
+                Session["VerIdVideo"] = idVideo;
+
+                Response.Redirect("~/Pantallas/video.aspx");
             }
             catch (Exception ex)
             {

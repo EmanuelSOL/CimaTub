@@ -23,6 +23,8 @@ namespace cimatub_.Pantallas
                 ddCarreras.DataTextField = "Nombre";
                 ddCarreras.DataBind();
 
+                
+
             }
         }
 
@@ -36,7 +38,7 @@ namespace cimatub_.Pantallas
 
             int idTipoUsuario = ALUMNO;
 
-            if (rbDocenteSi.Checked)
+            //if (rbDocenteSi.Checked)
             {
                 idTipoUsuario = DOCENTE;
             }
@@ -83,11 +85,11 @@ namespace cimatub_.Pantallas
         }
         protected void rbDocente_CheckedChanged(object sender, EventArgs e)
         {
-            if (rbDocenteNo.Checked)
+            //if (rbDocenteNo.Checked)
             {
                 Div1.Visible = true; // Muestra el dropdown
             }
-            else
+            //else
             {
                 Div1.Visible = false; // Oculta el dropdown
             }

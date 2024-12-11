@@ -35,10 +35,11 @@ namespace cimatub_.Pantallas
 
             if (!IsPostBack)
             {
-                btnLike.CssClass = "btn like btn-like-active";
                 int idVideo = (int)Session["VerIdVideo"];
-                
+                int idUsuario = 0;
+
                 N_Video NV = new N_Video();
+                N_Reaccion NR = new N_Reaccion();
 
                 E_Video video = NV.BuscarVideoPorId(idVideo);
                 if (video == null)
@@ -53,9 +54,9 @@ namespace cimatub_.Pantallas
                 }
                 else
                 {
-                    int idUsuario = (int)Session["IdUsuario"];
+                    idUsuario = (int)Session["IdUsuario"];
 
-                    addHistorial(idUsuario,video.IdVideo);
+                    addHistorial(idUsuario, video.IdVideo);
 
                     if (idUsuario != video.IdUsuario)
                     {
@@ -80,7 +81,6 @@ namespace cimatub_.Pantallas
                 VideoTitle = video.Titulo;
                 VideoDescription = video.Descripcion;
 
-                N_Reaccion NR = new N_Reaccion();
                 Views = video.Visitas;
 
                 btnLike.Text = "Me gustó: " + Convert.ToString(NR.ContarLikes(video.IdVideo));
@@ -88,6 +88,8 @@ namespace cimatub_.Pantallas
 
                 DataBind();
                 listarVideos(idVideo);
+
+                drawReaccion(idUsuario,idVideo);
             }
         }
 
@@ -119,6 +121,8 @@ namespace cimatub_.Pantallas
 
             btnLike.Text = "Me gustó: " + Convert.ToString(NR.ContarLikes(idVideo));
             btnDislike.Text = "No me gustó: " + Convert.ToString(NR.ContarDislikes(idVideo));
+
+            drawReaccion(idUsuario, idVideo);
         }
 
         // Manejar clic del botón "No me gusta"
@@ -149,6 +153,7 @@ namespace cimatub_.Pantallas
 
             btnLike.Text = "Me gustó: " + Convert.ToString(NR.ContarLikes(idVideo));
             btnDislike.Text = "No me gustó: " + Convert.ToString(NR.ContarDislikes(idVideo));
+            drawReaccion(idUsuario, idVideo);
         }
 
         protected void Comentar(object sender, EventArgs e)
@@ -251,6 +256,39 @@ namespace cimatub_.Pantallas
             }
             
         }
+
+        public void drawReaccion(int idUsuario, int idVideo)
+        {
+            N_Reaccion NR = new N_Reaccion();
+
+
+            if (idUsuario == 0)
+            {
+                btnLike.CssClass = "btn like";
+                btnDislike.CssClass = "btn dislike";
+                return;
+            }
+
+            E_Reaccion reac = new E_Reaccion()
+            {
+                IdUsuario = idUsuario,
+                IdVideo = idVideo
+            };
+
+            string resultado = NR.getReaccion(reac);
+            if (resultado == "like")
+            {
+                btnLike.CssClass = "btn like btn-like-active";
+                btnDislike.CssClass = "btn dislike";
+            }
+
+            if( resultado == "dislike")
+            {
+                btnLike.CssClass = "btn like";
+                btnDislike.CssClass = "btn dislike btn-dislike-active";
+            }
+        }
+
     }
     public class P_Comantario
     {

@@ -15,6 +15,15 @@ namespace cimatub_.Pantallas
     {
 
         /// <summary>
+        /// Control scrptMng.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.ScriptManager scrptMng;
+
+        /// <summary>
         /// Control Button1.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace cimatub_.Pantallas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditar;
+
+        /// <summary>
+        /// Control upReaccion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel upReaccion;
 
         /// <summary>
         /// Control btnLike.
@@ -84,6 +102,6 @@ namespace cimatub_.Pantallas
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnComentar;
+        protected global::System.Web.UI.WebControls.ImageButton btnComentar;
     }
 }

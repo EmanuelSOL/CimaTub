@@ -4,6 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link href="<%= ResolveUrl("~/recursos/CSS/videos.css") %>" rel="stylesheet" />
+    <asp:ScriptManager ID="scrptMng" runat="server"></asp:ScriptManager>
     <div class="video-container">
         
         <!-- Botón Regresar -->
@@ -36,24 +37,36 @@
 
             <!-- Columna derecha: Feedback y comentarios -->
             <div class="right-column">
-               <div class="feedback">
-                    <h3>¿Qué te pareció el video?</h3>
-                    <div class="buttons">
-                        <asp:Button 
-                            ID="btnLike" 
-                            CssClass="btn like" 
-                            runat="server" 
-                            OnClick="Like" 
-                            Text="Me gustó" />
+                <asp:UpdatePanel ID="upReaccion" runat="server" >
+                    <ContentTemplate>
+                        <div class="feedback">
+                             <h3>¿Qué te pareció el video?</h3>
+                             <div class="buttons">
+                                 <asp:Button 
+                                     ID="btnLike" 
+                                     CssClass="btn like" 
+                                     runat="server" 
+                                     OnClick="Like" 
+                                     Text="Me gustó" />
 
-                        <asp:Button 
-                            ID="btnDislike" 
-                            CssClass="btn dislike" 
-                            runat="server" 
-                            OnClick="Dislike" 
-                            Text="No me gustó" />
-                    </div>
-                </div>
+                                 <asp:Button 
+                                     ID="btnDislike" 
+                                     CssClass="btn dislike" 
+                                     runat="server" 
+                                     OnClick="Dislike" 
+                                     Text="No me gustó" />
+                             </div>
+                         </div>
+                    </ContentTemplate>
+                    <Triggers>
+                        <asp:AsyncPostBackTrigger ControlID="btnLike" EventName="Click" />
+                        <asp:AsyncPostBackTrigger ControlID="btnDislike" EventName="Click" />
+                    </Triggers>
+                </asp:UpdatePanel>
+               
+
+
+
 
                 <hr class="career-divider" />
                 <!-- Sección de Comentarios -->
@@ -77,11 +90,14 @@
     
                             <!-- Separador -->
                             <span class="auth-separator">|</span>
-                            <asp:Button 
-                                ID="btnComentar" 
-                                runat="server" 
-                                CssClass="send-btn" 
-                                OnClick="Comentar" />
+                            <asp:ImageButton 
+                                ID="btnComentar"
+                                runat="server"
+                                CssClass="send-btn"
+                                OnClick="Comentar"
+                                ImageUrl="https://img.icons8.com/?size=100&id=12582&format=png&color=FFFFFF"
+                                />
+                       
                             <!-- Botón para cancelar -->
                         </div>
                     </asp:Panel>

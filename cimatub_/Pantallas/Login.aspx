@@ -17,17 +17,19 @@
         </div>
 
         <label for="Correo_institucional" class="form-label">Correo institucional</label>
-        <asp:TextBox ID="txtEmail" runat="server" placeholder="Correo Institucional" CssClass="input-text" TextMode="Email" required="true"></asp:TextBox>
+        <asp:TextBox ID="txtEmail" runat="server" placeholder="Correo Institucional" CssClass="input-text" TextMode="Email"></asp:TextBox>
 
         <label for="Contraseña" class="form-label">Contraseña</label>
-        <asp:TextBox ID="txtPassword" runat="server" placeholder="Contraseña" CssClass="input-text" TextMode="Password" required="true"></asp:TextBox>
+        <asp:TextBox ID="txtPassword" runat="server" placeholder="Contraseña" CssClass="input-text" TextMode="Password"></asp:TextBox>
 
 
         <asp:Button ID="btnLogin" runat="server" Text="Iniciar Sesión" CssClass="button" OnClick="login" />
 
         <asp:Label ID="lblError" runat="server" CssClass="error-message" Visible="false"></asp:Label>
         <br> <!-- Fuerza el salto de línea -->
+
         <a id="login-register-link" href="Register.aspx">¿No estás registrado?</a>
+         <asp:Button ID="btnsincuenta" runat="server" Text="Entrar sin cuenta" CssClass="button" OnClick="SinCuenta" Width="60%"/>
         <div id="shadow-bottom"></div>
 
     </div>

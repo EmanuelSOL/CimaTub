@@ -69,22 +69,13 @@ namespace cimatub_.Pantallas
         protected global::System.Web.UI.WebControls.TextBox tbContraseña2;
 
         /// <summary>
-        /// Control rbDocenteSi.
+        /// Control ddlRol.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbDocenteSi;
-
-        /// <summary>
-        /// Control rbDocenteNo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbDocenteNo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlRol;
 
         /// <summary>
         /// Control Div1.

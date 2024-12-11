@@ -95,6 +95,7 @@
     <Content Include="Pantallas\Login.aspx" />
     <Content Include="Pantallas\Perfil.aspx" />
     <Content Include="Pantallas\Register.aspx" />
+    <Content Include="Pantallas\SubirVideo.aspx" />
     <Content Include="PruebaBackend.aspx" />
     <Content Include="Pantallas\video.aspx" />
     <Content Include="Recursos\CSS\bootstrap.css" />
@@ -183,6 +184,13 @@
     </Compile>
     <Compile Include="Pantallas\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pantallas\SubirVideo.aspx.cs">
+      <DependentUpon>SubirVideo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pantallas\SubirVideo.aspx.designer.cs">
+      <DependentUpon>SubirVideo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pantallas\video.aspx.cs">
       <DependentUpon>video.aspx</DependentUpon>

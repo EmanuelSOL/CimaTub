@@ -1,158 +1,58 @@
-﻿/* Contenedor principal */
-.container {
+﻿.container {
     margin-top: 2rem;
 }
 
-.videos-section {
-    margin-bottom: 3rem;
-}
-
-    .videos-section h3 {
-        font-size: 24px;
-        color: #ffffff;
-        margin-bottom: 20px;
-    }
-
-#ListViewDestacados .p2 {
-    width: 600px; /* Ancho fijo */
-    height: 580px; /* Incrementa la altura */
-    margin: 16px;
-    box-sizing: border-box;
+.main-layout {
     display: flex;
-    flex-direction: column; /* Coloca la imagen y la información en columnas */
-    justify-content: flex-start;
-    gap: 16px; /* Espaciado uniforme entre elementos */
-}
-
-#ListViewDestacados .aspect-ratio-box {
     width: 100%;
-    height: 400px; /* Ajusta a un tamaño más pequeño */
-    overflow: hidden;
+    max-width: 1200px;
 }
-
-#ListViewDestacados .video-thumbnail {
-    object-fit: cover; /* Ajusta la imagen para que siempre llene el contenedor */
-    width: 100%; /* Ocupa todo el ancho de .aspect-ratio-box */
-    height: 100%; /* Ocupa todo el alto de .aspect-ratio-box */
-    gap: 16px; /* Espaciado uniforme entre elementos */
-}
-
-#ListViewDestacados .video-info {
-    width: 100%; /* Ocupa el ancho completo del contenedor */
-    height: auto; /* Ajusta la altura automáticamente */
-    padding: 8px;
-    box-sizing: border-box;
-    text-align: center;
-    color: #fff;
-    background-color: #333; /* Agrega un fondo para contraste, opcional */
-}
-
-#ListViewDestacados .d-flex {
-    display: flex;
-    flex-wrap: wrap; /* Permite ajustar elementos si no caben */
-    justify-content: flex-start; /* Alinea los elementos al inicio */
-}
-
-#ListViewRecomendados .p-2 {
-    width: 300px !important;
-    height: auto !important;
-    margin: 16px;
-    display: flex;
-    flex-direction: column; /* Organiza la imagen y la información en columnas */
-}
-
-#ListViewRecomendados .video-info {
-    width: 50%; /* Ocupa todo el ancho de .p2 */
-    height: 90%; /* Altura para la información debajo del video */
-    padding: 8px; /* Espaciado interno */
-    box-sizing: border-box; /* Asegura que el padding no exceda las dimensiones */
-    text-align: center; /* Centra el texto */
-    color: #fff; /* Texto blanco */
-}
-
 
 .video-container {
-    width: 300px; /* Ancho fijo */
-    height: 250px; /* Altura fija */
-    background-color: #222; /* Fondo oscuro */
-    border-radius: 8px; /* Bordes redondeados */
-    text-align: center; /* Centrar contenido */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra */
-    overflow: hidden; /* Ocultar desbordamiento */
-    position: relative; /* Contenedor relativo */
-    display: flex;
-    flex-direction: column; /* Título debajo de la imagen */
-    align-items: center;
-    justify-content: space-between;
-    gap: 400px; /* Aumentar el espaciado entre los elementos */
+    border: 1px solid #444;
+    border-radius: 8px;
+    padding: 10px;
+    width: 100%;
+    background-color: #2c2c2c;
+    text-align: center;
+    transition: transform 0.3s ease;
 }
 
-/* Continúa con el resto de los estilos sin cambios */
-.aspect-ratio-box {
-    position: relative;
-    width: 250px;
-    height: 200px;
-    overflow: hidden;
-}
+    .video-container:hover {
+        transform: scale(1.05);
+    }
 
 .video-thumbnail {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-}
-
-.video-container::before {
-    content: "";
-    display: block;
-    padding-top: 56.25%; /* Altura basada en 16:9 */
-    pointer-events: none;
+    height: 200px;
+    border-radius: 8px;
 }
 
 .video-info {
-    padding: 10px;
-    color: #fff;
+    margin-top: 10px;
+    height: 60px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding-top: 5px;
 }
 
 .video-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin: 8px 0;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.video-channel {
     font-size: 14px;
-    color: #aaa;
+    color: #fff;
     margin: 0;
-}
-
-/* Responsividad */
-@media (max-width: 1200px) {
-    .p-2 {
-        width: calc(33.33% - 16px); /* 3 columnas en pantallas medianas */
-    }
-}
-
-@media (max-width: 768px) {
-    .p-2 {
-        width: calc(50% - 16px); /* 2 columnas en pantallas pequeñas */
-    }
-}
-
-@media (max-width: 576px) {
-    .p-2 {
-        width: 100%; /* 1 columna en pantallas muy pequeñas */
-    }
+    white-space: normal;
+    text-align: center;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 
-/*---------------------------------------------------------------------*/
+/---------------------------------------------------------------------/
 .edit-title {
     font-size: 24px;
     font-weight: bold;
@@ -161,7 +61,6 @@
     text-align: right;
 }
 
-/* Formulario de Edición */
 .edit-form {
     display: flex;
     flex-direction: column;

@@ -6,14 +6,14 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
     <link href="<%= ResolveUrl("~/recursos/CSS/Historial.css") %>" rel="stylesheet" />
 
-    <div class="container">
+    <div class="container" style="margin-left: 5%;">
       <div class="header">
         <asp:Button ID="regresarBotonw" runat="server" CssClass="regresar-btn" Text="&lt; Regresar" OnClientClick="location.href='Inicio.aspx'; return false;" />
         <span class="textofiltrado">Filtrado por: </span>
         <asp:Literal ID="litMateriasSeleccionadas" runat="server"></asp:Literal>
       </div>
 
-        <asp:Label ID="lblMateriaResultado" runat="server" Text="Resultado de la búsqueda" />
+        <asp:Label ID="lblMateriaResultado" runat="server"  />
 
       <div class="content">
         <asp:ListView ID="lstVideos" runat="server">

@@ -17,21 +17,21 @@ namespace cimatub_.Pantallas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 Session["IdUsuario"] = null;
             }
         }
         protected void login(object sender, EventArgs e)
         {
-
             string resultado = NU.Login(txtEmail.Text, txtPassword.Text);
 
-            if(resultado == string.Empty)
+
+            if (resultado == string.Empty)
             {
                 E_Usuario usuario = NU.BuscarUsuarioPorCorreo(txtEmail.Text);
 
-                if(usuario != null)
+                if (usuario != null)
                 {
                     Debug.WriteLine(usuario.IdUsuario);
                     Session["IdUsuario"] = usuario.IdUsuario;
@@ -42,7 +42,16 @@ namespace cimatub_.Pantallas
             }
 
             lblError.Text = resultado;
+            Debug.WriteLine(resultado);
+
 
         }
-    }
+        public void SinCuenta(object sender, EventArgs e)
+        {
+            txtEmail.Text = " ";
+            txtPassword.Text = " ";
+            Session["IdUsuario"] = null;
+            Response.Redirect("~/Pantallas/Inicio.aspx");
+        }
+    } 
 }

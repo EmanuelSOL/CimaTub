@@ -70,12 +70,12 @@ namespace Negocios
 
             if (string.IsNullOrEmpty(mail))
             {
-                msg += "Correo requerido\n";
+                return "Correo requerido\n";
             }
 
             if (string.IsNullOrEmpty(password))
             {
-                msg += "Contraseña requerida\n";
+                return "Contraseña requerida\n";
             }
 
             E_Usuario usuario = DU.BuscarUsuarioPorCorreo(mail);
